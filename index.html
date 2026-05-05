@@ -607,6 +607,70 @@
         }
         .screenshot-frame img { width: 100%; display: block; }
 
+        /* ─── Gift / Starter kit slide ─── */
+        .gift-wrap {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 56px;
+            align-items: center;
+            max-width: 1500px;
+            margin-top: 32px;
+        }
+        .gift-content { text-align: left; }
+        .gift-prompt-box {
+            background: #0a0e1a; color: #e2e8f0;
+            border-radius: 16px; padding: 26px 30px;
+            font-family: 'Geist Mono', monospace; font-size: 0.85rem;
+            line-height: 1.55; max-width: 680px;
+            border: 1px solid rgba(6,182,212,0.25);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+            position: relative;
+        }
+        .gift-prompt-box::before {
+            content: '';
+            position: absolute; top: 0; left: 0; right: 0; height: 2px;
+            background: linear-gradient(90deg, transparent, #06b6d4, transparent);
+            background-size: 200% 100%;
+            animation: dividerSweep 3s ease-in-out infinite;
+            border-radius: 16px 16px 0 0;
+        }
+        .gift-prompt-box .meta-tag {
+            display: inline-block; padding: 3px 10px;
+            background: rgba(6,182,212,0.15); color: #22d3ee;
+            border-radius: 6px; font-size: 0.7rem; font-weight: 700;
+            letter-spacing: 0.05em; text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+        .gift-prompt-box .meta-line { margin-bottom: 8px; }
+        .gift-prompt-box .meta-line .var {
+            background: rgba(124,58,237,0.2); color: #c4b5fd;
+            padding: 1px 6px; border-radius: 4px; font-weight: 700;
+        }
+        .qr-card {
+            background: var(--card); border-radius: 24px;
+            padding: 32px; box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+            border: 1px solid var(--border);
+            display: flex; flex-direction: column; align-items: center; gap: 16px;
+            min-width: 320px;
+        }
+        .qr-card img { width: 240px; height: 240px; }
+        .qr-url {
+            font-family: 'Geist Mono', monospace; font-size: 0.9rem; color: var(--text);
+            font-weight: 700; text-align: center; letter-spacing: -0.01em;
+        }
+        .qr-cta {
+            display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px;
+            background: linear-gradient(135deg, var(--violet), var(--emerald));
+            color: white; border-radius: 9999px; font-size: 0.85rem; font-weight: 700;
+            font-family: 'Geist Mono', monospace; letter-spacing: 0.04em;
+        }
+        .gift-bullets { list-style: none; padding: 0; margin: 24px 0 0; }
+        .gift-bullets li { font-size: 1.1rem; color: var(--text-body); padding: 8px 0 8px 32px; position: relative; line-height: 1.4; }
+        .gift-bullets li::before {
+            content: ''; position: absolute; left: 0; top: 14px;
+            width: 18px; height: 1px; background: var(--violet);
+        }
+
         /* ─── Bookmarks (OHIO) ─── */
         .bookmarks {
             display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;
@@ -1334,7 +1398,36 @@
                 <h1 class="stmt-mega" style="font-size: 6rem !important;">Isn't <span class="accent">Done</span><br>a new <span class="cyan">Perfect</span>?</h1>
             </section>
 
-            <!-- 28: Something big is happening -->
+            <!-- 28: Gift — Starter Kit (meta-prompt) -->
+            <section>
+                <div class="stmt-eyebrow" style="color: var(--emerald);">🎁 Gift · Starter Kit</div>
+                <h1 class="stmt-mega" style="font-size: 4.2rem !important;">Vytvorte si svojho<br><span class="accent">prvého AI asistenta</span> za 5 minút.</h1>
+                <div class="gift-wrap">
+                    <div class="gift-content">
+                        <div class="gift-prompt-box">
+                            <div class="meta-tag">META-PROMPT · CZ</div>
+                            <div class="meta-line">Jsi expert na prompt engineering...</div>
+                            <div class="meta-line">Vytvoř mi instrukce pro <span class="var">[POPIS ROLE]</span></div>
+                            <div class="meta-line">Pomáhej s <span class="var">[HLAVNÍ ÚKOLY]</span> a <span class="var">[OBLAST]</span>.</div>
+                            <div class="meta-line">Trh: <span class="var">[TRH]</span> · jazyk: <span class="var">[JAZYK]</span></div>
+                            <div class="meta-line" style="opacity: 0.7;">→ Vyber promptovací techniku, mysli step-by-step,</div>
+                            <div class="meta-line" style="opacity: 0.7;">&nbsp;&nbsp;pridaj všechno potrebné o <span class="var">[OBOR]</span>...</div>
+                        </div>
+                        <ul class="gift-bullets">
+                            <li><strong>1.</strong> Skopírujte meta-prompt · upravte zvýraznené polia</li>
+                            <li><strong>2.</strong> Vložte do Claude / ChatGPT — AI vygeneruje inštrukcie</li>
+                            <li><strong>3.</strong> Vytvorte Projekt · Custom GPT — máte vlastného asistenta</li>
+                        </ul>
+                    </div>
+                    <div class="qr-card">
+                        <img src="assets/starterkit-qr.png" alt="Starter Kit QR">
+                        <div class="qr-url">jurajgiacko.github.io<br>/vitar-ai-workshop</div>
+                        <div class="qr-cta">📱 Skenujte alebo kliknite</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 29: Something big is happening -->
             <section>
                 <div class="stmt-eyebrow emerald">Closing thought</div>
                 <h1 class="stmt-mega"><span class="accent">Something big</span><br>is happening.</h1>
