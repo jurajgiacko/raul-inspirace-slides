@@ -7,30 +7,36 @@
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%2318181b'/><text x='16' y='22' text-anchor='middle' font-family='system-ui' font-size='16' font-weight='700' fill='white'>JG</text></svg>">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Geist+Mono:wght@100..900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Geist+Mono:wght@100..900&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg: #09090b;
-            --surface: #18181b;
-            --border: #27272a;
-            --border-light: #3f3f46;
-            --text: #ffffff;
-            --text-secondary: #a1a1aa;
-            --text-muted: #71717a;
-            --text-faint: #52525b;
+            --bg: #fafaf9;
+            --bg-white: #ffffff;
+            --bg-warm: rgba(255,247,237,0.3);
+
+            --text: #18181b;
+            --text-body: #52525b;
+            --text-muted: #a1a1aa;
+            --text-faint: #d4d4d8;
+
+            --border: #e4e4e7;
+            --border-hover: #d4d4d8;
+
+            --card: #ffffff;
+            --card-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 16px rgba(0,0,0,0.04);
+            --card-shadow-lg: 0 4px 24px rgba(0,0,0,0.08);
+
             --violet: #7c3aed;
-            --violet-light: #8b5cf6;
-            --emerald: #10b981;
-            --emerald-light: #34d399;
-            --emerald-dark: #059669;
+            --emerald: #059669;
+            --emerald-light: #10b981;
+            --zinc-900: #18181b;
         }
 
         * { box-sizing: border-box; }
 
         body {
-            background: var(--bg);
             margin: 0;
+            background: var(--bg);
         }
 
         .reveal-viewport {
@@ -39,7 +45,6 @@
 
         .reveal {
             font-family: 'Geist', 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
-            font-weight: 400;
         }
 
         .reveal .slides {
@@ -47,12 +52,13 @@
         }
 
         .reveal .slides section {
-            padding: 40px 60px;
+            padding: 48px 80px;
             height: 100%;
             display: flex !important;
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            background: linear-gradient(to bottom right, var(--bg), var(--bg-white), var(--bg-warm));
         }
 
         .reveal h1, .reveal h2, .reveal h3 {
@@ -65,29 +71,29 @@
             text-shadow: none;
         }
 
-        .reveal h1 { font-size: 4.5rem; }
-        .reveal h2 { font-size: 3rem; }
-        .reveal h3 { font-size: 2rem; font-weight: 700; }
+        .reveal h1 { font-size: 5.5rem; }
+        .reveal h2 { font-size: 3.5rem; }
+        .reveal h3 { font-size: 2.5rem; font-weight: 700; }
 
         .reveal p {
-            color: var(--text-secondary);
-            font-size: 1.3rem;
+            color: var(--text-body);
+            font-size: 1.5rem;
             font-weight: 400;
             line-height: 1.6;
             margin: 0;
         }
 
         .reveal .slide-number {
-            font-family: 'Geist Mono', 'Geist', monospace;
-            font-size: 0.7rem;
+            font-family: 'Geist Mono', monospace;
+            font-size: 0.75rem;
             color: var(--text-muted);
             background: none;
-            right: 24px;
-            bottom: 24px;
+            right: 28px;
+            bottom: 28px;
         }
 
         .reveal .progress {
-            height: 2px;
+            height: 3px;
             color: var(--emerald);
         }
 
@@ -95,39 +101,44 @@
             color: var(--text-faint);
         }
 
-        /* ─── Title slide ─── */
+        .reveal .controls button:hover {
+            color: var(--text-muted);
+        }
+
+        /* ─── Title ─── */
         .title-main {
-            font-size: 5.5rem !important;
+            font-size: 7rem !important;
             font-weight: 900 !important;
             letter-spacing: -0.04em;
         }
 
         .title-divider {
-            width: 60px;
-            height: 2px;
+            width: 64px;
+            height: 3px;
             background: var(--emerald);
-            margin: 32px auto;
+            margin: 36px auto;
             border: none;
+            border-radius: 2px;
         }
 
         .title-meta {
-            font-size: 1.1rem !important;
+            font-size: 1.3rem !important;
             color: var(--text-muted) !important;
             font-weight: 400;
-            letter-spacing: 0.05em;
+            letter-spacing: 0.04em;
             font-family: 'Geist Mono', monospace;
         }
 
-        /* ─── Intro slide ─── */
+        /* ─── Intro ─── */
         .intro-name {
-            font-size: 4rem !important;
-            font-weight: 800;
-            margin-bottom: 8px !important;
+            font-size: 5rem !important;
+            font-weight: 800 !important;
+            margin-bottom: 12px !important;
         }
 
         .intro-role {
-            font-size: 1.5rem !important;
-            color: var(--text-secondary) !important;
+            font-size: 1.8rem !important;
+            color: var(--text-body) !important;
             font-weight: 400;
             margin-bottom: 32px !important;
         }
@@ -135,141 +146,158 @@
         .pill-row {
             display: flex;
             gap: 12px;
-            margin-bottom: 40px;
+            margin-bottom: 48px;
         }
 
         .pill {
-            padding: 6px 16px;
+            padding: 8px 20px;
             border-radius: 9999px;
-            font-size: 0.85rem;
+            font-size: 1rem;
             font-weight: 600;
             letter-spacing: 0.02em;
+            color: #fff;
         }
 
-        .pill-business {
-            background: var(--surface);
-            color: var(--text);
-            border: 1px solid var(--border);
-        }
-
-        .pill-ai {
-            background: rgba(124, 58, 237, 0.15);
-            color: var(--violet-light);
-            border: 1px solid rgba(124, 58, 237, 0.3);
-        }
-
-        .pill-sport {
-            background: rgba(16, 185, 129, 0.15);
-            color: var(--emerald-light);
-            border: 1px solid rgba(16, 185, 129, 0.3);
-        }
+        .pill-business { background: var(--zinc-900); }
+        .pill-ai { background: var(--violet); }
+        .pill-sport { background: var(--emerald); }
 
         .brand-row {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 48px;
-            margin-top: 8px;
+            gap: 56px;
         }
 
         .brand-row img {
-            height: 40px;
-            opacity: 0.85;
+            height: 48px;
         }
 
         .brand-badge {
-            font-size: 1rem;
+            font-size: 1.2rem;
             font-weight: 700;
-            letter-spacing: 0.15em;
+            letter-spacing: 0.12em;
             text-transform: uppercase;
             color: #18AA9D;
-            border: 1px solid rgba(24,170,157,0.25);
-            padding: 10px 24px;
-            border-radius: 12px;
-            background: rgba(24,170,157,0.08);
+            border: 2px solid rgba(24,170,157,0.25);
+            padding: 12px 28px;
+            border-radius: 14px;
+            background: rgba(24,170,157,0.06);
         }
 
-        /* ─── Career slide ─── */
-        .career-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 0;
-            width: 100%;
-            max-width: 700px;
-            margin: 32px auto 0;
-        }
-
-        .career-item {
+        /* ─── Career ─── */
+        .career-row {
             display: flex;
-            align-items: baseline;
-            justify-content: space-between;
-            padding: 18px 0;
-            border-bottom: 1px solid var(--border);
+            align-items: center;
+            justify-content: center;
+            gap: 32px;
+            margin-top: 48px;
+            flex-wrap: wrap;
         }
 
-        .career-item:last-child {
-            border-bottom: none;
+        .logo-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 28px 36px;
+            box-shadow: var(--card-shadow);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            min-width: 200px;
+            transition: box-shadow 0.3s, transform 0.3s;
         }
 
-        .career-company {
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: var(--text);
+        .logo-card:hover {
+            box-shadow: var(--card-shadow-lg);
+            transform: translateY(-2px);
+        }
+
+        .logo-card img {
+            height: 48px;
+            max-width: 180px;
+            object-fit: contain;
+        }
+
+        .logo-card .role {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-family: 'Geist Mono', monospace;
+            font-weight: 500;
+        }
+
+        .career-arrow {
+            font-size: 2.5rem;
+            color: var(--text-faint);
+            margin: 24px 0 8px;
+        }
+
+        .career-current {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            padding: 24px 48px;
+            background: var(--card);
+            border: 2px solid var(--emerald);
+            border-radius: 20px;
+            box-shadow: 0 4px 24px rgba(5,150,105,0.08);
+        }
+
+        .career-current img {
+            height: 40px;
+        }
+
+        .career-current-text {
             text-align: left;
         }
 
-        .career-role {
+        .career-current-text .company {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--text);
+        }
+
+        .career-current-text .role {
             font-size: 1rem;
-            font-weight: 400;
-            color: var(--text-secondary);
-            text-align: right;
+            color: var(--text-muted);
             font-family: 'Geist Mono', monospace;
-            font-size: 0.9rem;
         }
 
-        .career-item.current .career-company {
-            color: var(--emerald);
-        }
-
-        .career-item.current {
-            border-bottom: none;
-            padding-top: 24px;
-            margin-top: 8px;
-            border-top: 1px solid rgba(16,185,129,0.3);
-        }
-
-        /* ─── US ventures slide ─── */
+        /* ─── US Ventures ─── */
         .ventures-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 32px;
-            margin-top: 40px;
-            max-width: 800px;
+            gap: 36px;
+            margin-top: 48px;
+            max-width: 840px;
         }
 
         .venture-card {
             text-align: left;
-            padding: 32px;
-            border-radius: 20px;
-            background: var(--surface);
+            padding: 36px;
+            border-radius: 24px;
+            background: var(--card);
             border: 1px solid var(--border);
+            box-shadow: var(--card-shadow);
         }
 
         .venture-flag {
-            font-size: 2.5rem;
+            font-size: 3rem;
             margin-bottom: 16px;
         }
 
         .venture-name {
-            font-size: 1.5rem;
-            font-weight: 700;
+            font-size: 1.8rem;
+            font-weight: 800;
             color: var(--text);
             margin-bottom: 8px;
         }
 
         .venture-detail {
-            font-size: 1rem;
-            color: var(--text-secondary);
+            font-size: 1.15rem;
+            color: var(--text-body);
             line-height: 1.5;
             margin: 0;
         }
@@ -278,26 +306,32 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            margin-top: 16px;
-            padding: 8px 16px;
-            border-radius: 10px;
-            background: rgba(255,199,0,0.08);
-            border: 1px solid rgba(255,199,0,0.2);
-            font-size: 0.9rem;
-            color: #FFC700;
-            font-weight: 600;
+            margin-top: 20px;
+            padding: 10px 18px;
+            border-radius: 12px;
+            background: rgba(234,179,8,0.08);
+            border: 1px solid rgba(234,179,8,0.2);
+            font-size: 1rem;
+            color: #b45309;
+            font-weight: 700;
         }
 
-        /* ─── Big statement slides ─── */
+        .more-note {
+            margin-top: 36px;
+            font-size: 1.1rem;
+            color: var(--text-muted);
+        }
+
+        /* ─── Statement ─── */
         .statement {
-            font-size: 5rem !important;
+            font-size: 6rem !important;
             font-weight: 900 !important;
             letter-spacing: -0.04em;
             line-height: 1.05 !important;
         }
 
-        .statement .highlight {
-            background: linear-gradient(135deg, var(--violet) 0%, var(--emerald) 100%);
+        .statement .highlight-ai {
+            background: linear-gradient(135deg, var(--violet), var(--emerald));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -305,58 +339,128 @@
 
         /* ─── OHIO ─── */
         .ohio-main {
-            font-size: 8rem !important;
+            font-size: 10rem !important;
             font-weight: 900 !important;
             letter-spacing: -0.05em;
-            background: linear-gradient(135deg, var(--violet) 0%, var(--emerald) 100%);
+            background: linear-gradient(135deg, var(--violet), var(--emerald));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            line-height: 1;
         }
 
         .ohio-sub {
-            font-size: 1.8rem !important;
+            font-size: 2.2rem !important;
             font-weight: 400;
-            color: var(--text-secondary) !important;
-            margin-top: 16px !important;
-            letter-spacing: 0.06em;
+            color: var(--text-body) !important;
+            margin-top: 20px !important;
+            letter-spacing: 0.04em;
             font-family: 'Geist Mono', monospace;
         }
 
         .ohio-explain {
-            font-size: 1.2rem !important;
+            font-size: 1.4rem !important;
             color: var(--text-muted) !important;
-            max-width: 600px;
-            margin-top: 32px !important;
+            max-width: 650px;
+            margin-top: 36px !important;
             line-height: 1.6;
         }
 
-        /* ─── Demo slide ─── */
+        /* ─── 12 Projects ─── */
+        .projects-number {
+            font-size: 10rem !important;
+            font-weight: 900 !important;
+            letter-spacing: -0.05em;
+            background: linear-gradient(135deg, var(--violet), var(--emerald));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+        }
+
+        .projects-label {
+            font-size: 2.5rem !important;
+            color: var(--text) !important;
+            font-weight: 700;
+            margin-top: 12px !important;
+        }
+
+        .projects-time {
+            font-size: 1.3rem !important;
+            color: var(--text-body) !important;
+            margin-top: 8px !important;
+            font-family: 'Geist Mono', monospace;
+        }
+
+        .projects-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            gap: 14px;
+            margin-top: 36px;
+            max-width: 900px;
+        }
+
+        .project-tag {
+            font-size: 0.95rem;
+            color: var(--text-body);
+            padding: 10px 16px;
+            border-radius: 12px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            box-shadow: var(--card-shadow);
+            text-align: center;
+            font-family: 'Geist Mono', monospace;
+            font-weight: 500;
+        }
+
+        /* ─── Demo ─── */
         .demo-text {
-            font-size: 4rem !important;
+            font-size: 5rem !important;
             font-weight: 800 !important;
             letter-spacing: -0.03em;
         }
 
         .demo-cursor {
             display: inline-block;
-            width: 3px;
-            height: 4rem;
+            width: 4px;
+            height: 5rem;
             background: var(--emerald);
-            margin-left: 4px;
+            margin-left: 6px;
             animation: blink 1s step-end infinite;
             vertical-align: middle;
+            border-radius: 2px;
         }
 
         @keyframes blink {
             50% { opacity: 0; }
         }
 
+        /* ─── Thank you ─── */
+        .thanks-name {
+            font-size: 2.2rem !important;
+            font-weight: 700;
+            margin-top: 36px !important;
+            color: var(--text) !important;
+        }
+
+        .thanks-links {
+            display: flex;
+            gap: 36px;
+            margin-top: 16px;
+        }
+
+        .thanks-link {
+            font-size: 1.2rem;
+            color: var(--emerald);
+            font-weight: 600;
+            font-family: 'Geist Mono', monospace;
+        }
+
         /* ─── Watermark ─── */
         .watermark {
             position: fixed;
-            bottom: 20px;
-            left: 24px;
+            bottom: 22px;
+            left: 28px;
             display: flex;
             align-items: center;
             gap: 8px;
@@ -365,89 +469,14 @@
         }
 
         .watermark-logo {
-            width: 20px;
-            height: 20px;
+            width: 22px;
+            height: 22px;
         }
 
         .watermark-text {
-            font-size: 0.7rem;
+            font-size: 0.75rem;
             color: var(--text-muted);
-            font-weight: 400;
-            letter-spacing: 0.02em;
             font-family: 'Geist Mono', monospace;
-        }
-
-        /* ─── 12 projects ─── */
-        .projects-number {
-            font-size: 8rem !important;
-            font-weight: 900 !important;
-            letter-spacing: -0.05em;
-            background: linear-gradient(135deg, var(--violet) 0%, var(--emerald) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            line-height: 1;
-        }
-
-        .projects-label {
-            font-size: 2rem !important;
-            color: var(--text) !important;
-            font-weight: 700;
-            margin-top: 8px !important;
-        }
-
-        .projects-time {
-            font-size: 1.1rem !important;
-            color: var(--text-secondary) !important;
-            margin-top: 8px !important;
-            font-family: 'Geist Mono', monospace;
-        }
-
-        .projects-list {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 12px 20px;
-            margin-top: 32px;
-            max-width: 750px;
-        }
-
-        .project-tag {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            padding: 8px 14px;
-            border-radius: 10px;
-            background: var(--surface);
-            border: 1px solid var(--border);
-            text-align: center;
-            font-family: 'Geist Mono', monospace;
-            font-size: 0.8rem;
-        }
-
-        /* ─── Thank you ─── */
-        .thanks-name {
-            font-size: 2rem !important;
-            font-weight: 700;
-            margin-top: 32px !important;
-            color: var(--text) !important;
-        }
-
-        .thanks-links {
-            display: flex;
-            gap: 32px;
-            margin-top: 16px;
-        }
-
-        .thanks-link {
-            font-size: 1rem;
-            color: var(--emerald);
-            font-weight: 500;
-            font-family: 'Geist Mono', monospace;
-        }
-
-        .more-note {
-            margin-top: 32px;
-            font-size: 1rem;
-            color: var(--text-muted);
         }
     </style>
 </head>
@@ -463,14 +492,14 @@
     <div class="reveal">
         <div class="slides">
 
-            <!-- SLIDE 1: Title -->
+            <!-- 1: Title -->
             <section>
                 <h1 class="title-main">AI v praxi</h1>
                 <hr class="title-divider">
                 <p class="title-meta">InspiR!ace × RAUL · 6. mája 2026</p>
             </section>
 
-            <!-- SLIDE 2: Intro -->
+            <!-- 2: Intro -->
             <section>
                 <h2 class="intro-name">Juraj Giacko</h2>
                 <p class="intro-role">Managing Director, VitarSport</p>
@@ -480,39 +509,44 @@
                     <span class="pill pill-sport">Sport</span>
                 </div>
                 <div class="brand-row">
-                    <img src="assets/enervit-logo-white.svg" alt="Enervit">
+                    <img src="assets/enervit-logo-color.svg" alt="Enervit">
                     <div class="brand-badge">Royal Bay</div>
                 </div>
             </section>
 
-            <!-- SLIDE 3: Career Journey -->
+            <!-- 3: Career -->
             <section>
                 <h3>Cesta</h3>
-                <div class="career-grid">
-                    <div class="career-item">
-                        <span class="career-company">ALZA.cz</span>
-                        <span class="career-role">Digital Marketing</span>
+                <div class="career-row">
+                    <div class="logo-card">
+                        <img src="assets/alza-logo.svg" alt="Alza.cz">
+                        <span class="role">Digital Marketing</span>
                     </div>
-                    <div class="career-item">
-                        <span class="career-company">EXI Sport</span>
-                        <span class="career-role">eCommerce Director</span>
+                    <div class="logo-card">
+                        <img src="assets/exisport-logo.png" alt="EXIsport">
+                        <span class="role">eCommerce Director</span>
                     </div>
-                    <div class="career-item">
-                        <span class="career-company">Reda / Paul Stricker</span>
-                        <span class="career-role">CMO & eCommerce Director</span>
+                    <div class="logo-card">
+                        <img src="assets/stricker-logo.svg" alt="Reda / Paul Stricker">
+                        <span class="role">CMO & eCommerce Dir.</span>
                     </div>
-                    <div class="career-item">
-                        <span class="career-company">GymBeam</span>
-                        <span class="career-role">COO</span>
+                    <div class="logo-card">
+                        <img src="assets/gymbeam-logo.svg" alt="GymBeam">
+                        <span class="role">COO</span>
                     </div>
-                    <div class="career-item current">
-                        <span class="career-company">VitarSport →</span>
-                        <span class="career-role">Managing Director</span>
+                </div>
+                <div class="career-arrow">↓</div>
+                <div class="career-current">
+                    <div class="career-current-text">
+                        <div class="company">VitarSport</div>
+                        <div class="role">Managing Director</div>
                     </div>
+                    <img src="assets/enervit-logo-color.svg" alt="Enervit" style="height: 32px;">
+                    <div class="brand-badge" style="font-size: 0.85rem; padding: 8px 16px;">Royal Bay</div>
                 </div>
             </section>
 
-            <!-- SLIDE 4: US Ventures -->
+            <!-- 4: US Ventures -->
             <section>
                 <h3>Za hranicami</h3>
                 <div class="ventures-grid">
@@ -531,12 +565,12 @@
                 <p class="more-note">… a mnoho ďalších projektov</p>
             </section>
 
-            <!-- SLIDE 5: Living in symbiosis -->
+            <!-- 5: Symbiosis -->
             <section>
-                <h1 class="statement">Žiť v symbióze<br>s <span class="highlight">AI</span></h1>
+                <h1 class="statement">Žiť v symbióze<br>s <span class="highlight-ai">AI</span></h1>
             </section>
 
-            <!-- SLIDE 6: 12 Projects -->
+            <!-- 6: 12 Projects -->
             <section>
                 <div class="projects-number">12</div>
                 <p class="projects-label">AI projektov za 6 mesiacov</p>
@@ -557,21 +591,21 @@
                 </div>
             </section>
 
-            <!-- SLIDE 7: OHIO -->
+            <!-- 7: OHIO -->
             <section>
                 <div class="ohio-main">OHIO</div>
                 <p class="ohio-sub">Only Handle It Once</p>
                 <p class="ohio-explain">Každý úkon, ktorý robíš opakovane,<br>je príležitosť na automatizáciu.</p>
             </section>
 
-            <!-- SLIDE 8: Demo time -->
+            <!-- 8: Demo -->
             <section>
                 <h1 class="demo-text">Poďme na to.<span class="demo-cursor"></span></h1>
             </section>
 
-            <!-- SLIDE 9: Thank you / Q&A -->
+            <!-- 9: Q&A -->
             <section>
-                <h2 style="font-size: 3.5rem;">Otázky?</h2>
+                <h2 style="font-size: 4.5rem;">Otázky?</h2>
                 <p class="thanks-name">Juraj Giacko</p>
                 <div class="thanks-links">
                     <span class="thanks-link">juraj.digital</span>
