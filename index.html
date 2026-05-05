@@ -1,0 +1,530 @@
+<!doctype html>
+<html lang="cs">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI v praxi — Juraj Giacko | InspiR!ace RAUL</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #000;
+            --text: #fff;
+            --text-secondary: rgba(255,255,255,0.55);
+            --text-muted: rgba(255,255,255,0.3);
+            --accent: #007AFF;
+            --teal: #18AA9D;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            background: var(--bg);
+            margin: 0;
+        }
+
+        .reveal-viewport {
+            background: var(--bg) !important;
+        }
+
+        .reveal {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+            font-weight: 400;
+        }
+
+        .reveal .slides {
+            text-align: center;
+        }
+
+        .reveal .slides section {
+            padding: 40px 60px;
+            height: 100%;
+            display: flex !important;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .reveal h1, .reveal h2, .reveal h3 {
+            color: var(--text);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+            margin: 0;
+            text-transform: none;
+            text-shadow: none;
+        }
+
+        .reveal h1 { font-size: 4.5rem; }
+        .reveal h2 { font-size: 3rem; }
+        .reveal h3 { font-size: 2rem; font-weight: 700; }
+
+        .reveal p {
+            color: var(--text-secondary);
+            font-size: 1.3rem;
+            font-weight: 400;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .reveal .slide-number {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            background: none;
+            right: 24px;
+            bottom: 24px;
+        }
+
+        .reveal .progress {
+            height: 2px;
+            color: var(--accent);
+        }
+
+        .reveal .controls {
+            color: rgba(255,255,255,0.15);
+        }
+
+        /* ─── Title slide ─── */
+        .title-main {
+            font-size: 5.5rem !important;
+            font-weight: 900 !important;
+            letter-spacing: -0.04em;
+            background: linear-gradient(135deg, #fff 0%, rgba(255,255,255,0.8) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .title-divider {
+            width: 60px;
+            height: 2px;
+            background: var(--accent);
+            margin: 32px auto;
+            border: none;
+        }
+
+        .title-meta {
+            font-size: 1.1rem !important;
+            color: var(--text-muted) !important;
+            font-weight: 400;
+            letter-spacing: 0.05em;
+        }
+
+        /* ─── Intro slide ─── */
+        .intro-name {
+            font-size: 4rem !important;
+            font-weight: 800;
+            margin-bottom: 8px !important;
+        }
+
+        .intro-role {
+            font-size: 1.5rem !important;
+            color: var(--text-secondary) !important;
+            font-weight: 400;
+            margin-bottom: 40px !important;
+        }
+
+        .brand-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 48px;
+            margin-top: 16px;
+        }
+
+        .brand-row img {
+            height: 40px;
+            opacity: 0.85;
+        }
+
+        .brand-badge {
+            font-size: 1.1rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--teal);
+            border: 1px solid rgba(24,170,157,0.3);
+            padding: 10px 24px;
+            border-radius: 6px;
+        }
+
+        /* ─── Career slide ─── */
+        .career-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0;
+            width: 100%;
+            max-width: 700px;
+            margin: 32px auto 0;
+        }
+
+        .career-item {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            padding: 16px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .career-item:last-child {
+            border-bottom: none;
+        }
+
+        .career-company {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text);
+            text-align: left;
+        }
+
+        .career-role {
+            font-size: 1rem;
+            font-weight: 400;
+            color: var(--text-secondary);
+            text-align: right;
+        }
+
+        .career-item.current .career-company {
+            color: var(--accent);
+        }
+
+        .career-item.current {
+            border-bottom: none;
+            padding-top: 24px;
+            margin-top: 8px;
+            border-top: 1px solid rgba(0,122,255,0.3);
+        }
+
+        /* ─── US ventures slide ─── */
+        .ventures-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            margin-top: 40px;
+            max-width: 800px;
+        }
+
+        .venture-card {
+            text-align: left;
+            padding: 32px;
+            border-radius: 16px;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .venture-flag {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+        }
+
+        .venture-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 8px;
+        }
+
+        .venture-detail {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        .venture-award {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 16px;
+            padding: 8px 16px;
+            border-radius: 8px;
+            background: rgba(255,199,0,0.08);
+            border: 1px solid rgba(255,199,0,0.2);
+            font-size: 0.9rem;
+            color: #FFC700;
+            font-weight: 600;
+        }
+
+        /* ─── Big statement slides ─── */
+        .statement {
+            font-size: 5rem !important;
+            font-weight: 900 !important;
+            letter-spacing: -0.04em;
+            line-height: 1.05 !important;
+        }
+
+        .oha-main {
+            font-size: 8rem !important;
+            font-weight: 900 !important;
+            letter-spacing: -0.05em;
+            color: var(--accent) !important;
+            -webkit-text-fill-color: var(--accent);
+        }
+
+        .oha-sub {
+            font-size: 2rem !important;
+            font-weight: 400;
+            color: var(--text-secondary) !important;
+            margin-top: 16px !important;
+            letter-spacing: 0.08em;
+        }
+
+        .oha-explain {
+            font-size: 1.2rem !important;
+            color: var(--text-muted) !important;
+            max-width: 600px;
+            margin-top: 32px !important;
+            line-height: 1.6;
+        }
+
+        /* ─── Demo slide ─── */
+        .demo-text {
+            font-size: 4rem !important;
+            font-weight: 800 !important;
+            letter-spacing: -0.03em;
+        }
+
+        .demo-cursor {
+            display: inline-block;
+            width: 3px;
+            height: 4rem;
+            background: var(--accent);
+            margin-left: 4px;
+            animation: blink 1s step-end infinite;
+            vertical-align: middle;
+        }
+
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+
+        /* ─── Watermark ─── */
+        .watermark {
+            position: fixed;
+            bottom: 20px;
+            left: 24px;
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            font-weight: 400;
+            z-index: 100;
+            pointer-events: none;
+            letter-spacing: 0.02em;
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* ─── 12 projects ─── */
+        .projects-number {
+            font-size: 8rem !important;
+            font-weight: 900 !important;
+            letter-spacing: -0.05em;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--teal) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+        }
+
+        .projects-label {
+            font-size: 2rem !important;
+            color: var(--text) !important;
+            font-weight: 700;
+            margin-top: 8px !important;
+        }
+
+        .projects-time {
+            font-size: 1.2rem !important;
+            color: var(--text-secondary) !important;
+            margin-top: 8px !important;
+        }
+
+        .projects-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 12px 24px;
+            margin-top: 32px;
+            max-width: 750px;
+        }
+
+        .project-tag {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            padding: 6px 12px;
+            border-radius: 6px;
+            background: rgba(255,255,255,0.04);
+            text-align: center;
+        }
+
+        /* ─── Thank you ─── */
+        .thanks-name {
+            font-size: 2rem !important;
+            font-weight: 700;
+            margin-top: 32px !important;
+            color: var(--text) !important;
+        }
+
+        .thanks-links {
+            display: flex;
+            gap: 32px;
+            margin-top: 16px;
+        }
+
+        .thanks-link {
+            font-size: 1rem;
+            color: var(--accent);
+            font-weight: 500;
+        }
+
+        /* ─── More projects note ─── */
+        .more-note {
+            margin-top: 32px;
+            font-size: 1rem;
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+<body>
+    <div class="watermark">juraj.digital</div>
+
+    <div class="reveal">
+        <div class="slides">
+
+            <!-- SLIDE 1: Title -->
+            <section>
+                <h1 class="title-main">AI v praxi</h1>
+                <hr class="title-divider">
+                <p class="title-meta">InspiR!ace &times; RAUL &nbsp;&middot;&nbsp; 6. mája 2026</p>
+            </section>
+
+            <!-- SLIDE 2: Intro -->
+            <section>
+                <h2 class="intro-name">Juraj Giacko</h2>
+                <p class="intro-role">Managing Director, VitarSport</p>
+                <div class="brand-row">
+                    <img src="assets/enervit-logo-white.svg" alt="Enervit">
+                    <div class="brand-badge">Royal Bay</div>
+                </div>
+            </section>
+
+            <!-- SLIDE 3: Career Journey -->
+            <section>
+                <h3>Cesta</h3>
+                <div class="career-grid">
+                    <div class="career-item">
+                        <span class="career-company">ALZA.cz</span>
+                        <span class="career-role">Digital Marketing</span>
+                    </div>
+                    <div class="career-item">
+                        <span class="career-company">EXI Sport</span>
+                        <span class="career-role">eCommerce Director</span>
+                    </div>
+                    <div class="career-item">
+                        <span class="career-company">Reda / Paul Stricker</span>
+                        <span class="career-role">CMO &amp; eCommerce Director</span>
+                    </div>
+                    <div class="career-item">
+                        <span class="career-company">GymBeam</span>
+                        <span class="career-role">COO</span>
+                    </div>
+                    <div class="career-item current">
+                        <span class="career-company">VitarSport →</span>
+                        <span class="career-role">Managing Director</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 4: US Ventures -->
+            <section>
+                <h3>Za hranicami</h3>
+                <div class="ventures-grid">
+                    <div class="venture-card">
+                        <div class="venture-flag">🇺🇸</div>
+                        <div class="venture-name">Skillandia</div>
+                        <p class="venture-detail">Startup · Las Vegas</p>
+                        <div class="venture-award">🥉 Bronze — Best Customer Care</div>
+                    </div>
+                    <div class="venture-card">
+                        <div class="venture-flag">🇺🇸</div>
+                        <div class="venture-name">Top Legends</div>
+                        <p class="venture-detail">Zberateľské mince &amp; bankovky<br>Los Angeles &amp; Las Vegas</p>
+                    </div>
+                </div>
+                <p class="more-note">… a mnoho ďalších projektov</p>
+            </section>
+
+            <!-- SLIDE 5: Living in symbiosis -->
+            <section>
+                <h1 class="statement">Žiť v symbióze<br>s AI</h1>
+            </section>
+
+            <!-- SLIDE 6: 12 Projects -->
+            <section>
+                <div class="projects-number">12</div>
+                <p class="projects-label">AI projektov za 6 mesiacov</p>
+                <p class="projects-time">dashboardy · hry · weby · automatizácie · agenti</p>
+                <div class="projects-list">
+                    <div class="project-tag">Performance Hub</div>
+                    <div class="project-tag">Enervit × Jizerská</div>
+                    <div class="project-tag">juraj.digital</div>
+                    <div class="project-tag">Content Engine</div>
+                    <div class="project-tag">PACT System</div>
+                    <div class="project-tag">QR Generátor</div>
+                    <div class="project-tag">Focus Challenge</div>
+                    <div class="project-tag">Fitness Goals</div>
+                    <div class="project-tag">Hawkins Labs</div>
+                    <div class="project-tag">Pivní Secese</div>
+                    <div class="project-tag">Hypo Kalkulačka</div>
+                    <div class="project-tag">Rodinný Sync</div>
+                </div>
+            </section>
+
+            <!-- SLIDE 7: OHA -->
+            <section>
+                <div class="oha-main">OHA</div>
+                <p class="oha-sub">Only Handle It Once</p>
+                <p class="oha-explain">Každý úkon, ktorý robíš opakovane,<br>je príležitosť na automatizáciu.</p>
+            </section>
+
+            <!-- SLIDE 8: Demo time -->
+            <section>
+                <h1 class="demo-text">Poďme na to.<span class="demo-cursor"></span></h1>
+            </section>
+
+            <!-- SLIDE 9: Thank you / Q&A -->
+            <section>
+                <h2 style="font-size: 3.5rem;">Otázky?</h2>
+                <p class="thanks-name">Juraj Giacko</p>
+                <div class="thanks-links">
+                    <span class="thanks-link">juraj.digital</span>
+                    <span class="thanks-link">linkedin.com/in/jurajgiacko</span>
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+    <script>
+        Reveal.initialize({
+            hash: true,
+            controls: true,
+            progress: true,
+            center: true,
+            slideNumber: true,
+            transition: 'fade',
+            transitionSpeed: 'slow',
+            backgroundTransition: 'fade',
+            width: 1920,
+            height: 1080,
+            margin: 0.04,
+            keyboard: true,
+            touch: true,
+            loop: false,
+            embedded: false,
+            help: true,
+            autoSlide: 0,
+        });
+    </script>
+</body>
+</html>
