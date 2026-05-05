@@ -1174,6 +1174,94 @@
         .tech-chip[data-brand="gpt"]      { --brand-color: #10a37f; }
         .tech-chip[data-brand="midjourney"]{--brand-color: #4f46e5; }
 
+        /* ─── Side effects (warning) slide ─── */
+        .warning-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 28px;
+            max-width: 1700px; margin-top: 24px;
+        }
+        .warning-card {
+            background: var(--card); border: 1px solid var(--border);
+            border-radius: 22px; padding: 28px 32px 24px;
+            text-align: left; box-shadow: var(--card-shadow-lg);
+            position: relative; overflow: hidden;
+            display: flex; flex-direction: column; gap: 16px;
+        }
+        .warning-card.warn-cost {
+            border-color: rgba(245,158,11,0.35);
+            box-shadow: 0 12px 40px rgba(245,158,11,0.10), var(--card-shadow);
+        }
+        .warning-card.warn-burn {
+            border-color: rgba(239,68,68,0.35);
+            box-shadow: 0 12px 40px rgba(239,68,68,0.10), var(--card-shadow);
+        }
+        .warning-card::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+        }
+        .warning-card.warn-cost::before {
+            background: linear-gradient(90deg, #f59e0b, #fbbf24, #f59e0b);
+            background-size: 200% 100%;
+            animation: gradientShift 4s ease-in-out infinite;
+        }
+        .warning-card.warn-burn::before {
+            background: linear-gradient(90deg, #ef4444, #f97316, #ef4444);
+            background-size: 200% 100%;
+            animation: gradientShift 4s ease-in-out infinite;
+        }
+        .warn-head { display: flex; align-items: center; gap: 18px; }
+        .warn-emoji {
+            font-size: 3.2rem; line-height: 1;
+            animation: warnEmoji 2.4s ease-in-out infinite;
+        }
+        .warn-cost .warn-emoji { animation-delay: 0s; }
+        .warn-burn .warn-emoji { animation-delay: 1.2s; }
+        @keyframes warnEmoji {
+            0%, 100% { transform: scale(1) rotate(0deg); }
+            50% { transform: scale(1.15) rotate(-6deg); }
+        }
+        .warn-title {
+            font-size: 2rem; font-weight: 900; color: var(--text);
+            letter-spacing: -0.02em; line-height: 1.1;
+        }
+        .warn-tag {
+            font-family: 'Geist Mono', monospace; font-size: 0.95rem;
+            color: var(--text-muted); margin-top: 4px;
+            letter-spacing: 0.05em; text-transform: uppercase;
+        }
+        .warn-screenshot {
+            border-radius: 12px; overflow: hidden;
+            border: 1px solid var(--border);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+            background: #0a0e1a;
+        }
+        .warn-screenshot img { width: 100%; display: block; }
+        .warn-stats {
+            display: flex; gap: 18px; padding: 6px 0 2px;
+        }
+        .warn-stat {
+            flex: 1;
+            display: flex; flex-direction: column; gap: 2px;
+        }
+        .warn-stat-num {
+            font-size: 2.1rem; font-weight: 900; color: var(--text);
+            letter-spacing: -0.02em; line-height: 1;
+            font-family: 'Geist Mono', monospace;
+        }
+        .warn-stat-num.amber { color: #f59e0b; }
+        .warn-stat-num.emerald { color: var(--emerald); }
+        .warn-stat-label {
+            font-size: 0.85rem; color: var(--text-muted);
+            font-family: 'Geist Mono', monospace;
+        }
+        .warn-joke {
+            font-size: 1.15rem; color: var(--text-body);
+            font-style: italic; line-height: 1.4;
+            padding-top: 14px; margin-top: 4px;
+            border-top: 1px dashed var(--border);
+        }
+        .warn-joke em {
+            color: var(--violet); font-style: italic; font-weight: 700;
+        }
+
         /* ─── "AI ta nenahradi" punchline slide ─── */
         .replacement-wrap { display: flex; flex-direction: column; align-items: center; gap: 12px; }
         .rep-myth {
@@ -2486,19 +2574,64 @@
                 <p class="stmt-explain" style="margin-top: 32px;">Jeden dashboard. Real-time. AI agenti pripravujú insights za vás.</p>
             </section>
 
-            <!-- 26: DONE > PERFECT -->
+            <!-- 26: Side effects · warning fun -->
+            <section>
+                <div class="stmt-eyebrow" style="color: #f59e0b;">⚠️ Side effects · real talk</div>
+                <h1 class="stmt-mega" style="font-size: 4.4rem !important;">Pozor — má to <span class="accent">vedľajšie účinky</span>.</h1>
+                <div class="warning-grid">
+                    <div class="warning-card warn-cost">
+                        <div class="warn-head">
+                            <div class="warn-emoji">💸</div>
+                            <div>
+                                <div class="warn-title">Môže sa to predražiť</div>
+                                <div class="warn-tag">side effect #1 · wallet</div>
+                            </div>
+                        </div>
+                        <div class="warn-screenshot">
+                            <img src="assets/cursor-spend.png" alt="Cursor spend February">
+                        </div>
+                        <div class="warn-stats">
+                            <div class="warn-stat"><span class="warn-stat-num">$720</span><span class="warn-stat-label">Feb 2026 · Cursor</span></div>
+                            <div class="warn-stat"><span class="warn-stat-num">$580</span><span class="warn-stat-label">included plan</span></div>
+                            <div class="warn-stat"><span class="warn-stat-num amber">$140</span><span class="warn-stat-label">on-demand 🥲</span></div>
+                        </div>
+                        <div class="warn-joke">claude-4.6-opus-high-thinking jednoducho stojí. Worth it (väčšinou).</div>
+                    </div>
+
+                    <div class="warning-card warn-burn">
+                        <div class="warn-head">
+                            <div class="warn-emoji">🔥</div>
+                            <div>
+                                <div class="warn-title">Môžete byť pohltení</div>
+                                <div class="warn-tag">side effect #2 · time</div>
+                            </div>
+                        </div>
+                        <div class="warn-screenshot">
+                            <img src="assets/cursor-streak.png" alt="AI line edits streak">
+                        </div>
+                        <div class="warn-stats">
+                            <div class="warn-stat"><span class="warn-stat-num">146 021</span><span class="warn-stat-label">AI line edits</span></div>
+                            <div class="warn-stat"><span class="warn-stat-num emerald">10 dní</span><span class="warn-stat-label">longest streak</span></div>
+                            <div class="warn-stat"><span class="warn-stat-num">∞</span><span class="warn-stat-label">flow state</span></div>
+                        </div>
+                        <div class="warn-joke">Začnete v sobotu, skončíte v utorok ráno. <em>Sleep is for v2.</em></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 27: DONE > PERFECT -->
             <section>
                 <div class="stmt-eyebrow emerald">Mantra</div>
                 <h1 class="stmt-mega done-perfect-mega" style="font-size: 9rem !important;"><span class="accent done-word">DONE</span> <span class="dp-gt">&gt;</span> <span class="perfect-word">PERFECT</span></h1>
                 <p class="stmt-explain">Hotové, vonku, použiteľné.<br>Iterujte. Nevylepšujte donekonečna v sklade.</p>
             </section>
 
-            <!-- 27: Isn't Done a New Perfect? -->
+            <!-- 28: Isn't Done a New Perfect? -->
             <section>
                 <h1 class="stmt-mega isnt-done-mega" style="font-size: 6rem !important;">Isn't <span class="accent isnt-done">Done</span><br>a new <span class="cyan isnt-perfect">Perfect</span>?</h1>
             </section>
 
-            <!-- 28: AI ta nenahradi -->
+            <!-- 29: AI ta nenahradi -->
             <section>
                 <div class="stmt-eyebrow emerald">Reality check · 2026</div>
                 <div class="replacement-wrap">
@@ -2507,7 +2640,7 @@
                 </div>
             </section>
 
-            <!-- 29: Build cheatsheet -->
+            <!-- 30: Build cheatsheet -->
             <section>
                 <div class="stmt-eyebrow cyan">Build cheatsheet</div>
                 <h1 class="stmt-mega" style="font-size: 4.2rem !important;">Ako buildnúť svoju<br><span class="cyan">prvú apku</span> tento víkend.</h1>
@@ -2539,7 +2672,7 @@
                 </div>
             </section>
 
-            <!-- 30: Gift — Starter Kit (meta-prompt) -->
+            <!-- 31: Gift — Starter Kit (meta-prompt) -->
             <section>
                 <div class="stmt-eyebrow" style="color: var(--emerald); font-size: 1.4rem;">🎁 Gift · Starter Kit</div>
                 <h1 class="stmt-mega" style="font-size: 4.4rem !important; margin-bottom: 10px;">Vytvorte si svojho<br><span class="accent">prvého AI asistenta</span> za 5 minút.</h1>
@@ -2577,7 +2710,7 @@
                 </div>
             </section>
 
-            <!-- 31: Something big is happening -->
+            <!-- 32: Something big is happening -->
             <section>
                 <div class="stmt-eyebrow emerald">Matt Shumer · viral 80M+ views · Feb 2026</div>
                 <h1 class="stmt-mega"><span class="accent">Something big</span><br>is happening.</h1>
@@ -2604,7 +2737,7 @@
                 </div>
             </section>
 
-            <!-- 32: Q&A -->
+            <!-- 33: Q&A -->
             <section class="qa-slide">
                 <div class="qa-bg"></div>
                 <div class="qa-content">
