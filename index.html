@@ -909,6 +909,74 @@
         .build-bullets li { font-size: 1.65rem; color: var(--text-body); padding: 12px 0 12px 38px; position: relative; line-height: 1.4; font-weight: 500; }
         .build-bullets li::before { content: '✓'; position: absolute; left: 0; top: 12px; color: var(--emerald); font-weight: 900; font-size: 1.6rem; }
 
+        /* ─── "AI ta nenahradi" punchline slide ─── */
+        .replacement-wrap { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+        .rep-myth {
+            position: relative;
+            font-size: 2.4rem; font-weight: 600;
+            color: var(--text-muted);
+            letter-spacing: -0.01em;
+            margin: 0; padding: 4px 14px;
+            display: inline-block;
+        }
+        .rep-myth::after {
+            content: ''; position: absolute;
+            left: 4%; right: 4%; top: 53%; height: 4px;
+            background: linear-gradient(90deg, transparent, var(--text-muted), transparent);
+            border-radius: 4px;
+            transform: scaleX(0); transform-origin: left center;
+            opacity: 0;
+        }
+        .reveal section.present .rep-myth::after {
+            animation: strikeIn 0.9s 0.4s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+        }
+        .reveal section.present .rep-myth {
+            opacity: 0;
+            animation: fadeUp 0.6s 0.05s ease-out forwards;
+        }
+        .rep-truth {
+            font-size: 6rem !important; line-height: 1.05;
+            letter-spacing: -0.025em; margin: 0;
+        }
+        .reveal section.present .rep-truth {
+            opacity: 0;
+            animation: fadeUp 0.8s 1.4s ease-out forwards;
+        }
+        .rep-highlight {
+            background: linear-gradient(120deg, transparent 0%, transparent 4%, rgba(5,150,105,0.20) 4%, rgba(5,150,105,0.20) 96%, transparent 96%);
+            padding: 0 10px; border-radius: 4px; color: var(--text);
+        }
+        @keyframes strikeIn {
+            0% { transform: scaleX(0); opacity: 0; }
+            20% { opacity: 1; }
+            100% { transform: scaleX(1); opacity: 1; }
+        }
+
+        /* ─── Learning hack outputs ─── */
+        .learn-outputs {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px;
+            max-width: 1100px; margin: 28px auto 0;
+        }
+        .learn-output {
+            background: var(--card); border: 1px solid var(--border); border-radius: 16px;
+            padding: 22px 24px; text-align: left;
+            box-shadow: var(--card-shadow); position: relative; overflow: hidden;
+        }
+        .learn-output::before {
+            content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
+            background: linear-gradient(180deg, var(--violet), #06b6d4);
+        }
+        .learn-output-icon { font-size: 1.8rem; margin-bottom: 8px; }
+        .learn-output-name { font-size: 1.3rem; font-weight: 800; color: var(--text); letter-spacing: -0.02em; margin-bottom: 4px; }
+        .learn-output-desc { font-size: 0.95rem; color: var(--text-body); line-height: 1.4; }
+        .matrix-quote {
+            margin-top: 28px; font-size: 1.4rem; color: var(--text);
+            font-family: 'Geist Mono', monospace; font-weight: 600;
+            letter-spacing: 0.02em;
+        }
+        .matrix-quote-mark { color: #06b6d4; font-weight: 900; font-size: 1.6rem; }
+        .matrix-cite { color: var(--text-muted); font-size: 1rem; font-weight: 500; margin-left: 8px; }
+
         /* ─── Cheatsheet ─── */
         .cheatsheet { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; max-width: 1500px; margin-top: 40px; }
         .cheat-step {
@@ -1923,7 +1991,28 @@
                 </div>
             </section>
 
-            <!-- 17: OHIO -->
+            <!-- 17: Learning hack — Matrix-style -->
+            <section>
+                <div class="stmt-eyebrow" style="color: #06b6d4;">Symbióza · learning hack</div>
+                <h1 class="stmt-mega"><span class="accent">Nauč sa čokoľvek.</span><br>Ako v Matrixe.</h1>
+                <div class="pipeline" style="margin-top: 36px;">
+                    <div class="pipe-step"><div class="pipe-icon">🎯</div><div class="pipe-name">Téma</div><div class="pipe-sub">otázka · problém</div></div>
+                    <div class="pipe-arrow">→</div>
+                    <div class="pipe-step"><div class="pipe-icon">🔬</div><div class="pipe-name">Gemini</div><div class="pipe-sub">Deep Research · 50+ zdrojov</div></div>
+                    <div class="pipe-arrow">→</div>
+                    <div class="pipe-step accent"><div class="pipe-icon">📚</div><div class="pipe-name">NotebookLM</div><div class="pipe-sub">analýza · key insights</div></div>
+                    <div class="pipe-arrow">→</div>
+                    <div class="pipe-step"><div class="pipe-icon">🧠</div><div class="pipe-name">Outputs</div><div class="pipe-sub">mindmap · podcast · video</div></div>
+                </div>
+                <div class="learn-outputs">
+                    <div class="learn-output"><div class="learn-output-icon">🗺️</div><div class="learn-output-name">Mindmap</div><div class="learn-output-desc">Vizuálna štruktúra na 1 obrazovku</div></div>
+                    <div class="learn-output"><div class="learn-output-icon">🎙️</div><div class="learn-output-name">Podcast</div><div class="learn-output-desc">2 AI hostia · vypočuj cestou autom</div></div>
+                    <div class="learn-output"><div class="learn-output-icon">🎬</div><div class="learn-output-name">Videocast</div><div class="learn-output-desc">Vizuálne vysvetlenie na zafixovanie</div></div>
+                </div>
+                <p class="matrix-quote"><span class="matrix-quote-mark">"</span>I know kung fu.<span class="matrix-quote-mark">"</span> <span class="matrix-cite">— Neo, 1999</span></p>
+            </section>
+
+            <!-- 18: OHIO -->
             <section>
                 <div class="ohio-main">OHIO</div>
                 <p class="ohio-sub">Only Handle It Once</p>
@@ -1938,7 +2027,7 @@
                 </div>
             </section>
 
-            <!-- 18: Build — 126 bannerov -->
+            <!-- 19: Build — 126 bannerov -->
             <section>
                 <div class="stmt-eyebrow">Build #1 · Marketing automation</div>
                 <div class="build-card" style="margin-top: 8px;">
@@ -1954,7 +2043,7 @@
                 </div>
             </section>
 
-            <!-- 19: Build — Sales prezentacie -->
+            <!-- 20: Build — Sales prezentacie -->
             <section>
                 <div class="stmt-eyebrow">Build #2 · Sales</div>
                 <div class="build-card" style="margin-top: 8px;">
@@ -1972,7 +2061,7 @@
                 </div>
             </section>
 
-            <!-- 20: Build — Edukacna hra -->
+            <!-- 21: Build — Edukacna hra -->
             <section>
                 <div class="stmt-eyebrow">Build #3 · Marketing campaign</div>
                 <div class="build-card" style="margin-top: 8px;">
@@ -1989,7 +2078,7 @@
                 </div>
             </section>
 
-            <!-- 21: Build — QR generator -->
+            <!-- 22: Build — QR generator -->
             <section>
                 <div class="stmt-eyebrow">Build #4 · Internal tool</div>
                 <div class="build-card" style="margin-top: 8px;">
@@ -2007,7 +2096,7 @@
                 </div>
             </section>
 
-            <!-- 22: Build — Event landing + full process -->
+            <!-- 23: Build — Event landing + full process -->
             <section>
                 <div class="stmt-eyebrow cyan">Build #5 · Event infrastructure</div>
                 <div class="build-card" style="margin-top: 8px;">
@@ -2026,7 +2115,7 @@
                 </div>
             </section>
 
-            <!-- 23: Build — RoyalBay product layout -->
+            <!-- 24: Build — RoyalBay product layout -->
             <section>
                 <div class="stmt-eyebrow">Build #6 · eCommerce strategy</div>
                 <div class="build-card" style="margin-top: 8px;">
@@ -2044,7 +2133,7 @@
                 </div>
             </section>
 
-            <!-- 24: Vytrvalci-pro.digital — biggest build -->
+            <!-- 25: Vytrvalci-pro.digital — biggest build -->
             <section>
                 <div class="stmt-eyebrow emerald">The biggest build ever</div>
                 <h1 class="stmt-mega" style="font-size: 5rem !important;"><span class="accent">vytrvalci-pro.digital</span></h1>
@@ -2059,19 +2148,28 @@
                 <p class="stmt-explain" style="margin-top: 32px;">Jeden dashboard. Real-time. AI agenti pripravujú insights za vás.</p>
             </section>
 
-            <!-- 25: DONE > PERFECT -->
+            <!-- 26: DONE > PERFECT -->
             <section>
                 <div class="stmt-eyebrow emerald">Mantra</div>
                 <h1 class="stmt-mega" style="font-size: 9rem !important;"><span class="accent">DONE</span> &gt; <span style="color: var(--text-faint);">PERFECT</span></h1>
                 <p class="stmt-explain">Hotové, vonku, použiteľné.<br>Iterujte. Nevylepšujte donekonečna v sklade.</p>
             </section>
 
-            <!-- 26: Isn't Done a New Perfect? -->
+            <!-- 27: Isn't Done a New Perfect? -->
             <section>
                 <h1 class="stmt-mega" style="font-size: 6rem !important;">Isn't <span class="accent">Done</span><br>a new <span class="cyan">Perfect</span>?</h1>
             </section>
 
-            <!-- 27: Build cheatsheet -->
+            <!-- 28: AI ta nenahradi -->
+            <section>
+                <div class="stmt-eyebrow emerald">Reality check · 2026</div>
+                <div class="replacement-wrap">
+                    <p class="rep-myth">AI ťa nenahradí.</p>
+                    <h1 class="stmt-mega rep-truth">Nahradí ťa <span class="rep-highlight">človek</span>,<br>čo <span class="accent">AI vie</span>.</h1>
+                </div>
+            </section>
+
+            <!-- 29: Build cheatsheet -->
             <section>
                 <div class="stmt-eyebrow cyan">Build cheatsheet</div>
                 <h1 class="stmt-mega" style="font-size: 4.2rem !important;">Ako buildnúť svoju<br><span class="cyan">prvú apku</span> tento víkend.</h1>
@@ -2103,7 +2201,7 @@
                 </div>
             </section>
 
-            <!-- 28: Gift — Starter Kit (meta-prompt) -->
+            <!-- 30: Gift — Starter Kit (meta-prompt) -->
             <section>
                 <div class="stmt-eyebrow" style="color: var(--emerald); font-size: 1.4rem;">🎁 Gift · Starter Kit</div>
                 <h1 class="stmt-mega" style="font-size: 4.4rem !important; margin-bottom: 10px;">Vytvorte si svojho<br><span class="accent">prvého AI asistenta</span> za 5 minút.</h1>
@@ -2141,7 +2239,7 @@
                 </div>
             </section>
 
-            <!-- 29: Something big is happening -->
+            <!-- 31: Something big is happening -->
             <section>
                 <div class="stmt-eyebrow emerald">Matt Shumer · viral 80M+ views · Feb 2026</div>
                 <h1 class="stmt-mega"><span class="accent">Something big</span><br>is happening.</h1>
@@ -2168,7 +2266,7 @@
                 </div>
             </section>
 
-            <!-- 30: Q&A -->
+            <!-- 32: Q&A -->
             <section class="qa-slide">
                 <div class="qa-bg"></div>
                 <div class="qa-content">
