@@ -258,15 +258,19 @@
         /* ─── Statement ─── */
         .statement { font-size: 6rem !important; font-weight: 900 !important; letter-spacing: -0.04em; line-height: 1.05 !important; }
         .statement .highlight-ai {
-            background: linear-gradient(135deg, var(--violet), var(--emerald));
+            background: linear-gradient(135deg, var(--violet), var(--emerald), var(--violet));
+            background-size: 200% 200%;
             -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+            animation: gradientShift 5s ease-in-out infinite;
         }
 
         /* ─── OHIO ─── */
         .ohio-main {
             font-size: 10rem !important; font-weight: 900 !important; letter-spacing: -0.05em; line-height: 1;
-            background: linear-gradient(135deg, var(--violet), var(--emerald));
+            background: linear-gradient(135deg, var(--violet), var(--emerald), var(--violet));
+            background-size: 200% 200%;
             -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+            animation: gradientShift 5s ease-in-out infinite;
         }
         .ohio-sub { font-size: 2.2rem !important; font-weight: 400; color: var(--text-body) !important; margin-top: 20px !important; letter-spacing: 0.04em; font-family: 'Geist Mono', monospace; }
         .ohio-explain { font-size: 1.4rem !important; color: var(--text-muted) !important; max-width: 650px; margin-top: 36px !important; line-height: 1.6; }
@@ -281,8 +285,10 @@
             line-height: 1.05; max-width: 1100px; margin: 0 auto !important;
         }
         .vision-headline .accent {
-            background: linear-gradient(135deg, #06b6d4, #22d3ee);
+            background: linear-gradient(135deg, #06b6d4, #22d3ee, #06b6d4);
+            background-size: 200% 200%;
             -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+            animation: gradientShift 6s ease-in-out infinite;
         }
         .vision-sub {
             font-size: 1.4rem !important; color: var(--text-body) !important; max-width: 800px;
@@ -326,6 +332,11 @@
         .region-flag .status-dot {
             width: 8px; height: 8px; border-radius: 50%; background: #10b981; margin-left: 4px;
             box-shadow: 0 0 0 3px rgba(16,185,129,0.18);
+            animation: pulseDot 2.4s ease-in-out infinite;
+        }
+        @keyframes pulseDot {
+            0%, 100% { box-shadow: 0 0 0 3px rgba(16,185,129,0.18); }
+            50% { box-shadow: 0 0 0 6px rgba(16,185,129,0.05); }
         }
         .region-flag.live { border-color: rgba(16,185,129,0.4); }
         .region-flag.ready { border-color: rgba(6,182,212,0.4); }
@@ -342,8 +353,14 @@
         /* ─── 10x Thinking Slide ─── */
         .tenx-main {
             font-size: 18rem !important; font-weight: 900 !important; letter-spacing: -0.06em; line-height: 0.9;
-            background: linear-gradient(135deg, var(--violet), #06b6d4 50%, var(--emerald));
+            background: linear-gradient(135deg, var(--violet), #06b6d4 50%, var(--emerald), var(--violet));
+            background-size: 200% 200%;
             -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+            animation: gradientShift 6s ease-in-out infinite;
+        }
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
         }
         .tenx-tag {
             font-size: 2rem !important; font-weight: 600 !important; color: var(--text) !important;
@@ -359,8 +376,10 @@
         /* ─── 12 Projects ─── */
         .projects-number {
             font-size: 10rem !important; font-weight: 900 !important; letter-spacing: -0.05em; line-height: 1;
-            background: linear-gradient(135deg, var(--violet), var(--emerald));
+            background: linear-gradient(135deg, var(--violet), var(--emerald), var(--violet));
+            background-size: 200% 200%;
             -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+            animation: gradientShift 5s ease-in-out infinite;
         }
         .projects-label { font-size: 2.5rem !important; color: var(--text) !important; font-weight: 700; margin-top: 12px !important; }
         .projects-time { font-size: 1.3rem !important; color: var(--text-body) !important; margin-top: 8px !important; font-family: 'Geist Mono', monospace; }
@@ -423,7 +442,7 @@
             <!-- 1: Title -->
             <section>
                 <p class="title-meta" style="margin-bottom: 24px;">InspiR!ace × RAUL · 6. mája 2026</p>
-                <h1 class="title-main">Život v symbióze<br>s <span style="background: linear-gradient(135deg, var(--violet), var(--emerald)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">AI</span></h1>
+                <h1 class="title-main">Život v symbióze<br>s <span class="highlight-ai" style="background: linear-gradient(135deg, var(--violet), var(--emerald), var(--violet)); background-size: 200% 200%; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; animation: gradientShift 5s ease-in-out infinite;">AI</span></h1>
                 <hr class="title-divider">
                 <p style="font-size: 1.6rem; color: var(--text-body); max-width: 900px; line-height: 1.5; margin-top: 8px; font-weight: 400;">Využitie AI v praxi · Čo implementujeme vo VitarSport · <span style="background: linear-gradient(135deg, var(--violet), var(--emerald)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-weight: 700;">Unlimited possibilities</span></p>
             </section>
@@ -649,7 +668,7 @@
 
             <!-- 6: Bridge to practical -->
             <section>
-                <h1 class="statement">Poďme<br>na to.</h1>
+                <h1 class="statement">Poďme<br>na to.<span class="demo-cursor" style="height: 6rem; vertical-align: text-bottom;"></span></h1>
             </section>
 
             <!-- 5: 12 Projects -->
