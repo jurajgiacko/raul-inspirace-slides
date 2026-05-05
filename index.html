@@ -1130,6 +1130,50 @@
         .build-bullets li { font-size: 1.65rem; color: var(--text-body); padding: 12px 0 12px 38px; position: relative; line-height: 1.4; font-weight: 500; }
         .build-bullets li::before { content: '✓'; position: absolute; left: 0; top: 12px; color: var(--emerald); font-weight: 900; font-size: 1.6rem; }
 
+        /* Tech stack row under each build */
+        .build-stack {
+            display: flex; flex-wrap: wrap; align-items: center; gap: 10px;
+            margin-top: 28px; padding-top: 22px;
+            border-top: 1px solid var(--border);
+        }
+        .stack-label {
+            font-family: 'Geist Mono', monospace; font-size: 0.95rem;
+            color: var(--text-muted); font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.15em;
+            margin-right: 6px;
+        }
+        .tech-chip {
+            display: inline-flex; align-items: center;
+            padding: 7px 16px 7px 18px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 9px;
+            font-family: 'Geist Mono', monospace; font-size: 1.05rem;
+            font-weight: 700; color: var(--text);
+            position: relative;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+        .tech-chip::before {
+            content: ''; position: absolute; left: 0; top: 6px; bottom: 6px;
+            width: 4px; border-radius: 4px;
+            background: var(--brand-color, var(--violet));
+            box-shadow: 0 0 8px var(--brand-color, var(--violet));
+        }
+        .tech-chip[data-brand="cursor"]   { --brand-color: #7c3aed; }
+        .tech-chip[data-brand="claude"]   { --brand-color: #d97757; }
+        .tech-chip[data-brand="vercel"]   { --brand-color: #000000; }
+        .tech-chip[data-brand="github"]   { --brand-color: #1f2328; }
+        .tech-chip[data-brand="supabase"] { --brand-color: #3ecf8e; }
+        .tech-chip[data-brand="airtable"] { --brand-color: #fcb400; }
+        .tech-chip[data-brand="resend"]   { --brand-color: #06b6d4; }
+        .tech-chip[data-brand="make"]     { --brand-color: #6d00cc; }
+        .tech-chip[data-brand="plausible"]{ --brand-color: #5850ec; }
+        .tech-chip[data-brand="clarity"]  { --brand-color: #0078d4; }
+        .tech-chip[data-brand="shopify"]  { --brand-color: #95bf47; }
+        .tech-chip[data-brand="canvas"]   { --brand-color: #f59e0b; }
+        .tech-chip[data-brand="gpt"]      { --brand-color: #10a37f; }
+        .tech-chip[data-brand="midjourney"]{--brand-color: #4f46e5; }
+
         /* ─── "AI ta nenahradi" punchline slide ─── */
         .replacement-wrap { display: flex; flex-direction: column; align-items: center; gap: 12px; }
         .rep-myth {
@@ -2287,6 +2331,13 @@
                         <li>Definovanie layoutu a brandmanualu v JSON</li>
                         <li>Automatizácia na rôzne formáty a varianty</li>
                     </ul>
+                    <div class="build-stack">
+                        <span class="stack-label">Stack</span>
+                        <span class="tech-chip" data-brand="cursor">Cursor</span>
+                        <span class="tech-chip" data-brand="claude">Claude</span>
+                        <span class="tech-chip" data-brand="canvas">HTML / Canvas</span>
+                        <span class="tech-chip" data-brand="github">GitHub</span>
+                    </div>
                 </div>
             </section>
 
@@ -2305,6 +2356,13 @@
                         <li>Analytika otvorení a interakcií</li>
                         <li>Ušetrené hodiny príprav a unifikovaný nástroj — slidy online</li>
                     </ul>
+                    <div class="build-stack">
+                        <span class="stack-label">Stack</span>
+                        <span class="tech-chip" data-brand="cursor">Cursor</span>
+                        <span class="tech-chip" data-brand="vercel">Vercel</span>
+                        <span class="tech-chip" data-brand="github">GitHub</span>
+                        <span class="tech-chip" data-brand="plausible">Plausible</span>
+                    </div>
                 </div>
             </section>
 
@@ -2322,6 +2380,14 @@
                         <li>Zľavový kód na nákup a registrácia k newsletteru</li>
                         <li>Analytika hráčov a engagement metriky</li>
                     </ul>
+                    <div class="build-stack">
+                        <span class="stack-label">Stack</span>
+                        <span class="tech-chip" data-brand="cursor">Cursor</span>
+                        <span class="tech-chip" data-brand="vercel">Vercel</span>
+                        <span class="tech-chip" data-brand="canvas">HTML5 Canvas</span>
+                        <span class="tech-chip" data-brand="github">GitHub</span>
+                        <span class="tech-chip" data-brand="plausible">Plausible</span>
+                    </div>
                 </div>
             </section>
 
@@ -2340,6 +2406,14 @@
                         <li>Analytika k existujúcim QR kódom</li>
                         <li>Ušetrenie niekoľko 100 $ za licenciu podobného toolu</li>
                     </ul>
+                    <div class="build-stack">
+                        <span class="stack-label">Stack</span>
+                        <span class="tech-chip" data-brand="cursor">Cursor</span>
+                        <span class="tech-chip" data-brand="vercel">Vercel</span>
+                        <span class="tech-chip" data-brand="supabase">Supabase</span>
+                        <span class="tech-chip" data-brand="github">GitHub</span>
+                        <span class="tech-chip" data-brand="plausible">Plausible</span>
+                    </div>
                 </div>
             </section>
 
@@ -2359,6 +2433,15 @@
                         <li>Semi-automatický email systém — pred / počas / po evente</li>
                         <li>Postup = playbook pre Jizerská 50 · Road Classics · ďalšie</li>
                     </ul>
+                    <div class="build-stack">
+                        <span class="stack-label">Stack</span>
+                        <span class="tech-chip" data-brand="cursor">Cursor</span>
+                        <span class="tech-chip" data-brand="vercel">Vercel</span>
+                        <span class="tech-chip" data-brand="airtable">Airtable</span>
+                        <span class="tech-chip" data-brand="resend">Resend</span>
+                        <span class="tech-chip" data-brand="make">Make</span>
+                        <span class="tech-chip" data-brand="github">GitHub</span>
+                    </div>
                 </div>
             </section>
 
@@ -2377,6 +2460,14 @@
                         <li>Export produktových kariet z aktuálneho eshopu</li>
                         <li>Finálny návrh rozloženia + zaradenia produktov + filtrácie + SEO zadanie</li>
                     </ul>
+                    <div class="build-stack">
+                        <span class="stack-label">Stack</span>
+                        <span class="tech-chip" data-brand="cursor">Cursor</span>
+                        <span class="tech-chip" data-brand="claude">Claude</span>
+                        <span class="tech-chip" data-brand="clarity">MS Clarity</span>
+                        <span class="tech-chip" data-brand="shopify">Shopify</span>
+                        <span class="tech-chip" data-brand="github">GitHub Pages</span>
+                    </div>
                 </div>
             </section>
 
