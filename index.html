@@ -1520,6 +1520,130 @@
             animation: gradientShift 6s ease-in-out infinite;
         }
 
+        /* ─── 2nd challenge: scale-flow + GitLab handbook card ─── */
+        .scale-flow {
+            display: flex; align-items: center; justify-content: center;
+            gap: 24px; margin: 0 auto 36px; flex-wrap: nowrap;
+            max-width: 1500px;
+        }
+        .scale-stage {
+            background: #fff;
+            border: 1.5px solid var(--border);
+            border-radius: 18px;
+            padding: 24px 30px;
+            display: flex; flex-direction: column; align-items: center; gap: 6px;
+            box-shadow: var(--card-shadow);
+            min-width: 230px;
+            position: relative;
+        }
+        .scale-stage-mid {
+            border-color: var(--violet);
+            box-shadow: 0 14px 32px rgba(124,58,237,0.18);
+            transform: scale(1.06);
+        }
+        .scale-stage-mid::before {
+            content: ''; position: absolute; top: -1.5px; left: -1.5px; right: -1.5px; bottom: -1.5px;
+            border-radius: 18px;
+            background: linear-gradient(135deg, var(--violet), #06b6d4, var(--emerald));
+            background-size: 200% 200%;
+            animation: gradientShift 5s ease-in-out infinite;
+            z-index: -1;
+            opacity: 0.45;
+            filter: blur(10px);
+        }
+        .scale-icon {
+            font-size: 2.6rem; line-height: 1;
+            animation: floatY 4s ease-in-out infinite;
+        }
+        .scale-name {
+            font-size: 1.6rem; font-weight: 800; color: var(--text);
+            letter-spacing: -0.02em;
+        }
+        .scale-tag {
+            font-size: 0.95rem; font-family: 'Geist Mono', monospace;
+            color: var(--text-muted); letter-spacing: 0.03em;
+        }
+        .scale-arrow {
+            font-size: 2.4rem; color: var(--violet); font-weight: 700;
+            animation: arrowFlow 2s ease-in-out infinite;
+        }
+
+        .gitlab-card {
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            align-items: center;
+            gap: 28px;
+            max-width: 1500px; margin: 0 auto; width: 100%;
+            background: linear-gradient(135deg, #ffffff, #fff7f2);
+            border: 1.5px solid #fed7aa;
+            border-radius: 20px;
+            padding: 24px 32px;
+            box-shadow: 0 14px 36px rgba(252,109,38,0.12);
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+            transition: transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s ease, border-color .35s ease;
+        }
+        .gitlab-card::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+            background: linear-gradient(90deg, #FC6D26, #E24329, #FCA326);
+        }
+        .gitlab-card:hover {
+            transform: translateY(-4px);
+            border-color: #FC6D26;
+            box-shadow: 0 22px 48px rgba(252,109,38,0.25);
+        }
+        .gitlab-logo {
+            width: 100px; height: 100px;
+            display: flex; align-items: center; justify-content: center;
+            background: #fff;
+            border-radius: 18px;
+            border: 1px solid #fed7aa;
+            padding: 14px;
+            flex-shrink: 0;
+        }
+        .gitlab-logo img { width: 100%; height: 100%; object-fit: contain; }
+        .gitlab-content {
+            display: flex; flex-direction: column; gap: 6px;
+            min-width: 0;
+        }
+        .gitlab-eyebrow {
+            font-size: 0.92rem; font-family: 'Geist Mono', monospace;
+            text-transform: uppercase; letter-spacing: 0.08em;
+            color: #FC6D26; font-weight: 700;
+        }
+        .gitlab-title {
+            font-size: 2rem; font-weight: 900; color: var(--text);
+            letter-spacing: -0.025em; line-height: 1.05;
+        }
+        .gitlab-quote {
+            font-size: 1.1rem; color: var(--text-body);
+            font-style: italic; line-height: 1.4;
+            margin-top: 4px;
+        }
+        .gitlab-stats {
+            display: flex; gap: 30px; margin-top: 10px;
+        }
+        .gitlab-stat {
+            display: flex; flex-direction: column; align-items: flex-start;
+        }
+        .gitlab-stat-num {
+            font-size: 1.5rem; font-weight: 900; color: #E24329;
+            font-family: 'Geist Mono', monospace; letter-spacing: -0.01em; line-height: 1;
+        }
+        .gitlab-stat-label {
+            font-size: 0.85rem; color: var(--text-muted);
+            font-family: 'Geist Mono', monospace; letter-spacing: 0.04em;
+        }
+        .gitlab-cta {
+            font-size: 1.05rem; font-family: 'Geist Mono', monospace;
+            color: #FC6D26; font-weight: 800;
+            display: flex; align-items: center; gap: 4px;
+            white-space: nowrap;
+            transition: gap .25s ease;
+        }
+        .gitlab-card:hover .gitlab-cta { gap: 10px; }
+
         /* ─── Screenshot frame ─── */
         .screenshot-frame {
             border-radius: 16px; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.15);
@@ -2529,7 +2653,49 @@
                 </div>
             </section>
 
-            <!-- 16: Prompt engineering is dead -->
+            <!-- 16: 2nd challenge · preniest do firmy (GitLab handbook) -->
+            <section>
+                <div class="stmt-eyebrow" style="color: var(--violet);">⚡ 2nd challenge · scale to org</div>
+                <h1 class="stmt-mega" style="font-size: 4.4rem !important;">Preniesť to <span class="accent">z hlavy</span> do <span class="emerald-gradient">firmy</span>.</h1>
+                <p class="stmt-explain" style="margin-bottom: 32px;">Z <strong>PACT</strong> (1× brain) na <strong>company brain</strong> — verejný handbook, AI-readable, jeden zdroj pravdy pre ľudí aj AI agentov.</p>
+
+                <div class="scale-flow">
+                    <div class="scale-stage">
+                        <div class="scale-icon">🧠</div>
+                        <div class="scale-name">PACT</div>
+                        <div class="scale-tag">1× môj second brain</div>
+                    </div>
+                    <div class="scale-arrow">→</div>
+                    <div class="scale-stage scale-stage-mid">
+                        <div class="scale-icon">📖</div>
+                        <div class="scale-name">Handbook</div>
+                        <div class="scale-tag">single source of truth</div>
+                    </div>
+                    <div class="scale-arrow">→</div>
+                    <div class="scale-stage">
+                        <div class="scale-icon">🤖</div>
+                        <div class="scale-name">AI agenti</div>
+                        <div class="scale-tag">∞× firmný brain</div>
+                    </div>
+                </div>
+
+                <a class="gitlab-card" href="https://handbook.gitlab.com/" target="_blank">
+                    <div class="gitlab-logo"><img src="assets/gitlab-logo.svg" alt="GitLab"></div>
+                    <div class="gitlab-content">
+                        <div class="gitlab-eyebrow">Inšpirácia · gold standard</div>
+                        <div class="gitlab-title">GitLab Handbook</div>
+                        <div class="gitlab-quote">„Handbook-first. Transparency by default. Single source of truth."</div>
+                        <div class="gitlab-stats">
+                            <div class="gitlab-stat"><span class="gitlab-stat-num">2000+</span><span class="gitlab-stat-label">stránok</span></div>
+                            <div class="gitlab-stat"><span class="gitlab-stat-num">100%</span><span class="gitlab-stat-label">verejné</span></div>
+                            <div class="gitlab-stat"><span class="gitlab-stat-num">∞</span><span class="gitlab-stat-label">machine-readable</span></div>
+                        </div>
+                    </div>
+                    <div class="gitlab-cta">handbook.gitlab.com ↗</div>
+                </a>
+            </section>
+
+            <!-- 17: Prompt engineering is dead -->
             <section>
                 <div class="stmt-eyebrow emerald">Mindset 2026</div>
                 <h1 class="stmt-mega"><span class="accent">Prompt engineering</span><br>už neexistuje.</h1>
@@ -2545,7 +2711,7 @@
                 </div>
             </section>
 
-            <!-- 17: Learning hack — Matrix-style -->
+            <!-- 18: Learning hack — Matrix-style -->
             <section>
                 <div class="stmt-eyebrow" style="color: #06b6d4;">Symbióza · learning hack</div>
                 <h1 class="stmt-mega"><span class="accent">Nauč sa čokoľvek.</span><br>Ako v Matrixe.</h1>
@@ -2566,7 +2732,7 @@
                 <p class="matrix-quote"><span class="matrix-quote-mark">"</span>I know kung fu.<span class="matrix-quote-mark">"</span> <span class="matrix-cite">— Neo, 1999</span></p>
             </section>
 
-            <!-- 18: OHIO -->
+            <!-- 19: OHIO -->
             <section>
                 <div class="ohio-main">OHIO</div>
                 <p class="ohio-sub">Only Handle It Once</p>
@@ -2581,7 +2747,7 @@
                 </div>
             </section>
 
-            <!-- 19: Build — 126 bannerov -->
+            <!-- 20: Build — 126 bannerov -->
             <section>
                 <div class="stmt-eyebrow">Build #1 · Marketing automation</div>
                 <div class="build-card" style="margin-top: 8px;">
@@ -2604,7 +2770,7 @@
                 </div>
             </section>
 
-            <!-- 20: Build — Sales prezentacie -->
+            <!-- 21: Build — Sales prezentacie -->
             <section>
                 <div class="stmt-eyebrow">Build #2 · Sales</div>
                 <div class="build-card" style="margin-top: 8px;">
@@ -2629,7 +2795,7 @@
                 </div>
             </section>
 
-            <!-- 21: Build — Edukacna hra -->
+            <!-- 22: Build — Edukacna hra -->
             <section>
                 <div class="stmt-eyebrow">Build #3 · Marketing campaign</div>
                 <div class="build-card" style="margin-top: 8px;">
@@ -2654,7 +2820,7 @@
                 </div>
             </section>
 
-            <!-- 22: Build — QR generator -->
+            <!-- 23: Build — QR generator -->
             <section>
                 <div class="stmt-eyebrow">Build #4 · Internal tool</div>
                 <div class="build-card" style="margin-top: 8px;">
@@ -2680,7 +2846,7 @@
                 </div>
             </section>
 
-            <!-- 23: Build — Event landing + full process -->
+            <!-- 24: Build — Event landing + full process -->
             <section>
                 <div class="stmt-eyebrow cyan">Build #5 · Event infrastructure</div>
                 <div class="build-card" style="margin-top: 8px;">
@@ -2708,7 +2874,7 @@
                 </div>
             </section>
 
-            <!-- 24: Build — RoyalBay product layout -->
+            <!-- 25: Build — RoyalBay product layout -->
             <section>
                 <div class="stmt-eyebrow">Build #6 · eCommerce strategy</div>
                 <div class="build-card" style="margin-top: 8px;">
@@ -2734,7 +2900,7 @@
                 </div>
             </section>
 
-            <!-- 25: Vytrvalci-pro.digital — biggest build -->
+            <!-- 26: Vytrvalci-pro.digital — biggest build -->
             <section>
                 <div class="stmt-eyebrow emerald">The biggest build ever</div>
                 <h1 class="stmt-mega" style="font-size: 5rem !important;"><span class="accent">vytrvalci-pro.digital</span></h1>
@@ -2749,7 +2915,7 @@
                 <p class="stmt-explain" style="margin-top: 32px;">Jeden dashboard. Real-time. AI agenti pripravujú insights za vás.</p>
             </section>
 
-            <!-- 26: Side effect #1 · cost -->
+            <!-- 27: Side effect #1 · cost -->
             <section>
                 <div class="stmt-eyebrow" style="color: #f59e0b;">⚠️ Side effect #1 · wallet</div>
                 <h1 class="stmt-mega" style="font-size: 4.4rem !important;"><span class="warn-emoji-inline">💸</span> Môže sa to <span class="warn-amber">predražiť</span>.</h1>
@@ -2764,7 +2930,7 @@
                 <p class="warn-joke-big"><strong>claude-4.6-opus-high-thinking</strong> jednoducho stojí. <em>Worth it (väčšinou).</em></p>
             </section>
 
-            <!-- 27: Side effect #2 · time -->
+            <!-- 28: Side effect #2 · time -->
             <section>
                 <div class="stmt-eyebrow" style="color: #ef4444;">⚠️ Side effect #2 · time</div>
                 <h1 class="stmt-mega" style="font-size: 4.4rem !important;"><span class="warn-emoji-inline">🔥</span> Môžete byť <span class="warn-red">pohltení</span>.</h1>
@@ -2779,19 +2945,19 @@
                 <p class="warn-joke-big">Začnete v sobotu, skončíte v utorok ráno. <em>Sleep is for v2.</em></p>
             </section>
 
-            <!-- 28: DONE > PERFECT -->
+            <!-- 29: DONE > PERFECT -->
             <section>
                 <div class="stmt-eyebrow emerald">Mantra</div>
                 <h1 class="stmt-mega done-perfect-mega" style="font-size: 9rem !important;"><span class="accent done-word">DONE</span> <span class="dp-gt">&gt;</span> <span class="perfect-word">PERFECT</span></h1>
                 <p class="stmt-explain">Hotové, vonku, použiteľné.<br>Iterujte. Nevylepšujte donekonečna v sklade.</p>
             </section>
 
-            <!-- 29: Isn't Done a New Perfect? -->
+            <!-- 30: Isn't Done a New Perfect? -->
             <section>
                 <h1 class="stmt-mega isnt-done-mega" style="font-size: 6rem !important;">Isn't <span class="accent isnt-done">Done</span><br>a new <span class="cyan isnt-perfect">Perfect</span>?</h1>
             </section>
 
-            <!-- 30: AI ta nenahradi -->
+            <!-- 31: AI ta nenahradi -->
             <section>
                 <div class="stmt-eyebrow emerald">Reality check · 2026</div>
                 <div class="replacement-wrap">
@@ -2800,7 +2966,7 @@
                 </div>
             </section>
 
-            <!-- 31: Build cheatsheet -->
+            <!-- 32: Build cheatsheet -->
             <section>
                 <div class="stmt-eyebrow cyan">Build cheatsheet</div>
                 <h1 class="stmt-mega" style="font-size: 4.2rem !important;">Ako buildnúť svoju<br><span class="cyan">prvú apku</span> tento víkend.</h1>
@@ -2832,7 +2998,7 @@
                 </div>
             </section>
 
-            <!-- 32: Easy mode · Macaly + Lovable -->
+            <!-- 33: Easy mode · Macaly + Lovable -->
             <section>
                 <div class="stmt-eyebrow" style="color: var(--violet);">💡 Easy mode · pre začiatočníkov</div>
                 <h1 class="stmt-mega" style="font-size: 4.4rem !important;">Cursor / Claude Code je <span class="accent">príliš</span>?<br>Začnite <span class="emerald-gradient">jednoduchšie</span>.</h1>
@@ -2855,7 +3021,7 @@
                 </div>
             </section>
 
-            <!-- 33: Gift — Starter Kit (meta-prompt) -->
+            <!-- 34: Gift — Starter Kit (meta-prompt) -->
             <section>
                 <div class="stmt-eyebrow" style="color: var(--emerald); font-size: 1.4rem;">🎁 Gift · Starter Kit</div>
                 <h1 class="stmt-mega" style="font-size: 4.4rem !important; margin-bottom: 10px;">Vytvorte si svojho<br><span class="accent">prvého AI asistenta</span> za 5 minút.</h1>
@@ -2893,7 +3059,7 @@
                 </div>
             </section>
 
-            <!-- 34: Something big is happening -->
+            <!-- 35: Something big is happening -->
             <section>
                 <div class="stmt-eyebrow emerald">Matt Shumer · viral 80M+ views · Feb 2026</div>
                 <h1 class="stmt-mega"><span class="accent">Something big</span><br>is happening.</h1>
@@ -2920,7 +3086,7 @@
                 </div>
             </section>
 
-            <!-- 35: Q&A -->
+            <!-- 36: Q&A -->
             <section class="qa-slide">
                 <div class="qa-bg"></div>
                 <div class="qa-content">
