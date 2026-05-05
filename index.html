@@ -391,12 +391,105 @@
         }
 
         /* ─── Demo ─── */
-        .demo-text { font-size: 5rem !important; font-weight: 800 !important; letter-spacing: -0.03em; }
+        .demo-text { font-size: 7rem !important; font-weight: 800 !important; letter-spacing: -0.03em; }
         .demo-cursor {
-            display: inline-block; width: 4px; height: 5rem; background: var(--emerald);
-            margin-left: 6px; animation: blink 1s step-end infinite; vertical-align: middle; border-radius: 2px;
+            display: inline-block; width: 6px; height: 7rem; background: var(--emerald);
+            margin-left: 8px; animation: blink 1s step-end infinite; vertical-align: middle; border-radius: 3px;
         }
         @keyframes blink { 50% { opacity: 0; } }
+
+        /* ─── Slide entrance animations ─── */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(24px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .reveal section.present .vision-eyebrow,
+        .reveal section.present .vision-headline,
+        .reveal section.present .vision-sub,
+        .reveal section.present .vision-stack,
+        .reveal section.present .vision-region,
+        .reveal section.present .region-legend {
+            animation: fadeUp 0.7s ease-out backwards;
+        }
+        .reveal section.present .vision-eyebrow { animation-delay: 0s; }
+        .reveal section.present .vision-headline { animation-delay: 0.12s; }
+        .reveal section.present .vision-sub { animation-delay: 0.24s; }
+        .reveal section.present .vision-stack { animation-delay: 0.36s; }
+        .reveal section.present .vision-region { animation-delay: 0.5s; }
+        .reveal section.present .region-legend { animation-delay: 0.62s; }
+
+        /* Cesta tiles stagger entrance */
+        .reveal section.present .px {
+            animation: fadeUp 0.55s ease-out backwards;
+        }
+        .reveal section.present .px:nth-child(1) { animation-delay: 0s; }
+        .reveal section.present .px:nth-child(2) { animation-delay: 0.05s; }
+        .reveal section.present .px:nth-child(3) { animation-delay: 0.1s; }
+        .reveal section.present .px:nth-child(4) { animation-delay: 0.15s; }
+        .reveal section.present .px:nth-child(5) { animation-delay: 0.2s; }
+        .reveal section.present .px:nth-child(6) { animation-delay: 0.25s; }
+        .reveal section.present .px:nth-child(7) { animation-delay: 0.3s; }
+        .reveal section.present .px:nth-child(8) { animation-delay: 0.35s; }
+        .reveal section.present .px:nth-child(9) { animation-delay: 0.4s; }
+        .reveal section.present .px:nth-child(10) { animation-delay: 0.45s; }
+        .reveal section.present .px:nth-child(11) { animation-delay: 0.5s; }
+        .reveal section.present .px:nth-child(12) { animation-delay: 0.55s; }
+
+        /* Project tags stagger */
+        .reveal section.present .project-tag {
+            animation: fadeUp 0.5s ease-out backwards;
+        }
+        .reveal section.present .project-tag:nth-child(1) { animation-delay: 0.3s; }
+        .reveal section.present .project-tag:nth-child(2) { animation-delay: 0.34s; }
+        .reveal section.present .project-tag:nth-child(3) { animation-delay: 0.38s; }
+        .reveal section.present .project-tag:nth-child(4) { animation-delay: 0.42s; }
+        .reveal section.present .project-tag:nth-child(5) { animation-delay: 0.46s; }
+        .reveal section.present .project-tag:nth-child(6) { animation-delay: 0.5s; }
+        .reveal section.present .project-tag:nth-child(7) { animation-delay: 0.54s; }
+        .reveal section.present .project-tag:nth-child(8) { animation-delay: 0.58s; }
+        .reveal section.present .project-tag:nth-child(9) { animation-delay: 0.62s; }
+        .reveal section.present .project-tag:nth-child(10) { animation-delay: 0.66s; }
+        .reveal section.present .project-tag:nth-child(11) { animation-delay: 0.7s; }
+        .reveal section.present .project-tag:nth-child(12) { animation-delay: 0.74s; }
+        .reveal section.present .projects-number,
+        .reveal section.present .projects-label,
+        .reveal section.present .projects-time { animation: fadeUp 0.6s ease-out backwards; }
+        .reveal section.present .projects-number { animation-delay: 0s; }
+        .reveal section.present .projects-label { animation-delay: 0.15s; }
+        .reveal section.present .projects-time { animation-delay: 0.22s; }
+
+        /* 10x slide */
+        .reveal section.present .tenx-main,
+        .reveal section.present .tenx-tag,
+        .reveal section.present .tenx-equation { animation: fadeUp 0.7s ease-out backwards; }
+        .reveal section.present .tenx-main { animation-delay: 0.1s; }
+        .reveal section.present .tenx-tag { animation-delay: 0.4s; }
+        .reveal section.present .tenx-equation { animation-delay: 0.6s; }
+
+        /* OHIO */
+        .reveal section.present .ohio-main,
+        .reveal section.present .ohio-sub,
+        .reveal section.present .ohio-explain { animation: fadeUp 0.7s ease-out backwards; }
+        .reveal section.present .ohio-main { animation-delay: 0s; }
+        .reveal section.present .ohio-sub { animation-delay: 0.2s; }
+        .reveal section.present .ohio-explain { animation-delay: 0.35s; }
+
+        /* Title slide */
+        .reveal section.present .title-meta,
+        .reveal section.present .title-main,
+        .reveal section.present .title-divider { animation: fadeUp 0.7s ease-out backwards; }
+        .reveal section.present .title-meta { animation-delay: 0s; }
+        .reveal section.present .title-main { animation-delay: 0.15s; }
+        .reveal section.present .title-divider { animation-delay: 0.4s; }
+
+        /* Demo cursor type-on for "Poďme na to" */
+        .reveal section.present .demo-text {
+            animation: fadeIn 0.4s ease-out backwards;
+        }
 
         /* ─── Thank you ─── */
         .thanks-name { font-size: 2.2rem !important; font-weight: 700; margin-top: 36px !important; color: var(--text) !important; }
@@ -667,9 +760,9 @@
                 <p class="tenx-equation">1× Juraj  ×  AI  =  <span class="infinity">∞</span></p>
             </section>
 
-            <!-- 6: Bridge to practical -->
+            <!-- 6: Bridge to practical (demo style) -->
             <section>
-                <h1 class="statement">Poďme<br>na to.<span class="demo-cursor" style="height: 6rem; vertical-align: text-bottom;"></span></h1>
+                <h1 class="demo-text">Poďme na to.<span class="demo-cursor"></span></h1>
             </section>
 
             <!-- 5: 12 Projects -->
@@ -698,11 +791,6 @@
                 <div class="ohio-main">OHIO</div>
                 <p class="ohio-sub">Only Handle It Once</p>
                 <p class="ohio-explain">Každý úkon, ktorý robíš opakovane,<br>je príležitosť na automatizáciu.</p>
-            </section>
-
-            <!-- 7: Demo -->
-            <section>
-                <h1 class="demo-text">Poďme na to.<span class="demo-cursor"></span></h1>
             </section>
 
             <!-- 8: Q&A -->
@@ -750,6 +838,32 @@
                 btn.classList.add('hidden');
             } else {
                 btn.classList.remove('hidden');
+            }
+        });
+
+        // Counter animation for "12" projects
+        function animateCounter(el, target, duration) {
+            var start = 0;
+            var startTime = performance.now();
+            function tick(now) {
+                var elapsed = now - startTime;
+                var progress = Math.min(elapsed / duration, 1);
+                // ease-out cubic
+                var eased = 1 - Math.pow(1 - progress, 3);
+                el.textContent = Math.round(start + (target - start) * eased);
+                if (progress < 1) requestAnimationFrame(tick);
+                else el.textContent = target;
+            }
+            requestAnimationFrame(tick);
+        }
+
+        Reveal.on('slidechanged', function(event) {
+            var num = event.currentSlide.querySelector('.projects-number');
+            if (num) {
+                num.textContent = '0';
+                setTimeout(function() {
+                    animateCounter(num, 12, 1100);
+                }, 200);
             }
         });
     </script>
