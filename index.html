@@ -935,18 +935,18 @@
         /* ─── Gift / Starter kit slide ─── */
         .gift-wrap {
             display: grid;
-            grid-template-columns: 1fr 320px;
-            gap: 40px;
+            grid-template-columns: 1fr 380px;
+            gap: 48px;
             align-items: stretch;
-            max-width: 1700px;
-            margin-top: 18px;
+            max-width: 1820px;
+            margin-top: 20px;
         }
-        .gift-content { text-align: left; display: flex; flex-direction: column; gap: 14px; }
-        .gift-tabs { display: flex; gap: 8px; }
+        .gift-content { text-align: left; display: flex; flex-direction: column; gap: 16px; }
+        .gift-tabs { display: flex; gap: 10px; align-items: center; }
         .gift-tab {
-            padding: 8px 18px; border-radius: 9999px;
+            padding: 11px 24px; border-radius: 9999px;
             background: rgba(0,0,0,0.04); border: 1px solid var(--border);
-            font-family: 'Geist Mono', monospace; font-size: 0.85rem;
+            font-family: 'Geist Mono', monospace; font-size: 1.05rem;
             font-weight: 700; color: var(--text-muted); cursor: pointer;
             transition: all 0.2s ease;
         }
@@ -957,68 +957,70 @@
         }
         .gift-prompt-box {
             background: #0a0e1a; color: #e2e8f0;
-            border-radius: 16px; padding: 24px 28px 22px;
-            font-family: 'Geist Mono', monospace; font-size: 0.92rem;
-            line-height: 1.55;
-            border: 1px solid rgba(6,182,212,0.25);
-            box-shadow: 0 12px 40px rgba(0,0,0,0.18);
+            border-radius: 18px; padding: 32px 38px 30px;
+            font-family: 'Geist Mono', monospace; font-size: 1.18rem;
+            line-height: 1.6;
+            border: 1px solid rgba(6,182,212,0.3);
+            box-shadow: 0 16px 50px rgba(0,0,0,0.22);
             position: relative; overflow: hidden;
             display: none;
         }
         .gift-prompt-box.active { display: block; }
         .gift-prompt-box::before {
             content: '';
-            position: absolute; top: 0; left: 0; right: 0; height: 2px;
+            position: absolute; top: 0; left: 0; right: 0; height: 3px;
             background: linear-gradient(90deg, transparent, #06b6d4, transparent);
             background-size: 200% 100%;
             animation: dividerSweep 3s ease-in-out infinite;
-            border-radius: 16px 16px 0 0;
+            border-radius: 18px 18px 0 0;
         }
         .gift-prompt-box .prompt-text {
             white-space: pre-wrap;
             word-break: break-word;
-            max-height: 540px;
+            max-height: 560px;
             overflow-y: auto;
-            padding-right: 8px;
+            padding-right: 12px;
+            padding-top: 6px;
         }
-        .gift-prompt-box .prompt-text::-webkit-scrollbar { width: 6px; }
-        .gift-prompt-box .prompt-text::-webkit-scrollbar-thumb { background: rgba(6,182,212,0.4); border-radius: 3px; }
+        .gift-prompt-box .prompt-text::-webkit-scrollbar { width: 8px; }
+        .gift-prompt-box .prompt-text::-webkit-scrollbar-thumb { background: rgba(6,182,212,0.4); border-radius: 4px; }
         .gift-prompt-box .var {
-            background: rgba(124,58,237,0.25); color: #c4b5fd;
-            padding: 1px 6px; border-radius: 4px; font-weight: 700;
+            background: rgba(124,58,237,0.28); color: #c4b5fd;
+            padding: 2px 8px; border-radius: 5px; font-weight: 700;
             white-space: nowrap;
         }
         .copy-btn {
-            position: absolute; top: 14px; right: 14px;
-            padding: 8px 14px; border-radius: 8px;
-            background: rgba(6,182,212,0.15); color: #22d3ee;
-            border: 1px solid rgba(6,182,212,0.4);
-            font-family: 'Geist Mono', monospace; font-size: 0.8rem;
+            position: absolute; top: 18px; right: 18px;
+            padding: 12px 20px; border-radius: 10px;
+            background: rgba(6,182,212,0.18); color: #22d3ee;
+            border: 1px solid rgba(6,182,212,0.45);
+            font-family: 'Geist Mono', monospace; font-size: 1.05rem;
             font-weight: 700; cursor: pointer;
             transition: all 0.2s ease;
-            display: inline-flex; align-items: center; gap: 6px;
+            display: inline-flex; align-items: center; gap: 8px;
+            box-shadow: 0 4px 14px rgba(6,182,212,0.15);
         }
-        .copy-btn:hover { background: rgba(6,182,212,0.25); transform: translateY(-1px); }
+        .copy-btn:hover { background: rgba(6,182,212,0.28); transform: translateY(-2px); }
         .copy-btn.copied { background: var(--emerald); color: white; border-color: var(--emerald); }
         .qr-card {
-            background: var(--card); border-radius: 20px;
-            padding: 24px; box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+            background: var(--card); border-radius: 24px;
+            padding: 32px; box-shadow: 0 16px 50px rgba(0,0,0,0.12);
             border: 1px solid var(--border);
-            display: flex; flex-direction: column; align-items: center; gap: 12px;
+            display: flex; flex-direction: column; align-items: center; gap: 16px;
         }
-        .qr-card img { width: 220px; height: 220px; }
+        .qr-card img { width: 280px; height: 280px; }
         .qr-url {
-            font-family: 'Geist Mono', monospace; font-size: 0.85rem; color: var(--text);
+            font-family: 'Geist Mono', monospace; font-size: 1rem; color: var(--text);
             font-weight: 700; text-align: center; letter-spacing: -0.01em;
         }
         .qr-cta {
-            display: inline-flex; align-items: center; gap: 6px; padding: 7px 14px;
+            display: inline-flex; align-items: center; gap: 6px; padding: 10px 18px;
             background: linear-gradient(135deg, var(--violet), var(--emerald));
-            color: white; border-radius: 9999px; font-size: 0.78rem; font-weight: 700;
+            color: white; border-radius: 9999px; font-size: 0.95rem; font-weight: 700;
             font-family: 'Geist Mono', monospace; letter-spacing: 0.04em;
         }
-        .gift-hint { font-size: 0.95rem; color: var(--text-muted); font-family: 'Geist Mono', monospace; }
-        .gift-hint .var { background: rgba(124,58,237,0.12); color: var(--violet); padding: 1px 6px; border-radius: 4px; font-weight: 700; }
+        .gift-hint { font-size: 1.1rem; color: var(--text-muted); font-family: 'Geist Mono', monospace; }
+        .gift-hint .var { background: rgba(124,58,237,0.14); color: var(--violet); padding: 2px 8px; border-radius: 5px; font-weight: 700; }
 
         /* ─── Article links (Something big) ─── */
         .article-links {
@@ -1579,8 +1581,8 @@
 
             <!-- 14: MCP showcase -->
             <section>
-                <div class="stmt-eyebrow">Reálne use cases · MCP servery</div>
-                <h1 class="stmt-mega" style="font-size: 4.2rem !important;">AI <span class="accent">vstúpilo</span> do mojich nástrojov.</h1>
+                <div class="stmt-eyebrow">Môj setup · MCP connectors</div>
+                <h1 class="stmt-mega" style="font-size: 4.2rem !important;">Môj <span class="accent">connector stack</span>.</h1>
                 <div class="mcp-grid">
                     <div class="mcp-card outlook">
                         <div class="mcp-card-head">
@@ -1630,7 +1632,7 @@
             <!-- 15: PACT - Druhy mozog -->
             <section>
                 <div class="stmt-eyebrow" style="color: #22d3ee;">// JG-OS · Second Brain Decoder</div>
-                <h1 class="stmt-mega" style="font-size: 4.2rem !important; margin-bottom: 0;"><span class="accent">PACT</span> — moje second brain.</h1>
+                <h1 class="stmt-mega" style="font-size: 4.2rem !important; margin-bottom: 0;"><span class="accent">PACT</span> — môj second brain.</h1>
                 <div class="pact-stage play">
                     <!-- Hex rain edges -->
                     <div class="pact-hex left">
@@ -2064,7 +2066,12 @@
                 <p class="stmt-explain">Hotové, vonku, použiteľné.<br>Iterujte. Nevylepšujte donekonečna v sklade.</p>
             </section>
 
-            <!-- 26: Build cheatsheet -->
+            <!-- 26: Isn't Done a New Perfect? -->
+            <section>
+                <h1 class="stmt-mega" style="font-size: 6rem !important;">Isn't <span class="accent">Done</span><br>a new <span class="cyan">Perfect</span>?</h1>
+            </section>
+
+            <!-- 27: Build cheatsheet -->
             <section>
                 <div class="stmt-eyebrow cyan">Build cheatsheet</div>
                 <h1 class="stmt-mega" style="font-size: 4.2rem !important;">Ako buildnúť svoju<br><span class="cyan">prvú apku</span> tento víkend.</h1>
@@ -2096,15 +2103,10 @@
                 </div>
             </section>
 
-            <!-- 27: Isn't Done a New Perfect? -->
-            <section>
-                <h1 class="stmt-mega" style="font-size: 6rem !important;">Isn't <span class="accent">Done</span><br>a new <span class="cyan">Perfect</span>?</h1>
-            </section>
-
             <!-- 28: Gift — Starter Kit (meta-prompt) -->
             <section>
-                <div class="stmt-eyebrow" style="color: var(--emerald);">🎁 Gift · Starter Kit</div>
-                <h1 class="stmt-mega" style="font-size: 3.6rem !important; margin-bottom: 8px;">Vytvorte si svojho<br><span class="accent">prvého AI asistenta</span> za 5 minút.</h1>
+                <div class="stmt-eyebrow" style="color: var(--emerald); font-size: 1.4rem;">🎁 Gift · Starter Kit</div>
+                <h1 class="stmt-mega" style="font-size: 4.4rem !important; margin-bottom: 10px;">Vytvorte si svojho<br><span class="accent">prvého AI asistenta</span> za 5 minút.</h1>
                 <div class="gift-wrap">
                     <div class="gift-content">
                         <div class="gift-tabs">
@@ -2171,13 +2173,12 @@
                 <div class="qa-bg"></div>
                 <div class="qa-content">
                     <div class="qa-mega"><span class="qa-q">Q</span><span class="qa-amp">&amp;</span><span class="qa-a">A</span></div>
-                    <p class="qa-sub">Pýtajte sa. Skúsme niečo poriešiť spolu.</p>
                     <div class="qa-links">
                         <a class="qa-link" href="https://juraj.digital" target="_blank">juraj.digital</a>
                         <span class="qa-dot">·</span>
                         <a class="qa-link" href="https://linkedin.com/in/jurajgiacko" target="_blank">linkedin.com/in/jurajgiacko</a>
                     </div>
-                    <div class="qa-thanks">Ďakujem 🙏</div>
+                    <div class="qa-thanks">Thank you 🙏</div>
                 </div>
             </section>
 
