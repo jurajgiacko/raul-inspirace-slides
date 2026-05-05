@@ -1113,11 +1113,19 @@
             font-family: 'Geist Mono', monospace; font-weight: 700; white-space: nowrap;
         }
         .build-url {
-            display: inline-block; font-size: 1.4rem; color: #06b6d4;
+            display: inline-flex; align-items: center; gap: 10px;
+            font-size: 1.4rem; color: #06b6d4;
             font-family: 'Geist Mono', monospace; margin-bottom: 22px;
             text-decoration: underline; text-underline-offset: 6px;
             font-weight: 600;
+            transition: color 0.2s ease, transform 0.2s ease;
         }
+        .build-url:hover { color: #0891b2; transform: translateX(2px); }
+        .build-url::after {
+            content: '↗'; font-size: 1.1rem; opacity: 0.7;
+            transition: transform 0.2s ease;
+        }
+        .build-url:hover::after { transform: translate(3px, -3px); opacity: 1; }
         .build-bullets { list-style: none; padding: 0; margin: 18px 0 0; }
         .build-bullets li { font-size: 1.65rem; color: var(--text-body); padding: 12px 0 12px 38px; position: relative; line-height: 1.4; font-weight: 500; }
         .build-bullets li::before { content: '✓'; position: absolute; left: 0; top: 12px; color: var(--emerald); font-weight: 900; font-size: 1.6rem; }
@@ -2290,7 +2298,7 @@
                         <div class="build-name">Generátor obchodných<br>prezentácií</div>
                         <div class="build-time">⚡ 1st draft 2h · FINAL 2MD</div>
                     </div>
-                    <a class="build-url">slides.enervit.online</a>
+                    <a class="build-url" href="https://slides.enervit.online" target="_blank" rel="noopener">slides.enervit.online</a>
                     <ul class="build-bullets">
                         <li>Generovanie sales prezentácií pre jednotlivých sales reps</li>
                         <li>Vytvorenie jedinečnej URL s ponukou a kontaktom</li>
@@ -2308,7 +2316,7 @@
                         <div class="build-name">Edukačná hra<br>ako kampaň</div>
                         <div class="build-time">⚡ 1st draft 20min · FINAL ½ MD</div>
                     </div>
-                    <a class="build-url">jiz50.enervit.online</a>
+                    <a class="build-url" href="https://jiz50.enervit.online" target="_blank" rel="noopener">jiz50.enervit.online</a>
                     <ul class="build-bullets">
                         <li>90's feel hra · edukácia k produktom a správnej suplementácii</li>
                         <li>Zľavový kód na nákup a registrácia k newsletteru</li>
@@ -2325,7 +2333,7 @@
                         <div class="build-name">QR kód generátor<br>s logom + analytika</div>
                         <div class="build-time">⚡ 1st draft 20min · FINAL 3h</div>
                     </div>
-                    <a class="build-url">qrkod.enervit.online</a>
+                    <a class="build-url" href="https://qrkod.enervit.online" target="_blank" rel="noopener">qrkod.enervit.online</a>
                     <ul class="build-bullets">
                         <li>Generovanie QR kódov pre kampane</li>
                         <li>Pridanie loga do QR + zmena farby (brandované)</li>
@@ -2343,7 +2351,7 @@
                         <div class="build-name">Event landingpage<br>+ celý event proces</div>
                         <div class="build-time">⚡ 1st draft 1.5h · FINAL 1MD</div>
                     </div>
-                    <a class="build-url">event.enervit.online</a>
+                    <a class="build-url" href="https://event.enervit.online" target="_blank" rel="noopener">event.enervit.online</a>
                     <ul class="build-bullets">
                         <li>Landing page s registráciou a programom</li>
                         <li>Airtable backbone — zoradenie eventov, tímy, materiál</li>
@@ -2362,7 +2370,7 @@
                         <div class="build-name">Produktové rozloženie<br>pre Royal Bay</div>
                         <div class="build-time">⚡ 1st draft 3h · FINAL 2MD</div>
                     </div>
-                    <a class="build-url">jurajgiacko.github.io/royalbay-shopify/category-planner</a>
+                    <a class="build-url" href="https://jurajgiacko.github.io/royalbay-shopify/design/html-mockups/category-planner.html" target="_blank" rel="noopener">jurajgiacko.github.io/royalbay-shopify/.../category-planner</a>
                     <ul class="build-bullets">
                         <li>Stiahnutie / scrape konkurenčných webov a zahraničných hráčov</li>
                         <li>Zákaznícke správanie z Microsoft Clarity</li>
