@@ -407,7 +407,17 @@
             background: linear-gradient(135deg, var(--violet), #06b6d4 50%, var(--emerald), var(--violet));
             background-size: 200% 200%;
             -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-            animation: gradientShift 6s ease-in-out infinite;
+            animation: gradientShift 6s ease-in-out infinite, heartbeat 1.4s ease-in-out infinite;
+            transform-origin: center;
+            display: inline-block;
+        }
+        @keyframes heartbeat {
+            0%   { transform: scale(1);    filter: drop-shadow(0 0 0 transparent); }
+            8%   { transform: scale(1.10); filter: drop-shadow(0 0 38px rgba(124,58,237,0.55)); }
+            17%  { transform: scale(1);    filter: drop-shadow(0 0 10px rgba(124,58,237,0.2)); }
+            26%  { transform: scale(1.06); filter: drop-shadow(0 0 26px rgba(5,150,105,0.45)); }
+            35%  { transform: scale(1);    filter: drop-shadow(0 0 0 transparent); }
+            100% { transform: scale(1);    filter: drop-shadow(0 0 0 transparent); }
         }
         @keyframes gradientShift {
             0%, 100% { background-position: 0% 50%; }
@@ -1377,10 +1387,14 @@
         .reveal section.present .projects-time { animation-delay: 0.22s; }
 
         /* 10x slide */
-        .reveal section.present .tenx-main,
+        .reveal section.present .tenx-main {
+            animation:
+                fadeUp 0.7s 0.1s ease-out backwards,
+                gradientShift 6s ease-in-out infinite,
+                heartbeat 1.4s 0.9s ease-in-out infinite;
+        }
         .reveal section.present .tenx-tag,
         .reveal section.present .tenx-equation { animation: fadeUp 0.7s ease-out backwards; }
-        .reveal section.present .tenx-main { animation-delay: 0.1s; }
         .reveal section.present .tenx-tag { animation-delay: 0.4s; }
         .reveal section.present .tenx-equation { animation-delay: 0.6s; }
 
