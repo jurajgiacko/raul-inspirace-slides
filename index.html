@@ -478,9 +478,47 @@
             color: var(--text-muted);
             font-family: 'Geist Mono', monospace;
         }
+
+        /* ─── Fullscreen button ─── */
+        .fs-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 200;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 10px 20px;
+            font-family: 'Geist Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--text-body);
+            cursor: pointer;
+            box-shadow: var(--card-shadow);
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .fs-btn:hover {
+            box-shadow: var(--card-shadow-lg);
+            color: var(--text);
+        }
+
+        .fs-btn.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
     </style>
 </head>
 <body>
+    <button class="fs-btn" id="fsBtn" onclick="toggleFullscreen()">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M2 6V2h4M10 2h4v4M14 10v4h-4M6 14H2v-4"/>
+        </svg>
+        Fullscreen
+    </button>
+
     <div class="watermark">
         <svg class="watermark-logo" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
             <rect width="32" height="32" rx="8" fill="#18181b"/>
@@ -633,6 +671,23 @@
             margin: 0.04,
             keyboard: true,
             touch: true,
+        });
+
+        function toggleFullscreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen();
+            } else {
+                document.exitFullscreen();
+            }
+        }
+
+        document.addEventListener('fullscreenchange', function() {
+            var btn = document.getElementById('fsBtn');
+            if (document.fullscreenElement) {
+                btn.classList.add('hidden');
+            } else {
+                btn.classList.remove('hidden');
+            }
         });
     </script>
 </body>
