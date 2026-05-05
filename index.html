@@ -1520,6 +1520,73 @@
             animation: gradientShift 6s ease-in-out infinite;
         }
 
+        /* ─── Wispr Flow · diktujte slide ─── */
+        .wispr-wrap {
+            display: grid; grid-template-columns: 1.05fr 1fr;
+            gap: 44px; max-width: 1500px; margin: 0 auto; width: 100%;
+            align-items: center;
+        }
+        .wispr-stats {
+            background: #fff;
+            border: 1.5px solid var(--border);
+            border-radius: 22px;
+            padding: 26px 28px;
+            box-shadow: 0 14px 36px rgba(0,0,0,0.08);
+            display: flex; flex-direction: column; gap: 16px;
+            position: relative; overflow: hidden;
+        }
+        .wispr-stats::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+            background: linear-gradient(90deg, #06b6d4, var(--violet), #06b6d4);
+            background-size: 200% 200%;
+            animation: gradientShift 5s ease-in-out infinite;
+        }
+        .wispr-logo { height: 38px; display: flex; align-items: center; }
+        .wispr-logo img { height: 100%; max-width: 200px; object-fit: contain; }
+        .wispr-shot {
+            width: 100%; border-radius: 14px;
+            border: 1px solid var(--border);
+            box-shadow: 0 8px 22px rgba(0,0,0,0.08);
+            animation: warnFloat 5s ease-in-out infinite;
+        }
+        .wispr-cta {
+            font-size: 1.05rem; font-family: 'Geist Mono', monospace;
+            color: #06b6d4; font-weight: 800; text-decoration: none;
+            display: inline-flex; align-items: center; gap: 4px;
+            transition: gap .25s ease;
+            align-self: flex-start;
+        }
+        .wispr-cta:hover { gap: 10px; }
+
+        .wispr-points {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 18px;
+        }
+        .wispr-point {
+            background: linear-gradient(135deg, rgba(6,182,212,0.04), rgba(124,58,237,0.04));
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 20px 22px;
+            display: flex; flex-direction: column; gap: 6px;
+        }
+        .wispr-point-num {
+            font-size: 2.6rem; font-weight: 900;
+            font-family: 'Geist Mono', monospace; letter-spacing: -0.025em;
+            line-height: 1;
+            background: linear-gradient(135deg, #06b6d4, var(--violet));
+            -webkit-background-clip: text; background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .wispr-point-text {
+            font-size: 1.18rem; color: var(--text); font-weight: 600;
+            line-height: 1.4;
+        }
+        .wispr-point-text strong { color: var(--text); font-weight: 800; }
+        .wispr-point-text span {
+            display: block;
+            font-size: 0.95rem; color: var(--text-muted); font-weight: 500;
+            font-family: 'Geist Mono', monospace; margin-top: 2px;
+        }
+
         /* ─── 2nd challenge: scale-flow + GitLab handbook card ─── */
         .scale-flow {
             display: flex; align-items: center; justify-content: center;
@@ -2312,7 +2379,40 @@
                 </div>
             </section>
 
-            <!-- 13: Choose AI-connectable tools -->
+            <!-- 13: Diktujte · Wispr Flow -->
+            <section>
+                <div class="stmt-eyebrow" style="color: #06b6d4;">🎙️ Voice in motion · Wispr Flow</div>
+                <h1 class="stmt-mega" style="font-size: 4.6rem !important;">Diktujte. <span class="cyan">3× rýchlejšie</span><br>ako písanie.</h1>
+                <p class="stmt-explain" style="margin-bottom: 28px;">Lepšie sa vyjadríte, <strong>nezjednodušujete myšlienku</strong> kvôli klávesnici.<br>Hovorte tak, ako reálne myslíte.</p>
+
+                <div class="wispr-wrap">
+                    <div class="wispr-stats">
+                        <div class="wispr-logo"><img src="assets/wisprflow-logo.svg" alt="Wispr Flow"></div>
+                        <img class="wispr-shot" src="assets/wisprflow-stats.png" alt="Wispr Flow productivity stats">
+                        <a class="wispr-cta" href="https://wisprflow.ai/" target="_blank">wisprflow.ai ↗</a>
+                    </div>
+                    <div class="wispr-points">
+                        <div class="wispr-point">
+                            <div class="wispr-point-num">3×</div>
+                            <div class="wispr-point-text"><strong>Rýchlejšie</strong> ako písanie<br><span>(106 wpm vs ~35 wpm)</span></div>
+                        </div>
+                        <div class="wispr-point">
+                            <div class="wispr-point-num">∞</div>
+                            <div class="wispr-point-text"><strong>Plnohodnotná myšlienka</strong><br><span>nezjednodušujete kvôli klávesnici</span></div>
+                        </div>
+                        <div class="wispr-point">
+                            <div class="wispr-point-num">40</div>
+                            <div class="wispr-point-text"><strong>Apps</strong> kde diktujem<br><span>email · slack · cursor · trello · notion…</span></div>
+                        </div>
+                        <div class="wispr-point">
+                            <div class="wispr-point-num">22 557</div>
+                            <div class="wispr-point-text"><strong>Slov</strong> za týždeň<br><span>= 2 college essays</span></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 14: Choose AI-connectable tools -->
             <section>
                 <div class="stmt-eyebrow cyan">Tool selection</div>
                 <h1 class="stmt-mega" style="font-size: 4.8rem !important;">Vyberajte si nástroje,<br>ktoré sa dajú <span class="cyan">napojiť na AI.</span></h1>
@@ -2325,7 +2425,7 @@
                 </div>
             </section>
 
-            <!-- 14: MCP showcase -->
+            <!-- 15: MCP showcase -->
             <section>
                 <div class="stmt-eyebrow">Môj setup · MCP connectors</div>
                 <h1 class="stmt-mega" style="font-size: 4.2rem !important;">Môj <span class="accent">connector stack</span>.</h1>
@@ -2375,7 +2475,7 @@
                 </div>
             </section>
 
-            <!-- 15: PACT - Druhy mozog -->
+            <!-- 16: PACT - Druhy mozog -->
             <section>
                 <div class="stmt-eyebrow" style="color: #22d3ee;">// JG-OS · Second Brain Decoder</div>
                 <h1 class="stmt-mega" style="font-size: 4.2rem !important; margin-bottom: 0;"><span class="accent">PACT</span> — môj second brain.</h1>
@@ -2653,7 +2753,7 @@
                 </div>
             </section>
 
-            <!-- 16: 2nd challenge · preniest do firmy (GitLab handbook) -->
+            <!-- 17: 2nd challenge · preniest do firmy (GitLab handbook) -->
             <section>
                 <div class="stmt-eyebrow" style="color: var(--violet);">⚡ 2nd challenge · scale to org</div>
                 <h1 class="stmt-mega" style="font-size: 4.4rem !important;">Preniesť to <span class="accent">z hlavy</span> do <span class="emerald-gradient">firmy</span>.</h1>
@@ -2695,7 +2795,7 @@
                 </a>
             </section>
 
-            <!-- 17: Prompt engineering is dead -->
+            <!-- 18: Prompt engineering is dead -->
             <section>
                 <div class="stmt-eyebrow emerald">Mindset 2026</div>
                 <h1 class="stmt-mega"><span class="accent">Prompt engineering</span><br>už neexistuje.</h1>
@@ -2711,7 +2811,7 @@
                 </div>
             </section>
 
-            <!-- 18: Learning hack — Matrix-style -->
+            <!-- 19: Learning hack — Matrix-style -->
             <section>
                 <div class="stmt-eyebrow" style="color: #06b6d4;">Symbióza · learning hack</div>
                 <h1 class="stmt-mega"><span class="accent">Nauč sa čokoľvek.</span><br>Ako v Matrixe.</h1>
@@ -2732,7 +2832,7 @@
                 <p class="matrix-quote"><span class="matrix-quote-mark">"</span>I know kung fu.<span class="matrix-quote-mark">"</span> <span class="matrix-cite">— Neo, 1999</span></p>
             </section>
 
-            <!-- 19: OHIO -->
+            <!-- 20: OHIO -->
             <section>
                 <div class="ohio-main">OHIO</div>
                 <p class="ohio-sub">Only Handle It Once</p>
@@ -2747,7 +2847,7 @@
                 </div>
             </section>
 
-            <!-- 20: Build — 126 bannerov -->
+            <!-- 21: Build — 126 bannerov -->
             <section>
                 <div class="stmt-eyebrow">Build #1 · Marketing automation</div>
                 <div class="build-card" style="margin-top: 8px;">
@@ -2770,7 +2870,7 @@
                 </div>
             </section>
 
-            <!-- 21: Build — Sales prezentacie -->
+            <!-- 22: Build — Sales prezentacie -->
             <section>
                 <div class="stmt-eyebrow">Build #2 · Sales</div>
                 <div class="build-card" style="margin-top: 8px;">
@@ -2795,7 +2895,7 @@
                 </div>
             </section>
 
-            <!-- 22: Build — Edukacna hra -->
+            <!-- 23: Build — Edukacna hra -->
             <section>
                 <div class="stmt-eyebrow">Build #3 · Marketing campaign</div>
                 <div class="build-card" style="margin-top: 8px;">
@@ -2820,7 +2920,7 @@
                 </div>
             </section>
 
-            <!-- 23: Build — QR generator -->
+            <!-- 24: Build — QR generator -->
             <section>
                 <div class="stmt-eyebrow">Build #4 · Internal tool</div>
                 <div class="build-card" style="margin-top: 8px;">
@@ -2846,7 +2946,7 @@
                 </div>
             </section>
 
-            <!-- 24: Build — Event landing + full process -->
+            <!-- 25: Build — Event landing + full process -->
             <section>
                 <div class="stmt-eyebrow cyan">Build #5 · Event infrastructure</div>
                 <div class="build-card" style="margin-top: 8px;">
@@ -2874,7 +2974,7 @@
                 </div>
             </section>
 
-            <!-- 25: Build — RoyalBay product layout -->
+            <!-- 26: Build — RoyalBay product layout -->
             <section>
                 <div class="stmt-eyebrow">Build #6 · eCommerce strategy</div>
                 <div class="build-card" style="margin-top: 8px;">
@@ -2900,7 +3000,7 @@
                 </div>
             </section>
 
-            <!-- 26: Vytrvalci-pro.digital — biggest build -->
+            <!-- 27: Vytrvalci-pro.digital — biggest build -->
             <section>
                 <div class="stmt-eyebrow emerald">The biggest build ever</div>
                 <h1 class="stmt-mega" style="font-size: 5rem !important;"><span class="accent">vytrvalci-pro.digital</span></h1>
@@ -2915,7 +3015,7 @@
                 <p class="stmt-explain" style="margin-top: 32px;">Jeden dashboard. Real-time. AI agenti pripravujú insights za vás.</p>
             </section>
 
-            <!-- 27: Side effect #1 · cost -->
+            <!-- 28: Side effect #1 · cost -->
             <section>
                 <div class="stmt-eyebrow" style="color: #f59e0b;">⚠️ Side effect #1 · wallet</div>
                 <h1 class="stmt-mega" style="font-size: 4.4rem !important;"><span class="warn-emoji-inline">💸</span> Môže sa to <span class="warn-amber">predražiť</span>.</h1>
@@ -2930,7 +3030,7 @@
                 <p class="warn-joke-big"><strong>claude-4.6-opus-high-thinking</strong> jednoducho stojí. <em>Worth it (väčšinou).</em></p>
             </section>
 
-            <!-- 28: Side effect #2 · time -->
+            <!-- 29: Side effect #2 · time -->
             <section>
                 <div class="stmt-eyebrow" style="color: #ef4444;">⚠️ Side effect #2 · time</div>
                 <h1 class="stmt-mega" style="font-size: 4.4rem !important;"><span class="warn-emoji-inline">🔥</span> Môžete byť <span class="warn-red">pohltení</span>.</h1>
@@ -2945,19 +3045,19 @@
                 <p class="warn-joke-big">Začnete v sobotu, skončíte v utorok ráno. <em>Sleep is for v2.</em></p>
             </section>
 
-            <!-- 29: DONE > PERFECT -->
+            <!-- 30: DONE > PERFECT -->
             <section>
                 <div class="stmt-eyebrow emerald">Mantra</div>
                 <h1 class="stmt-mega done-perfect-mega" style="font-size: 9rem !important;"><span class="accent done-word">DONE</span> <span class="dp-gt">&gt;</span> <span class="perfect-word">PERFECT</span></h1>
                 <p class="stmt-explain">Hotové, vonku, použiteľné.<br>Iterujte. Nevylepšujte donekonečna v sklade.</p>
             </section>
 
-            <!-- 30: Isn't Done a New Perfect? -->
+            <!-- 31: Isn't Done a New Perfect? -->
             <section>
                 <h1 class="stmt-mega isnt-done-mega" style="font-size: 6rem !important;">Isn't <span class="accent isnt-done">Done</span><br>a new <span class="cyan isnt-perfect">Perfect</span>?</h1>
             </section>
 
-            <!-- 31: AI ta nenahradi -->
+            <!-- 32: AI ta nenahradi -->
             <section>
                 <div class="stmt-eyebrow emerald">Reality check · 2026</div>
                 <div class="replacement-wrap">
@@ -2966,7 +3066,7 @@
                 </div>
             </section>
 
-            <!-- 32: Build cheatsheet -->
+            <!-- 33: Build cheatsheet -->
             <section>
                 <div class="stmt-eyebrow cyan">Build cheatsheet</div>
                 <h1 class="stmt-mega" style="font-size: 4.2rem !important;">Ako buildnúť svoju<br><span class="cyan">prvú apku</span> tento víkend.</h1>
@@ -2998,7 +3098,7 @@
                 </div>
             </section>
 
-            <!-- 33: Easy mode · Macaly + Lovable -->
+            <!-- 34: Easy mode · Macaly + Lovable -->
             <section>
                 <div class="stmt-eyebrow" style="color: var(--violet);">💡 Easy mode · pre začiatočníkov</div>
                 <h1 class="stmt-mega" style="font-size: 4.4rem !important;">Cursor / Claude Code je <span class="accent">príliš</span>?<br>Začnite <span class="emerald-gradient">jednoduchšie</span>.</h1>
@@ -3021,7 +3121,7 @@
                 </div>
             </section>
 
-            <!-- 34: Gift — Starter Kit (meta-prompt) -->
+            <!-- 35: Gift — Starter Kit (meta-prompt) -->
             <section>
                 <div class="stmt-eyebrow" style="color: var(--emerald); font-size: 1.4rem;">🎁 Gift · Starter Kit</div>
                 <h1 class="stmt-mega" style="font-size: 4.4rem !important; margin-bottom: 10px;">Vytvorte si svojho<br><span class="accent">prvého AI asistenta</span> za 5 minút.</h1>
@@ -3059,7 +3159,7 @@
                 </div>
             </section>
 
-            <!-- 35: Something big is happening -->
+            <!-- 36: Something big is happening -->
             <section>
                 <div class="stmt-eyebrow emerald">Matt Shumer · viral 80M+ views · Feb 2026</div>
                 <h1 class="stmt-mega"><span class="accent">Something big</span><br>is happening.</h1>
@@ -3086,7 +3186,7 @@
                 </div>
             </section>
 
-            <!-- 36: Q&A -->
+            <!-- 37: Q&A -->
             <section class="qa-slide">
                 <div class="qa-bg"></div>
                 <div class="qa-content">
