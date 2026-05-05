@@ -1456,6 +1456,62 @@
         .cheat-tools { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
         .cheat-tool { font-size: 0.95rem; color: var(--text-muted); padding: 5px 12px; background: rgba(0,0,0,0.04); border-radius: 8px; font-family: 'Geist Mono', monospace; font-weight: 600; }
 
+        /* ─── Easy-mode tip: Macaly / Lovable ─── */
+        .easy-tip {
+            margin: 36px auto 0; max-width: 1500px;
+            padding: 22px 28px;
+            background: linear-gradient(135deg, rgba(124,58,237,0.05), rgba(6,182,212,0.05));
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            display: grid; grid-template-columns: auto 1fr; gap: 28px;
+            align-items: center;
+            box-shadow: var(--card-shadow);
+        }
+        .easy-tip-label {
+            display: flex; flex-direction: column; gap: 6px;
+            min-width: 280px;
+        }
+        .easy-tip-eyebrow {
+            font-size: 0.95rem; font-family: 'Geist Mono', monospace;
+            text-transform: uppercase; letter-spacing: 0.08em;
+            color: var(--violet); font-weight: 700;
+        }
+        .easy-tip-text {
+            font-size: 1.18rem; color: var(--text); font-weight: 600;
+            line-height: 1.35;
+        }
+        .easy-tip-text em {
+            color: var(--text-muted); font-style: italic; font-weight: 500;
+        }
+        .easy-tip-apps {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 18px;
+        }
+        .easy-app {
+            background: #fff;
+            border: 1.5px solid var(--border);
+            border-radius: 14px;
+            padding: 16px 20px;
+            display: flex; align-items: center; gap: 16px;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+            transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+        }
+        .easy-app:hover {
+            transform: translateY(-2px);
+            border-color: var(--violet);
+            box-shadow: 0 8px 22px rgba(124,58,237,0.18);
+        }
+        .easy-app-logo {
+            display: flex; align-items: center; justify-content: center;
+            width: 96px; height: 36px; flex-shrink: 0;
+        }
+        .easy-app-logo img { max-width: 100%; max-height: 100%; object-fit: contain; }
+        .easy-app-info {
+            display: flex; flex-direction: column; gap: 2px;
+            min-width: 0;
+        }
+        .easy-app-name { font-size: 1.18rem; font-weight: 800; color: var(--text); letter-spacing: -0.01em; }
+        .easy-app-tag { font-size: 0.92rem; color: var(--text-muted); font-family: 'Geist Mono', monospace; }
+
         /* ─── Screenshot frame ─── */
         .screenshot-frame {
             border-radius: 16px; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.15);
@@ -2764,6 +2820,28 @@
                         <div class="cheat-title">Deploy</div>
                         <div class="cheat-desc">Hosting na Vercel — všetko free, ideálne na prototyp.</div>
                         <div class="cheat-tools"><span class="cheat-tool">Vercel</span><span class="cheat-tool">GitHub Pages</span></div>
+                    </div>
+                </div>
+                <div class="easy-tip">
+                    <div class="easy-tip-label">
+                        <div class="easy-tip-eyebrow">💡 Easy mode</div>
+                        <div class="easy-tip-text">Pokiaľ je Cursor / Claude Code<br>na vás komplikovaný — <em>skúste:</em></div>
+                    </div>
+                    <div class="easy-tip-apps">
+                        <a class="easy-app" href="https://macaly.com/" target="_blank">
+                            <div class="easy-app-logo"><img src="assets/macaly-logo.svg" alt="Macaly"></div>
+                            <div class="easy-app-info">
+                                <div class="easy-app-name">Macaly</div>
+                                <div class="easy-app-tag">talk · sketch · build</div>
+                            </div>
+                        </a>
+                        <a class="easy-app" href="https://lovable.dev/" target="_blank">
+                            <div class="easy-app-logo"><img src="assets/lovable-logo.svg" alt="Lovable"></div>
+                            <div class="easy-app-info">
+                                <div class="easy-app-name">Lovable</div>
+                                <div class="easy-app-tag">vibe code · ship fast</div>
+                            </div>
+                        </a>
                     </div>
                 </div>
             </section>
