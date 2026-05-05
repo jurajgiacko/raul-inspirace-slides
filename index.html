@@ -4,17 +4,26 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI v praxi — Juraj Giacko | InspiR!ace RAUL</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%2318181b'/><text x='16' y='22' text-anchor='middle' font-family='system-ui' font-size='16' font-weight='700' fill='white'>JG</text></svg>">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Geist+Mono:wght@100..900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg: #000;
-            --text: #fff;
-            --text-secondary: rgba(255,255,255,0.55);
-            --text-muted: rgba(255,255,255,0.3);
-            --accent: #007AFF;
-            --teal: #18AA9D;
+            --bg: #09090b;
+            --surface: #18181b;
+            --border: #27272a;
+            --border-light: #3f3f46;
+            --text: #ffffff;
+            --text-secondary: #a1a1aa;
+            --text-muted: #71717a;
+            --text-faint: #52525b;
+            --violet: #7c3aed;
+            --violet-light: #8b5cf6;
+            --emerald: #10b981;
+            --emerald-light: #34d399;
+            --emerald-dark: #059669;
         }
 
         * { box-sizing: border-box; }
@@ -29,7 +38,7 @@
         }
 
         .reveal {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+            font-family: 'Geist', 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
             font-weight: 400;
         }
 
@@ -69,7 +78,7 @@
         }
 
         .reveal .slide-number {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Geist Mono', 'Geist', monospace;
             font-size: 0.7rem;
             color: var(--text-muted);
             background: none;
@@ -79,11 +88,11 @@
 
         .reveal .progress {
             height: 2px;
-            color: var(--accent);
+            color: var(--emerald);
         }
 
         .reveal .controls {
-            color: rgba(255,255,255,0.15);
+            color: var(--text-faint);
         }
 
         /* ─── Title slide ─── */
@@ -91,16 +100,12 @@
             font-size: 5.5rem !important;
             font-weight: 900 !important;
             letter-spacing: -0.04em;
-            background: linear-gradient(135deg, #fff 0%, rgba(255,255,255,0.8) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
         }
 
         .title-divider {
             width: 60px;
             height: 2px;
-            background: var(--accent);
+            background: var(--emerald);
             margin: 32px auto;
             border: none;
         }
@@ -110,6 +115,7 @@
             color: var(--text-muted) !important;
             font-weight: 400;
             letter-spacing: 0.05em;
+            font-family: 'Geist Mono', monospace;
         }
 
         /* ─── Intro slide ─── */
@@ -123,7 +129,39 @@
             font-size: 1.5rem !important;
             color: var(--text-secondary) !important;
             font-weight: 400;
-            margin-bottom: 40px !important;
+            margin-bottom: 32px !important;
+        }
+
+        .pill-row {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 40px;
+        }
+
+        .pill {
+            padding: 6px 16px;
+            border-radius: 9999px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+        }
+
+        .pill-business {
+            background: var(--surface);
+            color: var(--text);
+            border: 1px solid var(--border);
+        }
+
+        .pill-ai {
+            background: rgba(124, 58, 237, 0.15);
+            color: var(--violet-light);
+            border: 1px solid rgba(124, 58, 237, 0.3);
+        }
+
+        .pill-sport {
+            background: rgba(16, 185, 129, 0.15);
+            color: var(--emerald-light);
+            border: 1px solid rgba(16, 185, 129, 0.3);
         }
 
         .brand-row {
@@ -131,7 +169,7 @@
             align-items: center;
             justify-content: center;
             gap: 48px;
-            margin-top: 16px;
+            margin-top: 8px;
         }
 
         .brand-row img {
@@ -140,14 +178,15 @@
         }
 
         .brand-badge {
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-weight: 700;
             letter-spacing: 0.15em;
             text-transform: uppercase;
-            color: var(--teal);
-            border: 1px solid rgba(24,170,157,0.3);
+            color: #18AA9D;
+            border: 1px solid rgba(24,170,157,0.25);
             padding: 10px 24px;
-            border-radius: 6px;
+            border-radius: 12px;
+            background: rgba(24,170,157,0.08);
         }
 
         /* ─── Career slide ─── */
@@ -164,8 +203,8 @@
             display: flex;
             align-items: baseline;
             justify-content: space-between;
-            padding: 16px 0;
-            border-bottom: 1px solid rgba(255,255,255,0.06);
+            padding: 18px 0;
+            border-bottom: 1px solid var(--border);
         }
 
         .career-item:last-child {
@@ -184,24 +223,26 @@
             font-weight: 400;
             color: var(--text-secondary);
             text-align: right;
+            font-family: 'Geist Mono', monospace;
+            font-size: 0.9rem;
         }
 
         .career-item.current .career-company {
-            color: var(--accent);
+            color: var(--emerald);
         }
 
         .career-item.current {
             border-bottom: none;
             padding-top: 24px;
             margin-top: 8px;
-            border-top: 1px solid rgba(0,122,255,0.3);
+            border-top: 1px solid rgba(16,185,129,0.3);
         }
 
         /* ─── US ventures slide ─── */
         .ventures-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 48px;
+            gap: 32px;
             margin-top: 40px;
             max-width: 800px;
         }
@@ -209,9 +250,9 @@
         .venture-card {
             text-align: left;
             padding: 32px;
-            border-radius: 16px;
-            background: rgba(255,255,255,0.03);
-            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 20px;
+            background: var(--surface);
+            border: 1px solid var(--border);
         }
 
         .venture-flag {
@@ -239,7 +280,7 @@
             gap: 8px;
             margin-top: 16px;
             padding: 8px 16px;
-            border-radius: 8px;
+            border-radius: 10px;
             background: rgba(255,199,0,0.08);
             border: 1px solid rgba(255,199,0,0.2);
             font-size: 0.9rem;
@@ -255,23 +296,34 @@
             line-height: 1.05 !important;
         }
 
-        .oha-main {
+        .statement .highlight {
+            background: linear-gradient(135deg, var(--violet) 0%, var(--emerald) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* ─── OHIO ─── */
+        .ohio-main {
             font-size: 8rem !important;
             font-weight: 900 !important;
             letter-spacing: -0.05em;
-            color: var(--accent) !important;
-            -webkit-text-fill-color: var(--accent);
+            background: linear-gradient(135deg, var(--violet) 0%, var(--emerald) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
-        .oha-sub {
-            font-size: 2rem !important;
+        .ohio-sub {
+            font-size: 1.8rem !important;
             font-weight: 400;
             color: var(--text-secondary) !important;
             margin-top: 16px !important;
-            letter-spacing: 0.08em;
+            letter-spacing: 0.06em;
+            font-family: 'Geist Mono', monospace;
         }
 
-        .oha-explain {
+        .ohio-explain {
             font-size: 1.2rem !important;
             color: var(--text-muted) !important;
             max-width: 600px;
@@ -290,7 +342,7 @@
             display: inline-block;
             width: 3px;
             height: 4rem;
-            background: var(--accent);
+            background: var(--emerald);
             margin-left: 4px;
             animation: blink 1s step-end infinite;
             vertical-align: middle;
@@ -305,13 +357,24 @@
             position: fixed;
             bottom: 20px;
             left: 24px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            z-index: 100;
+            pointer-events: none;
+        }
+
+        .watermark-logo {
+            width: 20px;
+            height: 20px;
+        }
+
+        .watermark-text {
             font-size: 0.7rem;
             color: var(--text-muted);
             font-weight: 400;
-            z-index: 100;
-            pointer-events: none;
             letter-spacing: 0.02em;
-            font-family: 'Inter', sans-serif;
+            font-family: 'Geist Mono', monospace;
         }
 
         /* ─── 12 projects ─── */
@@ -319,7 +382,7 @@
             font-size: 8rem !important;
             font-weight: 900 !important;
             letter-spacing: -0.05em;
-            background: linear-gradient(135deg, var(--accent) 0%, var(--teal) 100%);
+            background: linear-gradient(135deg, var(--violet) 0%, var(--emerald) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -334,15 +397,16 @@
         }
 
         .projects-time {
-            font-size: 1.2rem !important;
+            font-size: 1.1rem !important;
             color: var(--text-secondary) !important;
             margin-top: 8px !important;
+            font-family: 'Geist Mono', monospace;
         }
 
         .projects-list {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
-            gap: 12px 24px;
+            gap: 12px 20px;
             margin-top: 32px;
             max-width: 750px;
         }
@@ -350,10 +414,13 @@
         .project-tag {
             font-size: 0.85rem;
             color: var(--text-muted);
-            padding: 6px 12px;
-            border-radius: 6px;
-            background: rgba(255,255,255,0.04);
+            padding: 8px 14px;
+            border-radius: 10px;
+            background: var(--surface);
+            border: 1px solid var(--border);
             text-align: center;
+            font-family: 'Geist Mono', monospace;
+            font-size: 0.8rem;
         }
 
         /* ─── Thank you ─── */
@@ -372,11 +439,11 @@
 
         .thanks-link {
             font-size: 1rem;
-            color: var(--accent);
+            color: var(--emerald);
             font-weight: 500;
+            font-family: 'Geist Mono', monospace;
         }
 
-        /* ─── More projects note ─── */
         .more-note {
             margin-top: 32px;
             font-size: 1rem;
@@ -385,7 +452,13 @@
     </style>
 </head>
 <body>
-    <div class="watermark">juraj.digital</div>
+    <div class="watermark">
+        <svg class="watermark-logo" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+            <rect width="32" height="32" rx="8" fill="#18181b"/>
+            <text x="16" y="22" text-anchor="middle" font-family="system-ui" font-size="16" font-weight="700" fill="white">JG</text>
+        </svg>
+        <span class="watermark-text">juraj.digital</span>
+    </div>
 
     <div class="reveal">
         <div class="slides">
@@ -394,13 +467,18 @@
             <section>
                 <h1 class="title-main">AI v praxi</h1>
                 <hr class="title-divider">
-                <p class="title-meta">InspiR!ace &times; RAUL &nbsp;&middot;&nbsp; 6. mája 2026</p>
+                <p class="title-meta">InspiR!ace × RAUL · 6. mája 2026</p>
             </section>
 
             <!-- SLIDE 2: Intro -->
             <section>
                 <h2 class="intro-name">Juraj Giacko</h2>
                 <p class="intro-role">Managing Director, VitarSport</p>
+                <div class="pill-row">
+                    <span class="pill pill-business">Business</span>
+                    <span class="pill pill-ai">AI</span>
+                    <span class="pill pill-sport">Sport</span>
+                </div>
                 <div class="brand-row">
                     <img src="assets/enervit-logo-white.svg" alt="Enervit">
                     <div class="brand-badge">Royal Bay</div>
@@ -421,7 +499,7 @@
                     </div>
                     <div class="career-item">
                         <span class="career-company">Reda / Paul Stricker</span>
-                        <span class="career-role">CMO &amp; eCommerce Director</span>
+                        <span class="career-role">CMO & eCommerce Director</span>
                     </div>
                     <div class="career-item">
                         <span class="career-company">GymBeam</span>
@@ -447,7 +525,7 @@
                     <div class="venture-card">
                         <div class="venture-flag">🇺🇸</div>
                         <div class="venture-name">Top Legends</div>
-                        <p class="venture-detail">Zberateľské mince &amp; bankovky<br>Los Angeles &amp; Las Vegas</p>
+                        <p class="venture-detail">Zberateľské mince & bankovky<br>Los Angeles & Las Vegas</p>
                     </div>
                 </div>
                 <p class="more-note">… a mnoho ďalších projektov</p>
@@ -455,7 +533,7 @@
 
             <!-- SLIDE 5: Living in symbiosis -->
             <section>
-                <h1 class="statement">Žiť v symbióze<br>s AI</h1>
+                <h1 class="statement">Žiť v symbióze<br>s <span class="highlight">AI</span></h1>
             </section>
 
             <!-- SLIDE 6: 12 Projects -->
@@ -479,11 +557,11 @@
                 </div>
             </section>
 
-            <!-- SLIDE 7: OHA -->
+            <!-- SLIDE 7: OHIO -->
             <section>
-                <div class="oha-main">OHA</div>
-                <p class="oha-sub">Only Handle It Once</p>
-                <p class="oha-explain">Každý úkon, ktorý robíš opakovane,<br>je príležitosť na automatizáciu.</p>
+                <div class="ohio-main">OHIO</div>
+                <p class="ohio-sub">Only Handle It Once</p>
+                <p class="ohio-explain">Každý úkon, ktorý robíš opakovane,<br>je príležitosť na automatizáciu.</p>
             </section>
 
             <!-- SLIDE 8: Demo time -->
@@ -520,10 +598,6 @@
             margin: 0.04,
             keyboard: true,
             touch: true,
-            loop: false,
-            embedded: false,
-            help: true,
-            autoSlide: 0,
         });
     </script>
 </body>
