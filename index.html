@@ -7,7 +7,7 @@
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%2318181b'/><text x='16' y='22' text-anchor='middle' font-family='system-ui' font-size='16' font-weight='700' fill='white'>JG</text></svg>">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Geist+Mono:wght@100..900&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Geist+Mono:wght@100..900&family=Inter:wght@300;400;500;600;700;800;900&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg: #fafaf9;
@@ -166,23 +166,58 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 56px;
+            gap: 48px;
         }
 
-        .brand-row img {
-            height: 48px;
+        .enervit-box {
+            background: #E30613;
+            border-radius: 16px;
+            padding: 16px 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        .brand-badge {
-            font-size: 1.2rem;
-            font-weight: 700;
-            letter-spacing: 0.12em;
+        .enervit-box img {
+            height: 44px;
+        }
+
+        .rb-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .rb-chevron {
+            width: 40px;
+            height: 40px;
+        }
+
+        .rb-text {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+        }
+
+        .rb-name {
+            font-family: 'Montserrat', 'Geist', sans-serif;
+            font-weight: 800;
+            font-size: 1.4rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--text);
+            line-height: 1.1;
+        }
+
+        .rb-tagline {
+            font-family: 'Montserrat', 'Geist', sans-serif;
+            font-weight: 600;
+            font-size: 0.55rem;
+            letter-spacing: 0.18em;
             text-transform: uppercase;
             color: #18AA9D;
-            border: 2px solid rgba(24,170,157,0.25);
-            padding: 12px 28px;
-            border-radius: 14px;
-            background: rgba(24,170,157,0.06);
+            line-height: 1;
+            margin-top: 3px;
         }
 
         /* ─── Career ─── */
@@ -548,8 +583,19 @@
                     <span class="pill pill-sport">Sport</span>
                 </div>
                 <div class="brand-row">
-                    <img src="assets/enervit-logo-color.svg" alt="Enervit">
-                    <div class="brand-badge">Royal Bay</div>
+                    <div class="enervit-box">
+                        <img src="assets/enervit-logo-white.svg" alt="Enervit">
+                    </div>
+                    <div class="rb-logo">
+                        <svg class="rb-chevron" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+                            <polygon points="0,0 20,20 0,40" fill="#18AA9D"/>
+                            <polygon points="12,0 32,20 12,40" fill="#18AA9D" opacity="0.6"/>
+                        </svg>
+                        <div class="rb-text">
+                            <span class="rb-name">Royal Bay</span>
+                            <span class="rb-tagline">High-Tech Sportswear</span>
+                        </div>
+                    </div>
                 </div>
             </section>
 
@@ -580,8 +626,19 @@
                         <div class="company">VitarSport</div>
                         <div class="role">Managing Director</div>
                     </div>
-                    <img src="assets/enervit-logo-color.svg" alt="Enervit" style="height: 32px;">
-                    <div class="brand-badge" style="font-size: 0.85rem; padding: 8px 16px;">Royal Bay</div>
+                    <div class="enervit-box" style="padding: 10px 18px; border-radius: 12px;">
+                        <img src="assets/enervit-logo-white.svg" alt="Enervit" style="height: 28px;">
+                    </div>
+                    <div class="rb-logo" style="transform: scale(0.75);">
+                        <svg class="rb-chevron" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+                            <polygon points="0,0 20,20 0,40" fill="#18AA9D"/>
+                            <polygon points="12,0 32,20 12,40" fill="#18AA9D" opacity="0.6"/>
+                        </svg>
+                        <div class="rb-text">
+                            <span class="rb-name">Royal Bay</span>
+                            <span class="rb-tagline">High-Tech Sportswear</span>
+                        </div>
+                    </div>
                 </div>
             </section>
 
