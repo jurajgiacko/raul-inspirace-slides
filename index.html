@@ -1456,61 +1456,69 @@
         .cheat-tools { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
         .cheat-tool { font-size: 0.95rem; color: var(--text-muted); padding: 5px 12px; background: rgba(0,0,0,0.04); border-radius: 8px; font-family: 'Geist Mono', monospace; font-weight: 600; }
 
-        /* ─── Easy-mode tip: Macaly / Lovable ─── */
-        .easy-tip {
-            margin: 36px auto 0; max-width: 1500px;
-            padding: 22px 28px;
-            background: linear-gradient(135deg, rgba(124,58,237,0.05), rgba(6,182,212,0.05));
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            display: grid; grid-template-columns: auto 1fr; gap: 28px;
-            align-items: center;
-            box-shadow: var(--card-shadow);
+        /* ─── Easy mode slide: Macaly + Lovable big cards ─── */
+        .easy-apps-big {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 36px;
+            max-width: 1500px; margin: 0 auto; width: 100%;
         }
-        .easy-tip-label {
-            display: flex; flex-direction: column; gap: 6px;
-            min-width: 280px;
-        }
-        .easy-tip-eyebrow {
-            font-size: 0.95rem; font-family: 'Geist Mono', monospace;
-            text-transform: uppercase; letter-spacing: 0.08em;
-            color: var(--violet); font-weight: 700;
-        }
-        .easy-tip-text {
-            font-size: 1.18rem; color: var(--text); font-weight: 600;
-            line-height: 1.35;
-        }
-        .easy-tip-text em {
-            color: var(--text-muted); font-style: italic; font-weight: 500;
-        }
-        .easy-tip-apps {
-            display: grid; grid-template-columns: 1fr 1fr; gap: 18px;
-        }
-        .easy-app {
+        .easy-app-big {
             background: #fff;
             border: 1.5px solid var(--border);
-            border-radius: 14px;
-            padding: 16px 20px;
-            display: flex; align-items: center; gap: 16px;
-            box-shadow: 0 4px 14px rgba(0,0,0,0.06);
-            transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+            border-radius: 22px;
+            padding: 44px 44px 36px;
+            display: flex; flex-direction: column; align-items: flex-start; gap: 14px;
+            box-shadow: 0 14px 36px rgba(0,0,0,0.07);
+            position: relative;
+            overflow: hidden;
+            text-decoration: none;
+            transition: transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s ease, border-color .35s ease;
         }
-        .easy-app:hover {
-            transform: translateY(-2px);
+        .easy-app-big::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+            background: linear-gradient(90deg, var(--violet), #06b6d4, var(--emerald));
+            background-size: 200% 200%;
+            animation: gradientShift 5s ease-in-out infinite;
+        }
+        .easy-app-big:hover {
+            transform: translateY(-6px);
             border-color: var(--violet);
-            box-shadow: 0 8px 22px rgba(124,58,237,0.18);
+            box-shadow: 0 24px 48px rgba(124,58,237,0.22);
         }
-        .easy-app-logo {
-            display: flex; align-items: center; justify-content: center;
-            width: 96px; height: 36px; flex-shrink: 0;
+        .easy-app-big-logo {
+            height: 56px; display: flex; align-items: center;
+            margin-bottom: 4px;
         }
-        .easy-app-logo img { max-width: 100%; max-height: 100%; object-fit: contain; }
-        .easy-app-info {
-            display: flex; flex-direction: column; gap: 2px;
-            min-width: 0;
+        .easy-app-big-logo img { max-height: 100%; max-width: 280px; object-fit: contain; }
+        .easy-app-big-name {
+            font-size: 2.6rem; font-weight: 900; color: var(--text);
+            letter-spacing: -0.025em; line-height: 1;
         }
-        .easy-app-name { font-size: 1.18rem; font-weight: 800; color: var(--text); letter-spacing: -0.01em; }
-        .easy-app-tag { font-size: 0.92rem; color: var(--text-muted); font-family: 'Geist Mono', monospace; }
+        .easy-app-big-tag {
+            font-size: 1.05rem; font-family: 'Geist Mono', monospace;
+            color: var(--violet); font-weight: 700; letter-spacing: 0.04em;
+            text-transform: lowercase;
+        }
+        .easy-app-big-desc {
+            font-size: 1.3rem; color: var(--text-body); line-height: 1.45;
+            margin-top: 8px;
+        }
+        .easy-app-big-cta {
+            margin-top: auto; padding-top: 14px;
+            font-size: 1.1rem; font-family: 'Geist Mono', monospace;
+            color: var(--text); font-weight: 700;
+            display: flex; align-items: center; gap: 4px;
+            transition: gap .25s ease, color .25s ease;
+        }
+        .easy-app-big:hover .easy-app-big-cta {
+            color: var(--violet); gap: 10px;
+        }
+        .emerald-gradient {
+            background: linear-gradient(135deg, var(--emerald), #06b6d4, var(--emerald));
+            background-size: 200% 200%;
+            -webkit-background-clip: text; background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientShift 6s ease-in-out infinite;
+        }
 
         /* ─── Screenshot frame ─── */
         .screenshot-frame {
@@ -2822,31 +2830,32 @@
                         <div class="cheat-tools"><span class="cheat-tool">Vercel</span><span class="cheat-tool">GitHub Pages</span></div>
                     </div>
                 </div>
-                <div class="easy-tip">
-                    <div class="easy-tip-label">
-                        <div class="easy-tip-eyebrow">💡 Easy mode</div>
-                        <div class="easy-tip-text">Pokiaľ je Cursor / Claude Code<br>na vás komplikovaný — <em>skúste:</em></div>
-                    </div>
-                    <div class="easy-tip-apps">
-                        <a class="easy-app" href="https://macaly.com/" target="_blank">
-                            <div class="easy-app-logo"><img src="assets/macaly-logo.svg" alt="Macaly"></div>
-                            <div class="easy-app-info">
-                                <div class="easy-app-name">Macaly</div>
-                                <div class="easy-app-tag">talk · sketch · build</div>
-                            </div>
-                        </a>
-                        <a class="easy-app" href="https://lovable.dev/" target="_blank">
-                            <div class="easy-app-logo"><img src="assets/lovable-logo.svg" alt="Lovable"></div>
-                            <div class="easy-app-info">
-                                <div class="easy-app-name">Lovable</div>
-                                <div class="easy-app-tag">vibe code · ship fast</div>
-                            </div>
-                        </a>
-                    </div>
+            </section>
+
+            <!-- 32: Easy mode · Macaly + Lovable -->
+            <section>
+                <div class="stmt-eyebrow" style="color: var(--violet);">💡 Easy mode · pre začiatočníkov</div>
+                <h1 class="stmt-mega" style="font-size: 4.4rem !important;">Cursor / Claude Code je <span class="accent">príliš</span>?<br>Začnite <span class="emerald-gradient">jednoduchšie</span>.</h1>
+                <p class="stmt-explain" style="margin-bottom: 36px;">Tie isté výsledky, len bez terminálu — popíšte to, načrtnite to, zverejnite. Web aj appka za víkend.</p>
+                <div class="easy-apps-big">
+                    <a class="easy-app-big" href="https://macaly.com/" target="_blank">
+                        <div class="easy-app-big-logo"><img src="assets/macaly-logo.svg" alt="Macaly"></div>
+                        <div class="easy-app-big-name">Macaly</div>
+                        <div class="easy-app-big-tag">talk · sketch · build</div>
+                        <div class="easy-app-big-desc">AI website &amp; app platform. Hovor, nakresli wireframe — a Macaly to postaví.</div>
+                        <div class="easy-app-big-cta">macaly.com ↗</div>
+                    </a>
+                    <a class="easy-app-big" href="https://lovable.dev/" target="_blank">
+                        <div class="easy-app-big-logo"><img src="assets/lovable-logo.svg" alt="Lovable"></div>
+                        <div class="easy-app-big-name">Lovable</div>
+                        <div class="easy-app-big-tag">vibe code · ship fast</div>
+                        <div class="easy-app-big-desc">Napíš čo chceš, dostaneš nasadenú appku. Šitú na rýchle prototypy a launch.</div>
+                        <div class="easy-app-big-cta">lovable.dev ↗</div>
+                    </a>
                 </div>
             </section>
 
-            <!-- 32: Gift — Starter Kit (meta-prompt) -->
+            <!-- 33: Gift — Starter Kit (meta-prompt) -->
             <section>
                 <div class="stmt-eyebrow" style="color: var(--emerald); font-size: 1.4rem;">🎁 Gift · Starter Kit</div>
                 <h1 class="stmt-mega" style="font-size: 4.4rem !important; margin-bottom: 10px;">Vytvorte si svojho<br><span class="accent">prvého AI asistenta</span> za 5 minút.</h1>
@@ -2884,7 +2893,7 @@
                 </div>
             </section>
 
-            <!-- 33: Something big is happening -->
+            <!-- 34: Something big is happening -->
             <section>
                 <div class="stmt-eyebrow emerald">Matt Shumer · viral 80M+ views · Feb 2026</div>
                 <h1 class="stmt-mega"><span class="accent">Something big</span><br>is happening.</h1>
@@ -2911,7 +2920,7 @@
                 </div>
             </section>
 
-            <!-- 34: Q&A -->
+            <!-- 35: Q&A -->
             <section class="qa-slide">
                 <div class="qa-bg"></div>
                 <div class="qa-content">
