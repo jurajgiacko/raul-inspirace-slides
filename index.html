@@ -72,124 +72,171 @@
         .rb-box { height: 72px; display: flex; align-items: center; }
         .rb-box img { height: 52px; }
 
-        /* ─── Pixel Grid (Cesta) ─── */
+        /* ─── Cesta Grid (Silicon Valley clean) ─── */
         .pixel-grid {
             display: grid;
-            grid-template-columns: repeat(12, 1fr);
+            grid-template-columns: repeat(4, 1fr);
             grid-auto-rows: minmax(0, 1fr);
-            gap: 10px;
+            gap: 16px;
             width: 100%;
             max-width: 1800px;
-            margin-top: 20px;
+            margin-top: 16px;
             height: 760px;
         }
         .px {
+            background: #ffffff;
             border-radius: 20px;
-            padding: 28px 32px;
+            padding: 26px 28px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             text-align: left;
             position: relative;
             overflow: hidden;
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255,255,255,0.12);
+            border: 1px solid var(--border);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.05);
         }
-        .px-top { position: relative; z-index: 2; }
-        .px-bottom { position: relative; z-index: 2; }
+        .px::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 4px;
+            background: var(--accent, #71717a);
+        }
+        .px-logo-wrap {
+            height: 52px;
+            display: flex;
+            align-items: center;
+            margin-bottom: 14px;
+        }
+        .px-logo-wrap img {
+            max-height: 100%;
+            max-width: 80%;
+            object-fit: contain;
+        }
+        .px-badge {
+            height: 52px;
+            min-width: 52px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 14px;
+            padding: 0 14px;
+            border-radius: 12px;
+            background: var(--accent);
+            color: white;
+            font-weight: 900;
+            font-size: 1.4rem;
+            letter-spacing: -0.02em;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
         .px-name {
             font-weight: 800;
-            font-size: 2rem;
+            font-size: 1.7rem;
             line-height: 1.1;
-            margin-bottom: 4px;
+            color: var(--text);
+            margin-bottom: 6px;
+            letter-spacing: -0.02em;
         }
         .px-role {
-            font-size: 1.05rem;
-            opacity: 0.9;
+            font-size: 0.95rem;
+            color: var(--text-body);
             font-weight: 500;
-            line-height: 1.35;
+            line-height: 1.4;
+        }
+        .px-bottom-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 14px;
+            gap: 12px;
         }
         .px-flags {
-            font-size: 2.2rem;
-            letter-spacing: 4px;
+            font-size: 1.7rem;
+            letter-spacing: 2px;
+            line-height: 1;
         }
         .px-award {
-            font-size: 0.9rem;
-            margin-top: 6px;
-            padding: 5px 12px;
-            background: rgba(255,255,255,0.15);
-            backdrop-filter: blur(8px);
+            font-size: 0.78rem;
+            padding: 5px 11px;
+            background: rgba(0,0,0,0.05);
             border-radius: 8px;
-            display: inline-block;
             font-weight: 700;
-            width: fit-content;
+            color: var(--text);
+            white-space: nowrap;
+            letter-spacing: 0.02em;
         }
-        .px img.px-logo {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            height: 50%;
-            max-width: 65%;
-            object-fit: contain;
-            opacity: 0.4;
-            filter: brightness(10);
-            z-index: 1;
-        }
-        .px-light { color: #fff; }
 
-        .px-alza { background: rgba(106,170,46,0.5); grid-column: span 3; }
-        .px-exi { background: rgba(30,58,123,0.5); grid-column: span 3; }
-        .px-stricker { background: rgba(192,57,43,0.5); grid-column: span 3; }
-        .px-gymbeam { background: rgba(217,138,8,0.5); grid-column: span 3; }
-        .px-skillandia { background: rgba(125,60,152,0.5); grid-column: span 3; }
-        .px-toplegends { background: rgba(154,114,9,0.5); grid-column: span 3; }
-        .px-lmm { background: rgba(20,48,77,0.55); grid-column: span 3; }
-        .px-fdy { background: rgba(14,140,110,0.5); grid-column: span 3; }
-        .px-puzzle { background: rgba(194,24,91,0.5); grid-column: span 3; }
-        .px-tesla { background: rgba(45,55,72,0.55); grid-column: span 3; }
-        .px-philips { background: rgba(0,75,135,0.55); grid-column: span 3; }
+        .px-alza { --accent: #6aaa2e; }
+        .px-exi { --accent: #1e3a7b; }
+        .px-stricker { --accent: #c0392b; }
+        .px-gymbeam { --accent: #d98a08; }
+        .px-skillandia { --accent: #7d3c98; }
+        .px-toplegends { --accent: #9a7209; }
+        .px-lmm { --accent: #14304d; }
+        .px-fdy { --accent: #0e8c6e; }
+        .px-puzzle { --accent: #c2185b; }
+        .px-tesla { --accent: #2d3748; }
+        .px-philips { --accent: #004b87; }
+        .px-vedici { --accent: #00d97e; }
+
+        /* VitarSport hero tile - VALTRIX style */
         .px-vitar {
-            background: linear-gradient(135deg, #0a0e1a, #141a2e);
+            background: linear-gradient(135deg, #0a0e1a 0%, #141a2e 50%, #1a2240 100%);
             grid-column: 1 / -1;
-            border: 1px solid rgba(6,182,212,0.3);
-            box-shadow: 0 -4px 48px rgba(6,182,212,0.2), inset 0 1px 0 rgba(6,182,212,0.15);
-            min-height: 220px;
+            border: 1px solid rgba(6,182,212,0.25);
+            box-shadow: 0 8px 48px rgba(6,182,212,0.18), inset 0 1px 0 rgba(6,182,212,0.2);
+            min-height: 200px;
             padding: 36px 48px;
             border-radius: 24px;
         }
-        .px-vitar .px-name {
-            background: linear-gradient(135deg, #06b6d4, #22d3ee);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        .px-vitar::before {
+            background: linear-gradient(90deg, transparent, #06b6d4 30%, #22d3ee 50%, #06b6d4 70%, transparent);
+            height: 2px;
         }
-        .px-vitar .px-name { font-size: 4rem; }
-        .px-vitar .px-role { font-size: 1.6rem; opacity: 1; }
         .px-vitar .px-inner {
             display: flex;
             align-items: center;
             justify-content: space-between;
             width: 100%;
             height: 100%;
+            gap: 40px;
         }
-        .px-vitar .px-inner .px-bottom { text-align: left; }
+        .px-vitar .px-name {
+            font-size: 4rem;
+            background: linear-gradient(135deg, #06b6d4, #22d3ee);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 8px;
+        }
+        .px-vitar .px-role {
+            font-size: 1.4rem;
+            color: #94a3b8;
+        }
+        .px-vitar .px-flags {
+            font-size: 1.6rem;
+            margin-left: 6px;
+        }
         .px-vitar .px-brands {
             display: flex;
             align-items: center;
-            gap: 32px;
-            position: relative;
-            z-index: 2;
+            gap: 28px;
+            padding: 18px 26px;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(6,182,212,0.18);
+            border-radius: 16px;
+            backdrop-filter: blur(10px);
         }
         .px-vitar .enervit-mini {
             background: var(--enervit-red);
-            border-radius: 14px;
-            padding: 14px 24px;
+            border-radius: 12px;
+            padding: 12px 22px;
             display: flex;
             align-items: center;
         }
-        .px-vitar .enervit-mini img { height: 52px; }
-        .px-vitar .rb-mini img { height: 56px; filter: brightness(10); }
+        .px-vitar .enervit-mini img { height: 44px; }
+        .px-vitar .rb-mini img { height: 48px; filter: brightness(10); }
 
         /* ─── Statement ─── */
         .statement { font-size: 6rem !important; font-weight: 900 !important; letter-spacing: -0.04em; line-height: 1.05 !important; }
@@ -302,121 +349,139 @@
             <section>
                 <h3>Cesta</h3>
                 <div class="pixel-grid">
-                    <!-- Row 1: Main roles -->
-                    <div class="px px-alza px-light">
-                        <div class="px-top">
-                            <div class="px-flags">🇨🇿 🇸🇰 🇭🇺</div>
-                        </div>
-                        <div class="px-bottom">
+                    <!-- Row 1: Corporate roles -->
+                    <div class="px px-alza">
+                        <div>
+                            <div class="px-logo-wrap"><img src="assets/alza-logo.svg" alt="ALZA"></div>
                             <div class="px-name">ALZA.cz</div>
                             <div class="px-role">Digital Marketing</div>
                         </div>
-                        <img class="px-logo" src="assets/alza-logo.svg" alt="">
-                    </div>
-                    <div class="px px-exi px-light">
-                        <div class="px-top">
-                            <div class="px-flags">🇸🇰 🇨🇿 🇷🇴</div>
+                        <div class="px-bottom-row">
+                            <div class="px-flags">🇨🇿 🇸🇰 🇭🇺</div>
                         </div>
-                        <div class="px-bottom">
+                    </div>
+                    <div class="px px-exi">
+                        <div>
+                            <div class="px-logo-wrap"><img src="assets/exisport-logo.png" alt="EXIsport"></div>
                             <div class="px-name">EXIsport</div>
                             <div class="px-role">eCommerce Director · Expanzia SK → CZ & RO</div>
                         </div>
-                        <img class="px-logo" src="assets/exisport-logo.png" alt="">
-                    </div>
-                    <div class="px px-stricker px-light">
-                        <div class="px-top">
-                            <div class="px-flags">🇨🇿 🇸🇰 🇵🇹 🇧🇷</div>
+                        <div class="px-bottom-row">
+                            <div class="px-flags">🇸🇰 🇨🇿 🇷🇴</div>
                         </div>
-                        <div class="px-bottom">
+                    </div>
+                    <div class="px px-stricker">
+                        <div>
+                            <div class="px-logo-wrap"><img src="assets/stricker-logo.svg" alt="Stricker"></div>
                             <div class="px-name">Reda / Stricker</div>
                             <div class="px-role">CMO & eCommerce Dir. · Digitalizácia PT & BR</div>
                         </div>
-                        <img class="px-logo" src="assets/stricker-logo.svg" alt="">
-                    </div>
-                    <div class="px px-gymbeam px-light">
-                        <div class="px-top">
-                            <div class="px-flags">🇸🇰</div>
+                        <div class="px-bottom-row">
+                            <div class="px-flags">🇨🇿 🇸🇰 🇵🇹 🇧🇷</div>
                         </div>
-                        <div class="px-bottom">
+                    </div>
+                    <div class="px px-gymbeam">
+                        <div>
+                            <div class="px-logo-wrap"><img src="assets/gymbeam-logo.svg" alt="GymBeam"></div>
                             <div class="px-name">GymBeam</div>
                             <div class="px-role">COO · Príprava 1. investičné kolo</div>
                         </div>
-                        <img class="px-logo" src="assets/gymbeam-logo.svg" alt="">
+                        <div class="px-bottom-row">
+                            <div class="px-flags">🇸🇰</div>
+                        </div>
                     </div>
 
-                    <!-- Row 2: Projects & ventures -->
-                    <div class="px px-skillandia px-light">
-                        <div class="px-top">
-                            <div class="px-flags">🇺🇸</div>
-                        </div>
-                        <div class="px-bottom">
+                    <!-- Row 2: Ventures -->
+                    <div class="px px-skillandia">
+                        <div>
+                            <div class="px-badge">SK</div>
                             <div class="px-name">Skillandia</div>
                             <div class="px-role">Startup · Las Vegas</div>
+                        </div>
+                        <div class="px-bottom-row">
+                            <div class="px-flags">🇺🇸</div>
                             <div class="px-award">🥉 Best Customer Care</div>
                         </div>
                     </div>
-                    <div class="px px-toplegends px-light">
-                        <div class="px-top">
-                            <div class="px-flags">🇺🇸</div>
-                        </div>
-                        <div class="px-bottom">
+                    <div class="px px-toplegends">
+                        <div>
+                            <div class="px-badge">TL</div>
                             <div class="px-name">Top Legends</div>
                             <div class="px-role">Memorables · Wayne Gretzky · LA & Las Vegas</div>
                         </div>
-                    </div>
-                    <div class="px px-lmm px-light">
-                        <div class="px-top">
-                            <div class="px-flags">🇫🇷</div>
+                        <div class="px-bottom-row">
+                            <div class="px-flags">🇺🇸</div>
                         </div>
-                        <div class="px-bottom">
+                    </div>
+                    <div class="px px-lmm">
+                        <div>
+                            <div class="px-badge">LMM</div>
                             <div class="px-name">Le Monde de la Mare</div>
                             <div class="px-role">Kaviár · Online predaj</div>
                         </div>
-                    </div>
-                    <div class="px px-fdy px-light">
-                        <div class="px-top">
-                            <div class="px-flags">🇷🇴</div>
+                        <div class="px-bottom-row">
+                            <div class="px-flags">🇫🇷</div>
                         </div>
-                        <div class="px-bottom">
+                    </div>
+                    <div class="px px-fdy">
+                        <div>
+                            <div class="px-badge">FDY</div>
                             <div class="px-name">FDY Capital</div>
                             <div class="px-role">3 fotovoltaické elektrárne</div>
                         </div>
-                    </div>
-                    <div class="px px-puzzle px-light">
-                        <div class="px-top">
-                            <div class="px-flags">🇵🇹</div>
+                        <div class="px-bottom-row">
+                            <div class="px-flags">🇷🇴</div>
                         </div>
-                        <div class="px-bottom">
+                    </div>
+
+                    <!-- Row 3: Recent partnerships -->
+                    <div class="px px-puzzle">
+                        <div>
+                            <div class="px-logo-wrap"><img src="assets/websummit-logo.png" alt="WebSummit"></div>
                             <div class="px-name">Project Puzzle</div>
                             <div class="px-role">Google Ventures Sprint · Alpha @ WebSummit</div>
                         </div>
-                        <img class="px-logo" src="assets/websummit-logo.png" alt="">
+                        <div class="px-bottom-row">
+                            <div class="px-flags">🇵🇹</div>
+                        </div>
                     </div>
-                    <div class="px px-philips px-light">
-                        <div class="px-top">
+                    <div class="px px-philips">
+                        <div>
+                            <div class="px-logo-wrap"><img src="assets/philips-logo.png" alt="Philips"></div>
+                            <div class="px-name">Philips</div>
+                            <div class="px-role">eCommerce · Marketing · Logistika</div>
+                        </div>
+                        <div class="px-bottom-row">
                             <div class="px-flags">🇸🇰 🇧🇬</div>
                         </div>
-                        <div class="px-bottom">
-                            <div class="px-name">Philips</div>
-                            <div class="px-role">eCommerce, Marketing & Logistika</div>
-                        </div>
-                        <img class="px-logo" src="assets/philips-logo.png" alt="">
                     </div>
-                    <div class="px px-tesla px-light">
-                        <div class="px-top">
-                            <div class="px-flags">🇸🇰</div>
-                        </div>
-                        <div class="px-bottom">
+                    <div class="px px-tesla">
+                        <div>
+                            <div class="px-logo-wrap"><img src="assets/tesla-logo.png" alt="Tesla LH"></div>
                             <div class="px-name">Tesla Lipt. Hrádok</div>
                             <div class="px-role">Krízový marketing</div>
                         </div>
-                        <img class="px-logo" src="assets/tesla-logo.png" alt="">
+                        <div class="px-bottom-row">
+                            <div class="px-flags">🇸🇰</div>
+                        </div>
                     </div>
-                    <div class="px px-vitar px-light">
+                    <div class="px px-vedici">
+                        <div>
+                            <div class="px-logo-wrap"><img src="assets/vedici-logo.png" alt="Vedici"></div>
+                            <div class="px-name">Vedici</div>
+                            <div class="px-role">Suplementy pre gamerov</div>
+                        </div>
+                        <div class="px-bottom-row">
+                            <div class="px-flags">🇨🇿 🇸🇰</div>
+                        </div>
+                    </div>
+
+                    <!-- Hero: VitarSport (full width) -->
+                    <div class="px px-vitar">
                         <div class="px-inner">
-                            <div class="px-bottom">
+                            <div>
                                 <div class="px-name">VitarSport →</div>
-                                <div class="px-role">Managing Director · 🇨🇿 🇸🇰</div>
+                                <div class="px-role">Managing Director <span class="px-flags">🇨🇿 🇸🇰</span></div>
                             </div>
                             <div class="px-brands">
                                 <div class="enervit-mini"><img src="assets/enervit-logo-white.svg" alt="Enervit"></div>
