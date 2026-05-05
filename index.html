@@ -457,6 +457,170 @@
             96%, 100% { width: 0; }
         }
 
+        /* ─── Statement / quote slides ─── */
+        .stmt-mega { font-size: 7.5rem !important; font-weight: 900 !important; letter-spacing: -0.04em; line-height: 1.05 !important; }
+        .stmt-mega .accent { background: linear-gradient(135deg, var(--violet), var(--emerald), var(--violet)); background-size: 200% 200%; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; animation: gradientShift 5s ease-in-out infinite; }
+        .stmt-mega .cyan { background: linear-gradient(135deg, #06b6d4, #22d3ee, #06b6d4); background-size: 200% 200%; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; animation: gradientShift 5s ease-in-out infinite; }
+        .stmt-explain { font-size: 1.5rem !important; color: var(--text-body) !important; max-width: 900px; margin-top: 36px !important; line-height: 1.55; }
+        .stmt-eyebrow { font-size: 1rem; color: var(--violet); font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; font-family: 'Geist Mono', monospace; margin-bottom: 24px; }
+        .stmt-eyebrow.cyan { color: #06b6d4; }
+        .stmt-eyebrow.emerald { color: var(--emerald); }
+
+        /* ─── Definition card (high agency dictionary) ─── */
+        .def-card {
+            background: var(--card); border: 1px solid var(--border); border-radius: 24px;
+            box-shadow: var(--card-shadow-lg); padding: 48px 56px; max-width: 800px;
+            text-align: left; margin-top: 40px;
+        }
+        .def-word { font-size: 3.5rem; font-weight: 900; color: var(--text); margin-bottom: 4px; letter-spacing: -0.03em; }
+        .def-pron { font-family: 'Geist Mono', monospace; font-size: 1.1rem; color: var(--text-muted); margin-bottom: 20px; }
+        .def-pos { font-size: 1rem; color: var(--violet); font-style: italic; font-weight: 600; margin-bottom: 16px; }
+        .def-meaning { font-size: 1.4rem; color: var(--text); line-height: 1.5; font-weight: 500; }
+        .def-source { font-size: 0.9rem; color: var(--text-muted); margin-top: 24px; font-family: 'Geist Mono', monospace; padding-top: 20px; border-top: 1px solid var(--border); }
+
+        /* ─── Workflow / pipeline ─── */
+        .pipeline { display: flex; align-items: center; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 48px; max-width: 1500px; }
+        .pipe-step {
+            background: var(--card); border: 1px solid var(--border); border-radius: 18px;
+            padding: 22px 26px; text-align: center; min-width: 180px;
+            box-shadow: var(--card-shadow); position: relative;
+            display: flex; flex-direction: column; align-items: center; gap: 10px;
+        }
+        .pipe-step .pipe-icon { font-size: 2.4rem; line-height: 1; }
+        .pipe-step .pipe-name { font-size: 1.05rem; font-weight: 800; color: var(--text); letter-spacing: -0.01em; }
+        .pipe-step .pipe-sub { font-size: 0.78rem; color: var(--text-muted); font-family: 'Geist Mono', monospace; }
+        .pipe-arrow { font-size: 1.6rem; color: var(--text-faint); font-weight: 300; }
+        .pipe-step.accent {
+            background: linear-gradient(135deg, rgba(124,58,237,0.06), rgba(5,150,105,0.04));
+            border-color: rgba(124,58,237,0.3);
+        }
+
+        /* ─── MCP card grid ─── */
+        .mcp-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; max-width: 1400px; margin-top: 40px; }
+        .mcp-card {
+            background: var(--card); border: 1px solid var(--border); border-radius: 20px;
+            box-shadow: var(--card-shadow-lg); padding: 32px 36px; text-align: left;
+            position: relative; overflow: hidden;
+        }
+        .mcp-card::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+            background: var(--accent, var(--violet));
+        }
+        .mcp-card.outlook { --accent: #0078d4; }
+        .mcp-card.trello { --accent: #0079bf; }
+        .mcp-card.dev { --accent: var(--emerald); }
+        .mcp-card-head { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; }
+        .mcp-icon { width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.6rem; font-weight: 900; background: var(--accent); color: white; }
+        .mcp-name { font-size: 1.6rem; font-weight: 800; color: var(--text); letter-spacing: -0.02em; }
+        .mcp-tag { font-size: 0.85rem; color: var(--text-muted); font-family: 'Geist Mono', monospace; }
+        .mcp-list { list-style: none; padding: 0; margin: 16px 0 0; }
+        .mcp-list li { font-size: 1.05rem; color: var(--text-body); padding: 6px 0; padding-left: 22px; position: relative; }
+        .mcp-list li::before { content: '→'; position: absolute; left: 0; color: var(--accent); font-weight: 800; }
+
+        /* ─── Network / Neural viz (PACT) ─── */
+        .pact-viz { position: relative; width: 720px; height: 460px; margin: 32px auto; }
+        .pact-core {
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            width: 140px; height: 140px; border-radius: 50%;
+            background: radial-gradient(circle, rgba(124,58,237,0.4), rgba(124,58,237,0.05) 70%);
+            border: 2px solid var(--violet);
+            display: flex; align-items: center; justify-content: center;
+            font-weight: 900; font-size: 1.4rem; color: var(--text);
+            box-shadow: 0 0 60px rgba(124,58,237,0.3);
+            animation: pactCore 3.5s ease-in-out infinite;
+            z-index: 5;
+        }
+        @keyframes pactCore {
+            0%, 100% { box-shadow: 0 0 60px rgba(124,58,237,0.3); transform: translate(-50%, -50%) scale(1); }
+            50% { box-shadow: 0 0 100px rgba(124,58,237,0.55); transform: translate(-50%, -50%) scale(1.05); }
+        }
+        .pact-node {
+            position: absolute; padding: 8px 14px; border-radius: 10px;
+            background: var(--card); border: 1px solid var(--border);
+            font-family: 'Geist Mono', monospace; font-size: 0.78rem;
+            color: var(--text-body); font-weight: 600;
+            box-shadow: var(--card-shadow);
+            z-index: 4;
+        }
+        .pact-node.live { border-color: var(--emerald); color: var(--emerald); animation: pulseDot 2.4s ease-in-out infinite; }
+        .pact-node.cyan { border-color: #06b6d4; color: #06b6d4; }
+        .pact-link {
+            position: absolute; height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(124,58,237,0.5), transparent);
+            background-size: 200% 100%;
+            transform-origin: left center;
+            animation: linkSweep 3s ease-in-out infinite;
+            z-index: 1;
+        }
+        @keyframes linkSweep {
+            0%, 100% { background-position: -100% 0; opacity: 0.3; }
+            50% { background-position: 100% 0; opacity: 1; }
+        }
+
+        /* ─── Build showcase card ─── */
+        .build-card {
+            background: var(--card); border: 1px solid var(--border); border-radius: 24px;
+            box-shadow: var(--card-shadow-lg); padding: 36px 44px; max-width: 1100px;
+            text-align: left; margin-top: 24px; position: relative; overflow: hidden;
+        }
+        .build-card::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+            background: linear-gradient(90deg, var(--violet), var(--emerald));
+        }
+        .build-head { display: flex; align-items: baseline; justify-content: space-between; gap: 24px; margin-bottom: 20px; flex-wrap: wrap; }
+        .build-name { font-size: 2.6rem; font-weight: 900; color: var(--text); letter-spacing: -0.02em; line-height: 1.05; }
+        .build-time {
+            display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px;
+            background: rgba(5,150,105,0.08); border: 1px solid rgba(5,150,105,0.25);
+            border-radius: 9999px; font-size: 0.85rem; color: var(--emerald);
+            font-family: 'Geist Mono', monospace; font-weight: 700; white-space: nowrap;
+        }
+        .build-url {
+            display: inline-block; font-size: 1rem; color: #06b6d4;
+            font-family: 'Geist Mono', monospace; margin-bottom: 16px;
+            text-decoration: underline; text-underline-offset: 4px;
+        }
+        .build-bullets { list-style: none; padding: 0; margin: 12px 0 0; }
+        .build-bullets li { font-size: 1.15rem; color: var(--text-body); padding: 8px 0 8px 24px; position: relative; line-height: 1.4; }
+        .build-bullets li::before { content: '✓'; position: absolute; left: 0; color: var(--emerald); font-weight: 900; }
+
+        /* ─── Cheatsheet ─── */
+        .cheatsheet { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; max-width: 1500px; margin-top: 40px; }
+        .cheat-step {
+            background: var(--card); border: 1px solid var(--border); border-radius: 18px;
+            padding: 24px; text-align: left; position: relative;
+            box-shadow: var(--card-shadow);
+        }
+        .cheat-num {
+            font-size: 2.2rem; font-weight: 900; color: var(--violet);
+            font-family: 'Geist Mono', monospace; line-height: 1; margin-bottom: 10px;
+        }
+        .cheat-title { font-size: 1.3rem; font-weight: 800; color: var(--text); letter-spacing: -0.02em; margin-bottom: 8px; }
+        .cheat-desc { font-size: 0.95rem; color: var(--text-body); line-height: 1.4; }
+        .cheat-tools { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+        .cheat-tool { font-size: 0.75rem; color: var(--text-muted); padding: 3px 10px; background: rgba(0,0,0,0.04); border-radius: 6px; font-family: 'Geist Mono', monospace; }
+
+        /* ─── Screenshot frame ─── */
+        .screenshot-frame {
+            border-radius: 16px; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            border: 1px solid var(--border); max-width: 1200px; margin-top: 32px;
+        }
+        .screenshot-frame img { width: 100%; display: block; }
+
+        /* ─── Bookmarks (OHIO) ─── */
+        .bookmarks {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;
+            max-width: 1100px; margin-top: 32px;
+        }
+        .bookmark {
+            background: var(--card); border: 1px solid var(--border); border-radius: 12px;
+            padding: 12px 18px; text-align: left; display: flex; align-items: center; gap: 12px;
+            box-shadow: var(--card-shadow); font-size: 0.95rem; color: var(--text);
+        }
+        .bookmark .bookmark-icon { width: 28px; height: 28px; border-radius: 6px; display: flex; align-items: center; justify-content: center; background: var(--accent, var(--emerald)); color: white; font-weight: 800; font-size: 0.85rem; flex-shrink: 0; }
+        .bookmark-name { font-weight: 700; }
+        .bookmark-domain { font-size: 0.78rem; color: var(--text-muted); font-family: 'Geist Mono', monospace; margin-left: auto; }
+
         /* ─── Slide entrance animations ─── */
         @keyframes fadeUp {
             from { opacity: 0; transform: translateY(24px); }
@@ -824,35 +988,360 @@
                 <h1 class="demo-text"><span class="typewriter" id="podmeText">Poďme na to.</span><span class="demo-cursor"></span></h1>
             </section>
 
-            <!-- 5: 12 Projects -->
+            <!-- 7: 10k iterations -->
             <section>
-                <div class="projects-number">12</div>
-                <p class="projects-label">AI projektov za 6 mesiacov</p>
-                <p class="projects-time">dashboardy · hry · weby · automatizácie · agenti</p>
-                <div class="projects-list">
-                    <div class="project-tag">Performance Hub</div>
-                    <div class="project-tag">Enervit × Jizerská</div>
-                    <div class="project-tag">juraj.digital</div>
-                    <div class="project-tag">Content Engine</div>
-                    <div class="project-tag">PACT System</div>
-                    <div class="project-tag">QR Generátor</div>
-                    <div class="project-tag">Focus Challenge</div>
-                    <div class="project-tag">Fitness Goals</div>
-                    <div class="project-tag">Hawkins Labs</div>
-                    <div class="project-tag">Pivní Secese</div>
-                    <div class="project-tag">Hypo Kalkulačka</div>
-                    <div class="project-tag">Rodinný Sync</div>
+                <div class="stmt-eyebrow">Mindset shift</div>
+                <h1 class="stmt-mega"><span class="accent">10 000</span> iterácií,<br>nie 10 000 hodín.</h1>
+                <p class="stmt-explain">Stará rovnica: 10 000 hodín tréningu = expert.<br>Nová rovnica: 10 000 iterácií s AI = breakthrough.</p>
+            </section>
+
+            <!-- 8: Klučový insight -->
+            <section>
+                <div class="stmt-eyebrow cyan">Kľúčový insight</div>
+                <h1 class="stmt-mega" style="font-size: 4.5rem !important; max-width: 1400px;">Expertíza sa presúva od<br><span class="cyan">„umím to udělat"</span> k<br><span class="cyan">„umím to zadat, zkontrolovat<br>a rozhodnout, kdy AI věřit"</span>.</h1>
+                <p class="stmt-explain">Otvára to dvere ľuďom s doménovou expertízou,<br>ktorí nikdy neboli technickí.</p>
+            </section>
+
+            <!-- 9: High Agency people -->
+            <section>
+                <div class="stmt-eyebrow">Hľadám k sebe</div>
+                <h1 class="stmt-mega"><span class="accent">High agency</span> ľudí.</h1>
+                <div class="def-card">
+                    <div class="def-word">high agency</div>
+                    <div class="def-pron">/haɪ ˈeɪ.dʒən.si/</div>
+                    <div class="def-pos">noun · phrase</div>
+                    <div class="def-meaning">Vlastnosť, vďaka ktorej človek nečaká, kým mu niekto povolí, dovolí alebo presne povie ako. <strong>Vidí cestu, otvorí si dvere — a ide.</strong> Stratégovia, builderi, doers. Nie execution machines.</div>
+                    <div class="def-source">Source: Lenny's Podcast — diskutované ako #1 trait of top performers in AI era</div>
                 </div>
             </section>
 
-            <!-- 6: OHIO -->
+            <!-- 10: There's an AI for that -->
+            <section>
+                <div class="stmt-eyebrow cyan">Realita 2026</div>
+                <h1 class="stmt-mega"><span class="cyan">There's an AI</span><br>for that.</h1>
+                <p class="stmt-explain">Pre takmer každý problem už existuje AI tool.<br>Otázka nie je „existuje?", ale „ktorý vyberiem".</p>
+                <div class="screenshot-frame" style="max-width: 800px; margin-top: 32px;">
+                    <img src="assets/theresanai-screenshot.png" alt="There's an AI for that">
+                </div>
+            </section>
+
+            <!-- 11: Vsetko je len prompt -->
+            <section>
+                <div class="stmt-eyebrow emerald">Mindset</div>
+                <h1 class="stmt-mega">Začnite žiť<br>v <span class="accent">symbióze</span> s AI.</h1>
+                <p class="stmt-explain" style="font-size: 2rem !important; font-weight: 700; color: var(--text) !important;">A pamätajte — <span style="background: linear-gradient(135deg, var(--violet), var(--emerald)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">„všetko je len prompt"</span>.</p>
+            </section>
+
+            <!-- 12: Plaud workflow -->
+            <section>
+                <div class="stmt-eyebrow">Môj osobný workflow</div>
+                <h1 class="stmt-mega" style="font-size: 4.5rem !important;">Z hovoreného slova<br>na <span class="cyan">knowledge base.</span></h1>
+                <div class="pipeline">
+                    <div class="pipe-step"><div class="pipe-icon">🎙️</div><div class="pipe-name">Plaud</div><div class="pipe-sub">recording</div></div>
+                    <div class="pipe-arrow">→</div>
+                    <div class="pipe-step"><div class="pipe-icon">📝</div><div class="pipe-name">Transcript</div><div class="pipe-sub">raw text</div></div>
+                    <div class="pipe-arrow">→</div>
+                    <div class="pipe-step accent"><div class="pipe-icon">🧹</div><div class="pipe-name">Cursor</div><div class="pipe-sub">cleanup · structure</div></div>
+                    <div class="pipe-arrow">→</div>
+                    <div class="pipe-step accent"><div class="pipe-icon">🧠</div><div class="pipe-name">Knowledge Base</div><div class="pipe-sub">JG2026 / VitarSport</div></div>
+                    <div class="pipe-arrow">→</div>
+                    <div class="pipe-step"><div class="pipe-icon">🎯</div><div class="pipe-name">Manager Feedback</div><div class="pipe-sub">pre mňa, autom.</div></div>
+                </div>
+            </section>
+
+            <!-- 13: Choose AI-connectable tools -->
+            <section>
+                <div class="stmt-eyebrow cyan">Tool selection</div>
+                <h1 class="stmt-mega" style="font-size: 4.8rem !important;">Vyberajte si nástroje,<br>ktoré sa dajú <span class="cyan">napojiť na AI.</span></h1>
+                <p class="stmt-explain">API · MCP · Webhooky · Public access.<br>Bez napojenia = AI nemôže pracovať za vás.</p>
+                <div class="pipeline" style="margin-top: 32px;">
+                    <div class="pipe-step"><div class="pipe-icon">🌐</div><div class="pipe-name">API</div><div class="pipe-sub">REST · GraphQL</div></div>
+                    <div class="pipe-step"><div class="pipe-icon">🔌</div><div class="pipe-name">MCP</div><div class="pipe-sub">Model Context Protocol</div></div>
+                    <div class="pipe-step"><div class="pipe-icon">🔗</div><div class="pipe-name">Webhooks</div><div class="pipe-sub">events · triggers</div></div>
+                    <div class="pipe-step"><div class="pipe-icon">📂</div><div class="pipe-name">File access</div><div class="pipe-sub">read · write · sync</div></div>
+                </div>
+            </section>
+
+            <!-- 14: MCP showcase -->
+            <section>
+                <div class="stmt-eyebrow">Reálne use cases · MCP servery</div>
+                <h1 class="stmt-mega" style="font-size: 4.2rem !important;">AI <span class="accent">vstúpilo</span> do mojich nástrojov.</h1>
+                <div class="mcp-grid">
+                    <div class="mcp-card outlook">
+                        <div class="mcp-card-head">
+                            <div class="mcp-icon">📧</div>
+                            <div>
+                                <div class="mcp-name">Outlook MCP</div>
+                                <div class="mcp-tag">email · meetings · calendar</div>
+                            </div>
+                        </div>
+                        <ul class="mcp-list">
+                            <li>Zhrnutie dňa — čo prišlo, čo je dôležité</li>
+                            <li>Priprav drafty odpovedí podľa kontextu</li>
+                            <li>Naviaž meetingy na projekty automaticky</li>
+                        </ul>
+                    </div>
+                    <div class="mcp-card trello">
+                        <div class="mcp-card-head">
+                            <div class="mcp-icon">📋</div>
+                            <div>
+                                <div class="mcp-name">Trello MCP</div>
+                                <div class="mcp-tag">daily summary</div>
+                            </div>
+                        </div>
+                        <ul class="mcp-list">
+                            <li>Zhrnutie čo sa udialo za deň naprieč boardami</li>
+                            <li>Status update bez ručného clickania</li>
+                            <li>Aktivita členov tímu, blockery</li>
+                        </ul>
+                    </div>
+                    <div class="mcp-card dev" style="grid-column: 1 / -1;">
+                        <div class="mcp-card-head">
+                            <div class="mcp-icon">⚡</div>
+                            <div>
+                                <div class="mcp-name">Trello MCP — Dev environment</div>
+                                <div class="mcp-tag">build tracking · roadmap</div>
+                            </div>
+                        </div>
+                        <ul class="mcp-list">
+                            <li>Zaznamenávame všetky buildy ktoré vytvárame s AI</li>
+                            <li>Cursor číta board → vie čo robiť ďalej</li>
+                            <li>Roadmap, priorities, výsledky — jeden zdroj pravdy</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 15: PACT - Druhy mozog -->
+            <section>
+                <div class="stmt-eyebrow">Môj druhý mozog</div>
+                <h1 class="stmt-mega" style="font-size: 5rem !important;"><span class="accent">PACT</span> — moje<br>second brain.</h1>
+                <div class="pact-viz">
+                    <div class="pact-core">PACT</div>
+                    <!-- Nodes around the core -->
+                    <div class="pact-node live" style="top: 8%; left: 20%;">JG2026</div>
+                    <div class="pact-node live" style="top: 4%; left: 50%; transform: translateX(-50%);">VitarSport</div>
+                    <div class="pact-node live" style="top: 8%; right: 20%;">Family</div>
+                    <div class="pact-node cyan" style="top: 38%; left: 4%;">Goals</div>
+                    <div class="pact-node cyan" style="top: 38%; right: 4%;">Health</div>
+                    <div class="pact-node cyan" style="bottom: 38%; left: 4%;">Builds</div>
+                    <div class="pact-node cyan" style="bottom: 38%; right: 4%;">Ideas</div>
+                    <div class="pact-node" style="bottom: 8%; left: 20%;">Meetings</div>
+                    <div class="pact-node" style="bottom: 4%; left: 50%; transform: translateX(-50%);">Learnings</div>
+                    <div class="pact-node" style="bottom: 8%; right: 20%;">Reviews</div>
+                    <!-- Connection lines (visual) -->
+                    <div class="pact-link" style="top: 50%; left: 50%; width: 280px; transform: translate(-50%, -50%) rotate(0deg);"></div>
+                    <div class="pact-link" style="top: 50%; left: 50%; width: 280px; transform: translate(-50%, -50%) rotate(45deg);"></div>
+                    <div class="pact-link" style="top: 50%; left: 50%; width: 280px; transform: translate(-50%, -50%) rotate(90deg);"></div>
+                    <div class="pact-link" style="top: 50%; left: 50%; width: 280px; transform: translate(-50%, -50%) rotate(135deg);"></div>
+                </div>
+                <p class="stmt-explain" style="font-size: 1.2rem !important;">Štruktúrovaný kontext o všetkom čo robím — Cursor v ňom premýšľa a stavia za mňa.</p>
+            </section>
+
+            <!-- 16: Prompt engineering is dead -->
+            <section>
+                <div class="stmt-eyebrow emerald">Mindset 2026</div>
+                <h1 class="stmt-mega"><span class="accent">Prompt engineering</span><br>už neexistuje.</h1>
+                <p class="stmt-explain">Nemusíte písať prompty. Stačí ukázať, opýtať sa, hovoriť.</p>
+                <div class="pipeline" style="margin-top: 40px;">
+                    <div class="pipe-step"><div class="pipe-icon">🖼️</div><div class="pipe-name">Pinterest</div><div class="pipe-sub">screenshot</div></div>
+                    <div class="pipe-arrow">→</div>
+                    <div class="pipe-step"><div class="pipe-icon">🎙️</div><div class="pipe-name">Whispr Flow</div><div class="pipe-sub">voice → text</div></div>
+                    <div class="pipe-arrow">→</div>
+                    <div class="pipe-step accent"><div class="pipe-icon">🤖</div><div class="pipe-name">Claude / GPT</div><div class="pipe-sub">napíš MJ prompt</div></div>
+                    <div class="pipe-arrow">→</div>
+                    <div class="pipe-step"><div class="pipe-icon">🎨</div><div class="pipe-name">Midjourney</div><div class="pipe-sub">paste · render</div></div>
+                </div>
+            </section>
+
+            <!-- 17: OHIO -->
             <section>
                 <div class="ohio-main">OHIO</div>
                 <p class="ohio-sub">Only Handle It Once</p>
                 <p class="ohio-explain">Každý úkon, ktorý robíš opakovane,<br>je príležitosť na automatizáciu.</p>
+                <div class="bookmarks">
+                    <div class="bookmark"><div class="bookmark-icon">📧</div><div><div class="bookmark-name">Inbox triage</div></div><div class="bookmark-domain">outlook</div></div>
+                    <div class="bookmark"><div class="bookmark-icon" style="background: #06b6d4;">📋</div><div><div class="bookmark-name">Daily standup</div></div><div class="bookmark-domain">trello</div></div>
+                    <div class="bookmark"><div class="bookmark-icon" style="background: var(--violet);">🎯</div><div><div class="bookmark-name">Weekly review</div></div><div class="bookmark-domain">PACT</div></div>
+                    <div class="bookmark"><div class="bookmark-icon" style="background: var(--enervit-red);">📊</div><div><div class="bookmark-name">Sales reports</div></div><div class="bookmark-domain">enervit</div></div>
+                    <div class="bookmark"><div class="bookmark-icon" style="background: #d98a08;">📦</div><div><div class="bookmark-name">Inventory check</div></div><div class="bookmark-domain">vitarsport</div></div>
+                    <div class="bookmark"><div class="bookmark-icon" style="background: #c2185b;">📅</div><div><div class="bookmark-name">Event prep</div></div><div class="bookmark-domain">jiz50 · road classics</div></div>
+                </div>
             </section>
 
-            <!-- 8: Q&A -->
+            <!-- 18: Build — 126 bannerov -->
+            <section>
+                <div class="stmt-eyebrow">Build #1 · Marketing automation</div>
+                <div class="build-card" style="margin-top: 8px;">
+                    <div class="build-head">
+                        <div class="build-name">126 bannerov<br>pre Outlet kampaň</div>
+                        <div class="build-time">⚡ 1st draft 20min · FINAL 2h</div>
+                    </div>
+                    <ul class="build-bullets">
+                        <li>Vygenerovanie 126 bannerov pre A/B test Royal Bay</li>
+                        <li>Definovanie layoutu a brandmanualu v JSON</li>
+                        <li>Automatizácia na rôzne formáty a varianty</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- 19: Build — Sales prezentacie -->
+            <section>
+                <div class="stmt-eyebrow">Build #2 · Sales</div>
+                <div class="build-card" style="margin-top: 8px;">
+                    <div class="build-head">
+                        <div class="build-name">Generátor obchodných<br>prezentácií</div>
+                        <div class="build-time">⚡ 1st draft 2h · FINAL 2MD</div>
+                    </div>
+                    <a class="build-url">slides.enervit.online</a>
+                    <ul class="build-bullets">
+                        <li>Generovanie sales prezentácií pre jednotlivých sales reps</li>
+                        <li>Vytvorenie jedinečnej URL s ponukou a kontaktom</li>
+                        <li>Analytika otvorení a interakcií</li>
+                        <li>Ušetrené hodiny príprav a unifikovaný nástroj — slidy online</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- 20: Build — Edukacna hra -->
+            <section>
+                <div class="stmt-eyebrow">Build #3 · Marketing campaign</div>
+                <div class="build-card" style="margin-top: 8px;">
+                    <div class="build-head">
+                        <div class="build-name">Edukačná hra<br>ako kampaň</div>
+                        <div class="build-time">⚡ 1st draft 20min · FINAL ½ MD</div>
+                    </div>
+                    <a class="build-url">jiz50.enervit.online</a>
+                    <ul class="build-bullets">
+                        <li>90's feel hra · edukácia k produktom a správnej suplementácii</li>
+                        <li>Zľavový kód na nákup a registrácia k newsletteru</li>
+                        <li>Analytika hráčov a engagement metriky</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- 21: Build — QR generator -->
+            <section>
+                <div class="stmt-eyebrow">Build #4 · Internal tool</div>
+                <div class="build-card" style="margin-top: 8px;">
+                    <div class="build-head">
+                        <div class="build-name">QR kód generátor<br>s logom + analytika</div>
+                        <div class="build-time">⚡ 1st draft 20min · FINAL 3h</div>
+                    </div>
+                    <a class="build-url">qrkod.enervit.online</a>
+                    <ul class="build-bullets">
+                        <li>Generovanie QR kódov pre kampane</li>
+                        <li>Pridanie loga do QR + zmena farby (brandované)</li>
+                        <li>Analytika k existujúcim QR kódom</li>
+                        <li>Ušetrenie niekoľko 100 $ za licenciu podobného toolu</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- 22: Build — Event landing + full process -->
+            <section>
+                <div class="stmt-eyebrow cyan">Build #5 · Event infrastructure</div>
+                <div class="build-card" style="margin-top: 8px;">
+                    <div class="build-head">
+                        <div class="build-name">Event landingpage<br>+ celý event proces</div>
+                        <div class="build-time">⚡ 1st draft 1.5h · FINAL 1MD</div>
+                    </div>
+                    <a class="build-url">event.enervit.online</a>
+                    <ul class="build-bullets">
+                        <li>Landing page s registráciou a programom</li>
+                        <li>Airtable backbone — zoradenie eventov, tímy, materiál</li>
+                        <li>Evidencia materiálov, partnerstiev, sponzorov</li>
+                        <li>Semi-automatický email systém — pred / počas / po evente</li>
+                        <li>Postup = playbook pre Jizerská 50 · Road Classics · ďalšie</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- 23: Build — RoyalBay product layout -->
+            <section>
+                <div class="stmt-eyebrow">Build #6 · eCommerce strategy</div>
+                <div class="build-card" style="margin-top: 8px;">
+                    <div class="build-head">
+                        <div class="build-name">Produktové rozloženie<br>pre Royal Bay</div>
+                        <div class="build-time">⚡ 1st draft 3h · FINAL 2MD</div>
+                    </div>
+                    <a class="build-url">jurajgiacko.github.io/royalbay-shopify/category-planner</a>
+                    <ul class="build-bullets">
+                        <li>Stiahnutie / scrape konkurenčných webov a zahraničných hráčov</li>
+                        <li>Zákaznícke správanie z Microsoft Clarity</li>
+                        <li>Export produktových kariet z aktuálneho eshopu</li>
+                        <li>Finálny návrh rozloženia + zaradenia produktov + filtrácie + SEO zadanie</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- 24: Vytrvalci-pro.digital — biggest build -->
+            <section>
+                <div class="stmt-eyebrow emerald">The biggest build ever</div>
+                <h1 class="stmt-mega" style="font-size: 5rem !important;"><span class="accent">vytrvalci-pro.digital</span></h1>
+                <p class="stmt-explain" style="font-size: 1.6rem !important; font-weight: 600; color: var(--text) !important;">Manažérsky prehľad, s ktorým uriadime celú firmu.</p>
+                <div class="pipeline" style="margin-top: 32px; max-width: 1500px;">
+                    <div class="pipe-step accent"><div class="pipe-icon">📊</div><div class="pipe-name">Sales</div><div class="pipe-sub">B2B · D2C · channels</div></div>
+                    <div class="pipe-step accent"><div class="pipe-icon">📦</div><div class="pipe-name">Inventory</div><div class="pipe-sub">stock · forecasting</div></div>
+                    <div class="pipe-step accent"><div class="pipe-icon">🎯</div><div class="pipe-name">Marketing</div><div class="pipe-sub">campaigns · ROAS</div></div>
+                    <div class="pipe-step accent"><div class="pipe-icon">🏃</div><div class="pipe-name">Events</div><div class="pipe-sub">JIZ50 · Road Classics</div></div>
+                    <div class="pipe-step accent"><div class="pipe-icon">👥</div><div class="pipe-name">Team</div><div class="pipe-sub">activity · ownership</div></div>
+                </div>
+                <p class="stmt-explain" style="margin-top: 32px;">Jeden dashboard. Real-time. AI agenti pripravujú insights za vás.</p>
+            </section>
+
+            <!-- 25: DONE > PERFECT -->
+            <section>
+                <div class="stmt-eyebrow emerald">Mantra</div>
+                <h1 class="stmt-mega" style="font-size: 9rem !important;"><span class="accent">DONE</span> &gt; <span style="color: var(--text-faint);">PERFECT</span></h1>
+                <p class="stmt-explain">Hotové, vonku, použiteľné.<br>Iterujte. Nevylepšujte donekonečna v sklade.</p>
+            </section>
+
+            <!-- 26: Build cheatsheet -->
+            <section>
+                <div class="stmt-eyebrow cyan">Build cheatsheet</div>
+                <h1 class="stmt-mega" style="font-size: 4.2rem !important;">Ako buildnúť svoju<br><span class="cyan">prvú apku</span> tento víkend.</h1>
+                <div class="cheatsheet">
+                    <div class="cheat-step">
+                        <div class="cheat-num">01</div>
+                        <div class="cheat-title">PRD</div>
+                        <div class="cheat-desc">Vykomunikujte si product requirement document s LLM toolom.</div>
+                        <div class="cheat-tools"><span class="cheat-tool">ChatGPT</span><span class="cheat-tool">Claude</span></div>
+                    </div>
+                    <div class="cheat-step">
+                        <div class="cheat-num">02</div>
+                        <div class="cheat-title">Build</div>
+                        <div class="cheat-desc">Buildnite v Cursor alebo Claude Code podľa PRD.</div>
+                        <div class="cheat-tools"><span class="cheat-tool">Cursor</span><span class="cheat-tool">Claude Code</span></div>
+                    </div>
+                    <div class="cheat-step">
+                        <div class="cheat-num">03</div>
+                        <div class="cheat-title">Version</div>
+                        <div class="cheat-desc">Vytvorte si lokálne git alebo GitHub repository.</div>
+                        <div class="cheat-tools"><span class="cheat-tool">git</span><span class="cheat-tool">GitHub</span></div>
+                    </div>
+                    <div class="cheat-step">
+                        <div class="cheat-num">04</div>
+                        <div class="cheat-title">Deploy</div>
+                        <div class="cheat-desc">Hosting na Vercel — všetko free, ideálne na prototyp.</div>
+                        <div class="cheat-tools"><span class="cheat-tool">Vercel</span><span class="cheat-tool">GitHub Pages</span></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 27: Isn't Done a New Perfect? -->
+            <section>
+                <h1 class="stmt-mega" style="font-size: 6rem !important;">Isn't <span class="accent">Done</span><br>a new <span class="cyan">Perfect</span>?</h1>
+            </section>
+
+            <!-- 28: Something big is happening -->
+            <section>
+                <div class="stmt-eyebrow emerald">Closing thought</div>
+                <h1 class="stmt-mega"><span class="accent">Something big</span><br>is happening.</h1>
+                <p class="stmt-explain" style="font-size: 1.6rem !important;">Sme prvá generácia ktorá má neobmedzeného mentora,<br>builderra, asistenta — všetko v jednej vete.<br><br><strong style="color: var(--text);">Otázka už nie je „kedy začať".</strong></p>
+            </section>
+
+            <!-- Q&A -->
             <section>
                 <h2 style="font-size: 4.5rem;">Otázky?</h2>
                 <p class="thanks-name">Juraj Giacko</p>
