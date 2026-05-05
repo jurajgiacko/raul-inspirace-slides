@@ -76,12 +76,12 @@
         .pixel-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            grid-auto-rows: minmax(0, 1fr);
+            grid-template-rows: repeat(3, 1fr) auto;
             gap: 16px;
             width: 100%;
             max-width: 1800px;
             margin-top: 16px;
-            height: 760px;
+            height: 820px;
         }
         .px {
             background: #ffffff;
@@ -148,19 +148,21 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            margin-top: 14px;
-            gap: 12px;
+            margin-top: 16px;
+            gap: 10px;
+            flex-wrap: wrap;
         }
         .px-flags {
-            font-size: 1.7rem;
-            letter-spacing: 2px;
+            font-size: 2rem;
+            letter-spacing: 3px;
             line-height: 1;
+            display: inline-block;
         }
         .px-award {
-            font-size: 0.78rem;
-            padding: 5px 11px;
+            font-size: 0.72rem;
+            padding: 4px 9px;
             background: rgba(0,0,0,0.05);
-            border-radius: 8px;
+            border-radius: 6px;
             font-weight: 700;
             color: var(--text);
             white-space: nowrap;
@@ -235,8 +237,15 @@
             display: flex;
             align-items: center;
         }
-        .px-vitar .enervit-mini img { height: 44px; }
-        .px-vitar .rb-mini img { height: 48px; filter: brightness(10); }
+        .px-vitar .enervit-mini img { height: 48px; }
+        .px-vitar .rb-mini {
+            background: rgba(255,255,255,0.95);
+            border-radius: 12px;
+            padding: 12px 22px;
+            display: flex;
+            align-items: center;
+        }
+        .px-vitar .rb-mini img { height: 44px; }
 
         /* ─── Statement ─── */
         .statement { font-size: 6rem !important; font-weight: 900 !important; letter-spacing: -0.04em; line-height: 1.05 !important; }
