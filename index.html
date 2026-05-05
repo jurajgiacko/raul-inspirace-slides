@@ -423,11 +423,22 @@
             0%, 100% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
         }
-        .tenx-tag {
-            font-size: 2rem !important; font-weight: 600 !important; color: var(--text) !important;
-            margin-top: 16px !important; letter-spacing: -0.01em;
+        .tenx-think {
+            font-size: 5.6rem; font-weight: 800; letter-spacing: -0.03em;
+            line-height: 1; margin-top: 6px;
+            background: linear-gradient(135deg, var(--text), var(--violet) 60%, var(--text));
+            background-size: 200% 200%;
+            -webkit-background-clip: text; background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientShift 6s ease-in-out infinite;
+            font-style: italic;
         }
-        .tenx-tag .ai { color: var(--violet); font-weight: 800; }
+        .tenx-tag {
+            font-size: 1.9rem !important; font-weight: 600 !important; color: var(--text-body) !important;
+            margin-top: 18px !important; letter-spacing: -0.01em;
+            font-family: 'Geist Mono', monospace;
+        }
+        .tenx-tag .ai { color: var(--violet); font-weight: 800; font-family: var(--font-sans); font-style: italic; }
         .tenx-equation {
             font-family: 'Geist Mono', monospace; font-size: 1.9rem; color: var(--text-body);
             margin-top: 36px; letter-spacing: 0.04em; font-weight: 500;
@@ -2036,6 +2047,7 @@
             <section>
                 <div class="vision-eyebrow">Aby sme to dosiahli</div>
                 <div class="tenx-main">10×</div>
+                <div class="tenx-think">thinking</div>
                 <p class="tenx-tag">unlocked <span class="ai">s AI</span></p>
                 <p class="tenx-equation">1× Juraj  ×  AI  =  <span class="infinity">∞</span></p>
             </section>
