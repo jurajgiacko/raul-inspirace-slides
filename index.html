@@ -1262,6 +1262,105 @@
             color: var(--violet); font-style: italic; font-weight: 700;
         }
 
+        /* ─── Side effect FULL screenshot slides ─── */
+        .warn-emoji-inline {
+            display: inline-block;
+            animation: warnEmoji 2.4s ease-in-out infinite;
+            margin-right: 8px;
+        }
+        .warn-amber {
+            background: linear-gradient(135deg, #f59e0b, #fbbf24, #f59e0b);
+            background-size: 200% 200%;
+            -webkit-background-clip: text; background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientShift 5s ease-in-out infinite, glowPulseAmber 4s ease-in-out infinite;
+        }
+        .warn-red {
+            background: linear-gradient(135deg, #ef4444, #f97316, #ef4444);
+            background-size: 200% 200%;
+            -webkit-background-clip: text; background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientShift 5s ease-in-out infinite, glowPulseRed 4s ease-in-out infinite;
+        }
+        @keyframes glowPulseAmber {
+            0%, 100% { filter: drop-shadow(0 0 0 transparent); }
+            50% { filter: drop-shadow(0 0 28px rgba(245,158,11,0.55)); }
+        }
+        @keyframes glowPulseRed {
+            0%, 100% { filter: drop-shadow(0 0 0 transparent); }
+            50% { filter: drop-shadow(0 0 28px rgba(239,68,68,0.55)); }
+        }
+        .warn-fullshot {
+            border-radius: 16px; overflow: hidden;
+            border: 2px solid var(--border);
+            background: #0a0e1a;
+            max-width: 1500px; margin: 22px auto 0;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.22);
+            position: relative;
+            animation: warnFloat 5s ease-in-out infinite;
+        }
+        .warn-fullshot::before {
+            content: ''; position: absolute; inset: -1px; pointer-events: none;
+            border-radius: 16px;
+            background: var(--warn-glow, transparent);
+            mix-blend-mode: screen;
+            opacity: 0.5;
+            animation: warnGlow 3.5s ease-in-out infinite;
+        }
+        .warn-fullshot-amber {
+            border-color: rgba(245,158,11,0.5);
+            box-shadow: 0 20px 60px rgba(245,158,11,0.18), 0 4px 14px rgba(0,0,0,0.2);
+            --warn-glow: radial-gradient(circle at 50% 50%, rgba(245,158,11,0.18), transparent 60%);
+        }
+        .warn-fullshot-red {
+            border-color: rgba(239,68,68,0.5);
+            box-shadow: 0 20px 60px rgba(239,68,68,0.18), 0 4px 14px rgba(0,0,0,0.2);
+            --warn-glow: radial-gradient(circle at 50% 50%, rgba(239,68,68,0.18), transparent 60%);
+        }
+        @keyframes warnFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-6px); }
+        }
+        @keyframes warnGlow {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.7; }
+        }
+        .warn-fullshot img { width: 100%; display: block; }
+        .warn-stats-row {
+            display: flex; justify-content: center; gap: 56px;
+            margin-top: 28px;
+            max-width: 1200px;
+        }
+        .warn-stat-big {
+            display: flex; flex-direction: column; align-items: center; gap: 4px;
+        }
+        .warn-stat-num-big {
+            font-size: 3.4rem; font-weight: 900; color: var(--text);
+            font-family: 'Geist Mono', monospace;
+            letter-spacing: -0.02em; line-height: 1;
+        }
+        .warn-stat-num-big.amber { color: #f59e0b; text-shadow: 0 0 24px rgba(245,158,11,0.35); }
+        .warn-stat-num-big.emerald { color: var(--emerald); text-shadow: 0 0 24px rgba(5,150,105,0.35); }
+        .warn-stat-label-big {
+            font-size: 1.05rem; color: var(--text-muted);
+            font-family: 'Geist Mono', monospace;
+            letter-spacing: 0.04em;
+        }
+        .warn-joke-big {
+            font-size: 1.45rem; color: var(--text-body);
+            font-style: italic; line-height: 1.4;
+            margin-top: 22px;
+            max-width: 1100px;
+        }
+        .warn-joke-big strong {
+            font-style: normal; font-family: 'Geist Mono', monospace;
+            color: var(--text); font-weight: 700;
+            background: rgba(0,0,0,0.04); padding: 2px 8px; border-radius: 5px;
+        }
+        .warn-joke-big em {
+            color: var(--violet); font-style: italic; font-weight: 700;
+        }
+
         /* ─── "AI ta nenahradi" punchline slide ─── */
         .replacement-wrap { display: flex; flex-direction: column; align-items: center; gap: 12px; }
         .rep-myth {
@@ -2574,64 +2673,49 @@
                 <p class="stmt-explain" style="margin-top: 32px;">Jeden dashboard. Real-time. AI agenti pripravujú insights za vás.</p>
             </section>
 
-            <!-- 26: Side effects · warning fun -->
+            <!-- 26: Side effect #1 · cost -->
             <section>
-                <div class="stmt-eyebrow" style="color: #f59e0b;">⚠️ Side effects · real talk</div>
-                <h1 class="stmt-mega" style="font-size: 4.4rem !important;">Pozor — má to <span class="accent">vedľajšie účinky</span>.</h1>
-                <div class="warning-grid">
-                    <div class="warning-card warn-cost">
-                        <div class="warn-head">
-                            <div class="warn-emoji">💸</div>
-                            <div>
-                                <div class="warn-title">Môže sa to predražiť</div>
-                                <div class="warn-tag">side effect #1 · wallet</div>
-                            </div>
-                        </div>
-                        <div class="warn-screenshot">
-                            <img src="assets/cursor-spend.png" alt="Cursor spend February">
-                        </div>
-                        <div class="warn-stats">
-                            <div class="warn-stat"><span class="warn-stat-num">$720</span><span class="warn-stat-label">Feb 2026 · Cursor</span></div>
-                            <div class="warn-stat"><span class="warn-stat-num">$580</span><span class="warn-stat-label">included plan</span></div>
-                            <div class="warn-stat"><span class="warn-stat-num amber">$140</span><span class="warn-stat-label">on-demand 🥲</span></div>
-                        </div>
-                        <div class="warn-joke">claude-4.6-opus-high-thinking jednoducho stojí. Worth it (väčšinou).</div>
-                    </div>
-
-                    <div class="warning-card warn-burn">
-                        <div class="warn-head">
-                            <div class="warn-emoji">🔥</div>
-                            <div>
-                                <div class="warn-title">Môžete byť pohltení</div>
-                                <div class="warn-tag">side effect #2 · time</div>
-                            </div>
-                        </div>
-                        <div class="warn-screenshot">
-                            <img src="assets/cursor-streak.png" alt="AI line edits streak">
-                        </div>
-                        <div class="warn-stats">
-                            <div class="warn-stat"><span class="warn-stat-num">146 021</span><span class="warn-stat-label">AI line edits</span></div>
-                            <div class="warn-stat"><span class="warn-stat-num emerald">10 dní</span><span class="warn-stat-label">longest streak</span></div>
-                            <div class="warn-stat"><span class="warn-stat-num">∞</span><span class="warn-stat-label">flow state</span></div>
-                        </div>
-                        <div class="warn-joke">Začnete v sobotu, skončíte v utorok ráno. <em>Sleep is for v2.</em></div>
-                    </div>
+                <div class="stmt-eyebrow" style="color: #f59e0b;">⚠️ Side effect #1 · wallet</div>
+                <h1 class="stmt-mega" style="font-size: 4.4rem !important;"><span class="warn-emoji-inline">💸</span> Môže sa to <span class="warn-amber">predražiť</span>.</h1>
+                <div class="warn-fullshot warn-fullshot-amber">
+                    <img src="assets/cursor-spend.png" alt="Cursor spend February 2026">
                 </div>
+                <div class="warn-stats-row">
+                    <div class="warn-stat-big"><span class="warn-stat-num-big">$720</span><span class="warn-stat-label-big">Feb 2026 · total</span></div>
+                    <div class="warn-stat-big"><span class="warn-stat-num-big">$580</span><span class="warn-stat-label-big">included plan</span></div>
+                    <div class="warn-stat-big"><span class="warn-stat-num-big amber">$140</span><span class="warn-stat-label-big">on-demand 🥲</span></div>
+                </div>
+                <p class="warn-joke-big"><strong>claude-4.6-opus-high-thinking</strong> jednoducho stojí. <em>Worth it (väčšinou).</em></p>
             </section>
 
-            <!-- 27: DONE > PERFECT -->
+            <!-- 27: Side effect #2 · time -->
+            <section>
+                <div class="stmt-eyebrow" style="color: #ef4444;">⚠️ Side effect #2 · time</div>
+                <h1 class="stmt-mega" style="font-size: 4.4rem !important;"><span class="warn-emoji-inline">🔥</span> Môžete byť <span class="warn-red">pohltení</span>.</h1>
+                <div class="warn-fullshot warn-fullshot-red">
+                    <img src="assets/cursor-streak.png" alt="AI line edits streak">
+                </div>
+                <div class="warn-stats-row">
+                    <div class="warn-stat-big"><span class="warn-stat-num-big">146 021</span><span class="warn-stat-label-big">AI line edits</span></div>
+                    <div class="warn-stat-big"><span class="warn-stat-num-big emerald">10 dní</span><span class="warn-stat-label-big">longest streak</span></div>
+                    <div class="warn-stat-big"><span class="warn-stat-num-big">∞</span><span class="warn-stat-label-big">flow state</span></div>
+                </div>
+                <p class="warn-joke-big">Začnete v sobotu, skončíte v utorok ráno. <em>Sleep is for v2.</em></p>
+            </section>
+
+            <!-- 28: DONE > PERFECT -->
             <section>
                 <div class="stmt-eyebrow emerald">Mantra</div>
                 <h1 class="stmt-mega done-perfect-mega" style="font-size: 9rem !important;"><span class="accent done-word">DONE</span> <span class="dp-gt">&gt;</span> <span class="perfect-word">PERFECT</span></h1>
                 <p class="stmt-explain">Hotové, vonku, použiteľné.<br>Iterujte. Nevylepšujte donekonečna v sklade.</p>
             </section>
 
-            <!-- 28: Isn't Done a New Perfect? -->
+            <!-- 29: Isn't Done a New Perfect? -->
             <section>
                 <h1 class="stmt-mega isnt-done-mega" style="font-size: 6rem !important;">Isn't <span class="accent isnt-done">Done</span><br>a new <span class="cyan isnt-perfect">Perfect</span>?</h1>
             </section>
 
-            <!-- 29: AI ta nenahradi -->
+            <!-- 30: AI ta nenahradi -->
             <section>
                 <div class="stmt-eyebrow emerald">Reality check · 2026</div>
                 <div class="replacement-wrap">
@@ -2640,7 +2724,7 @@
                 </div>
             </section>
 
-            <!-- 30: Build cheatsheet -->
+            <!-- 31: Build cheatsheet -->
             <section>
                 <div class="stmt-eyebrow cyan">Build cheatsheet</div>
                 <h1 class="stmt-mega" style="font-size: 4.2rem !important;">Ako buildnúť svoju<br><span class="cyan">prvú apku</span> tento víkend.</h1>
@@ -2672,7 +2756,7 @@
                 </div>
             </section>
 
-            <!-- 31: Gift — Starter Kit (meta-prompt) -->
+            <!-- 32: Gift — Starter Kit (meta-prompt) -->
             <section>
                 <div class="stmt-eyebrow" style="color: var(--emerald); font-size: 1.4rem;">🎁 Gift · Starter Kit</div>
                 <h1 class="stmt-mega" style="font-size: 4.4rem !important; margin-bottom: 10px;">Vytvorte si svojho<br><span class="accent">prvého AI asistenta</span> za 5 minút.</h1>
@@ -2710,7 +2794,7 @@
                 </div>
             </section>
 
-            <!-- 32: Something big is happening -->
+            <!-- 33: Something big is happening -->
             <section>
                 <div class="stmt-eyebrow emerald">Matt Shumer · viral 80M+ views · Feb 2026</div>
                 <h1 class="stmt-mega"><span class="accent">Something big</span><br>is happening.</h1>
@@ -2737,7 +2821,7 @@
                 </div>
             </section>
 
-            <!-- 33: Q&A -->
+            <!-- 34: Q&A -->
             <section class="qa-slide">
                 <div class="qa-bg"></div>
                 <div class="qa-content">
